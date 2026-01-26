@@ -1,2 +1,7 @@
-# agent-room-env-v3
-Room env v3 and baselines
+# Temporal Knowledge-Graph Memory in a Partially Observable Environment
+
+## Abstract
+
+Agents in partially observable environments require persistent memory to integrate observations over time. While KGs (knowledge graphs) provide a natural representation for such evolving state, existing benchmarks rarely expose agents to environments where both the world dynamics and the agent’s memory are explicitly graph-shaped. We introduce the Room Environment v3, a configurable environment whose hidden state is an RDF KG and whose observations are RDF triples. The agent may extend these observations into a temporal KG when storing them in long-term memory. The environment is easily adjustable in terms of grid size, number of rooms, inner walls, and moving objects.
+
+We define a lightweight temporal KG memory for agents, based on RDF-star-style qualifiers (*time_added*, *last_accessed*, *num_recalled*), and evaluate several symbolic baselines that maintain and query this memory under different capacity constraints. Two neural sequence models (LSTM and Transformer) serve as contrasting baselines without explicit KG structure. Agents train on one layout and are evaluated on a held-out layout with the same dynamics but a different query order, exposing train–test generalization gaps. In this setting, temporal qualifiers lead to more stable performance, and the symbolic TKG (temporal knowledge graph) agent achieves roughly fourfold higher test QA (question-answer) accuracy than the neural baselines under the same environment and query conditions. The environment, agent implementations, and experimental scripts are released for reproducible research at https://github.com/humemai/agent-room-env-v3 and https://github.com/humemai/room-env.
