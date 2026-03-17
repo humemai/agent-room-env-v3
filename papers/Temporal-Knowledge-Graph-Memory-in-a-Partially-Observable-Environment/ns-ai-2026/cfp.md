@@ -90,7 +90,7 @@ Accepted paper types:
 
 #### Open Access
 
-The journal is gold open access and articles are published under the CC BY 4.0 license. The APC for the journal is US$1600 for accepted papers that were submitted September 1, 2025 or later. See https://neurosymbolic-ai-journal.com/content/neurosymbolic-artificial-in... for more details.
+The journal is gold open access and articles are published under the CC BY 4.0 license. The APC for the journal is US$1600 for accepted papers that were submitted September 1, 2025 or later. See https://neurosymbolic-ai-journal.com/content/neurosymbolic-artificial-intelligence-apc for more details.
 
 #### Open and Transparent Reviewing
 All submitted papers are, after a cursory check, made publicly available as pre-prints. Reviews will be actively solicited by the handling editor. When a decision on a paper is reached, all reviews are also made available publicly. The name of the handling editor as well as the names of the reviewers, who have not opted out to be identified, will be mentioned in the published articles.
@@ -127,7 +127,7 @@ Papers must be submitted through this web form. The same web form must also be u
 
 ### Publication costs
 
-The APC for the journal is US$1600 for accepted papers that were submitted September 1, 2025 or later. See https://neurosymbolic-ai-journal.com/content/neurosymbolic-artificial-in... for more details.
+The APC for the journal is US$1600 for accepted papers that were submitted September 1, 2025 or later. See https://neurosymbolic-ai-journal.com/content/neurosymbolic-artificial-intelligence-apc for more details.
 
 ### Copyright of your article
 

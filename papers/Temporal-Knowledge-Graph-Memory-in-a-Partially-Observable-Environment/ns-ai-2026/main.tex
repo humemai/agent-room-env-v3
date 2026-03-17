@@ -1,378 +1,890 @@
-% sage_latex_guidelines.tex V1.20, 14 January 2017
-
 \documentclass[Afour,sageh,times]{sagej}
 
-\usepackage{moreverb,url}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
 
-\usepackage[colorlinks,bookmarksopen,bookmarksnumbered,citecolor=red,urlcolor=red]{hyperref}
-
-\newcommand\BibTeX{{\rmfamily B\kern-.05em \textsc{i\kern-.025em b}\kern-.08em
-T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
-
-\def\volumeyear{2016}
+\def\volumeyear{2026}
 
 \begin{document}
 
-\runninghead{Smith and Wittkopf}
+\runninghead{Kim et al.}
 
-\title{A demonstration of the \LaTeXe\ class file for
-\itshape{SAGE Publications}}
+\title{A Neurosymbolic Benchmark for Temporal Knowledge-Graph Memory in Partially Observable Environments}
 
-\author{Alistair Smith\affilnum{1} and Hendrik Wittkopf\affilnum{2}}
+\author{Taewoon Kim\affilnum{1}, Vincent Fran\c{c}ois-Lavet\affilnum{2}, and Michael Cochez\affilnum{3}}
 
-\affiliation{\affilnum{1}Sunrise Setting Ltd, UK\\
-\affilnum{2}SAGE Publications Ltd, UK}
+\affiliation{%
+\affilnum{1}HumemAI, The Netherlands\\
+\affilnum{2}Vrije Universiteit Amsterdam, The Netherlands\\
+\affilnum{3}ELLIS Institute Finland and \AA bo Akademi University, Finland}
 
-\corrauth{Alistair Smith, Sunrise Setting Ltd
-Brixham Laboratory,
-Freshwater Quarry,
-Brixham, Devon,
-TQ5~8BA, UK.}
+\corrauth{Taewoon Kim, HumemAI, The Netherlands.}
 
-\email{alistair.smith@sunrise-setting.co.uk}
+\email{taewoon@humem.ai}
 
 \begin{abstract}
-This paper describes the use of the \LaTeXe\
-\textsf{\journalclass} class file for setting papers to be
-submitted to a \textit{SAGE Publications} journal.
-The template can be downloaded \href{http://www.uk.sagepub.com/repository/binaries/SAGE LaTeX template.zip}{here}.
+Agents in partially observable environments require persistent memory to integrate
+observations over time. While KGs (knowledge graphs) provide a natural representation
+for such evolving state, existing benchmarks are not well suited to isolating long-term
+memory as the core challenge: they typically do not expose KG-shaped hidden states, do
+not require persistent tracking of time-varying facts, or do not permit direct
+inspection of what an agent remembers. We introduce the RoomKG Benchmark, a
+configurable neurosymbolic benchmark instantiated through a room environment whose
+hidden state is an RDF KG and whose observations are RDF triples. The agent may extend
+these observations into a temporal KG when storing them in long-term memory. The
+benchmark is easily adjustable in terms of grid size, number of rooms, inner walls, and
+moving objects.
+
+To evaluate this benchmark, we define a lightweight temporal KG memory for agents,
+based on RDF-star-style
+qualifiers (\texttt{time\_added}, \texttt{last\_accessed}, \texttt{num\_recalled}), and
+evaluate several symbolic baselines that maintain and query this memory under different
+capacity constraints. Two neural sequence models (Long Short-Term Memory (LSTM) and
+Transformer) serve as
+contrasting baselines without explicit KG structure. Agents train on one layout and are
+evaluated on a held-out layout with the same dynamics but a different query order,
+exposing train–test generalization gaps in long-term memory rather than in perception.
+In this setting, temporal qualifiers lead to more stable performance, and the symbolic
+TKG (temporal knowledge graph) agent achieves roughly fourfold higher test QA
+(question-answer) accuracy than the neural baselines under the same benchmark and query
+conditions. RoomKG Benchmark therefore provides a compact benchmark for studying when
+explicit long-term memory matters, what kinds of memory representations support it, and
+why existing benchmarks are insufficient for that purpose. The benchmark definition,
+agent implementations, and experimental scripts are archived and released as open-source
+software for reproducible research.
+
 \end{abstract}
 
-\keywords{Class file, \LaTeXe, \textit{SAGE Publications}}
+\keywords{neurosymbolic benchmark, partial observability, temporal knowledge graphs, agent memory}
 
 \maketitle
 
 \section{Introduction}
-Many authors submitting to research journals use \LaTeXe\ to
-prepare their papers. This paper describes the
-\textsf{\journalclass} class file which can be used to convert
-articles produced with other \LaTeXe\ class files into the correct
-form for submission to \textit{SAGE Publications}.
 
-The \textsf{\journalclass} class file preserves much of the
-standard \LaTeXe\ interface so that any document which was
-produced using the standard \LaTeXe\ \textsf{article} style can
-easily be converted to work with the \textsf{\journalclassshort}
-style. However, the width of text and typesize will vary from that
-of \textsf{article.cls}; therefore, \textit{line breaks will change}
-and it is likely that displayed mathematics and tabular material
-will need re-setting.
+Agents operating in partially observable environments must infer and maintain structured
+information about the world as it evolves over time~\citep{KAELBLING199899}. Because the
+world evolves according to structured dynamics, agents must store and update facts
+observed many steps earlier. Knowledge graphs (KGs) provide a natural representational
+substrate for such settings: entities, relations, and qualifiers can express spatial
+structure, object locations, and temporal metadata in a uniform semantic
+framework~\citep{ehrlinger2016towards,Hogan_2021,battaglia2018relationalinductivebiasesdeep,zambaldi2018relationaldeepreinforcementlearning}.
+However, despite substantial work on relational and symbolic environments, most existing
+benchmarks are not designed to evaluate long-term memory itself. They do not jointly
+provide KG-shaped hidden states, temporally evolving facts that must be remembered over
+many steps, and an evaluation interface that makes the contents and use of memory
+inspectable (e.g.,
+\citep{battaglia2018relationalinductivebiasesdeep,zambaldi2018relationaldeepreinforcementlearning,Cote2018TextWorld,Hausknecht2020Jericho,Ammanabrolu2020Graph,Wayne2018MERLIN,graves2014neural,graves2016hybrid}).
+Recent discussions of benchmark quality in neuro-symbolic AI further emphasize the
+need for benchmarks that clearly specify their task, metrics, data generation process,
+and intended uses~\citep{Manhaeve2025BenchmarkingNeSy,Bortolotti2024RSBench,Hu2025Text2World}.
 
-In the following sections we describe how to lay out your code to
-use \textsf{\journalclass} to reproduce much of the typographical look of
-the \textit{SAGE} journal that you wish to submit to. However, this paper is not a guide to
-using \LaTeXe\ and we would refer you to any of the many books
-available (see, for example, \cite{R1}, \cite{R2} and \cite{R3}).
+This paper introduces the RoomKG Benchmark, a deterministic and fully configurable
+neurosymbolic benchmark designed to fill this gap. The underlying environment's hidden state is an RDF KG whose
+entities include rooms, objects, walls, and the agent, and whose relations encode
+spatial adjacency and object locations. At each timestep the agent receives a symbolic
+observation consisting of RDF triples describing the local room structure and the
+objects currently present. The benchmark is easily adjustable in terms of grid size,
+number of rooms, pattern of inner walls, and the number and motion patterns of moving
+objects. A further component of the benchmark is a query at each step requesting the
+current location of a named object. Accurate responses require maintaining an internal
+representation of the world that integrates partial observations over time. The point of
+the benchmark is not merely to expose structured observations, but to force agents to
+demonstrate persistent long-term memory under controlled neurosymbolic conditions.
 
-\section{The three golden rules}
-Before we proceed, we would like to stress \textit{three golden
-rules} that need to be followed to enable the most efficient use
-of your code at the typesetting stage:
-\begin{enumerate}
-\item[(i)] keep your own macros to an absolute minimum;
+While KGs and temporal KGs are widely used for representing evolving
+knowledge~\citep{Hogan_2021,dellaglio2017streamreasoning,moreau2012prov,DBLP:journals/corr/abs-1809-03202},
+their application as \emph{agent memory} in interactive environments remains
+underexplored. Prior work on gridworlds, symbolic environments, and relational reasoning
+benchmarks typically either (i) does not provide a KG-shaped hidden state, (ii) gives
+agents unstructured symbolic or text observations without a defined KG memory model, or
+(iii) uses neural representations that do not expose explicit triples or qualifiers for
+inspection~\citep{Cote2018TextWorld,Hausknecht2020Jericho,Ammanabrolu2020Graph,10.1609/aaai.v37i1.25075,battaglia2018relationalinductivebiasesdeep,zambaldi2018relationaldeepreinforcementlearning,graves2014neural,graves2016hybrid,Wayne2018MERLIN,DBLP:journals/corr/abs-1803-10122}.
+Crucially, these limitations make it hard to answer the benchmark question we care
+about: when an agent must remember a changing world over long horizons, what memory
+representation actually helps? As a result, there is limited understanding of how
+explicit temporal KGs function as internal state representations, how simple symbolic
+update rules perform relative to neural sequence models, and how temporal qualifiers
+influence generalization.
 
-\item[(ii)] as \TeX\ is designed to make sensible spacing
-decisions by itself, do \textit{not} use explicit horizontal or
-vertical spacing commands, except in a few accepted (mostly
-mathematical) situations, such as \verb"\," before a
-differential~d, or \verb"\quad" to separate an equation from its
-qualifier;
+This benchmark gap is especially important because existing work on long-term memory has
+largely emphasized latent neural representations rather than explicit symbolic ones.
+Recent work on long-term memory in artificial intelligence has increasingly focused on
+neural vector-based representations, where stored information is encoded in continuous
+embeddings rather than explicit symbolic
+structures~\citep{graves2014neural,graves2016hybrid,Wayne2018MERLIN,DBLP:journals/corr/abs-1803-10122,pritzel2017neuralepisodiccontrol,blundell2016modelfreeepisodiccontrol}.
+While such approaches are powerful, they often lack interpretability: the contents of
+memory and the basis of retrieved answers are not directly observable as explicit
+symbolic facts. One of the motivations for our contribution is to provide a setting
+where both the hidden state of the world and the agent’s long-term memory are
+represented as explicit KGs. This enables interpretable memory inspection, deterministic
+updates, and transparent reasoning.
 
-\item[(iii)] follow the journal reference style.
-\end{enumerate}
+We propose a lightweight temporal KG memory model for agents that extends standard RDF
+triples with RDF-star-style qualifiers capturing \texttt{time\_added},
+\texttt{last\_accessed}, and \texttt{num\_recalled}. These qualifiers provide a simple
+but expressive mechanism for tracking the recency and usage of stored facts, enabling
+memory strategies that remain fully interpretable~\citep{10.1145/2452376.2452478}. Based
+on this TKG framework, we implement several symbolic baselines that update and query
+their memory using deterministic rules, with optional capacity limits and simple
+eviction heuristics. To provide a contrasting perspective, we include two neural
+sequence models (LSTM and Transformer) that receive exactly the same symbolic
+observations but maintain memory as a fixed-length sequence queue buffer without
+explicit KG structure.
 
-\section{Getting started} The \textsf{\journalclassshort} class file should run
-on any standard \LaTeXe\ installation. If any of the fonts, style
-files or packages it requires are missing from your installation,
-they can be found on the \textit{\TeX\ Collection} DVDs or downloaded from
-CTAN.
+We evaluate all agents on two deterministic layouts: a training environment and a
+held-out test environment with identical dynamics but a different question order. This
+setup enables a controlled examination of train-to-test generalization and highlights
+the importance of structured temporal memory. Across capacities, temporal qualifiers
+contribute to more stable behavior, and the symbolic TKG agent exhibits significantly
+higher test performance than the neural baselines under the same benchmark and query
+conditions. The benchmark is therefore intended not only as a new environment, but as a
+diagnostic instrument for studying long-term memory in neurosymbolic agents. The
+benchmark, agent implementations, and full reproducibility material are publicly
+available via Zenodo and GitHub.
 
-\begin{figure*}
-\setlength{\fboxsep}{0pt}%
-\setlength{\fboxrule}{0pt}%
-\begin{center}
-\begin{boxedverbatim}
-\documentclass[<options>]{sagej}
+\subsection*{Contributions}
 
-\begin{document}
+\begin{itemize}
+    \item We introduce the RoomKG Benchmark, a deterministic and configurable
+        neurosymbolic benchmark whose hidden state and observations are expressed as RDF
+        knowledge graphs.
+    \item We formalize a benchmark task, benchmark statistics, and benchmark metrics for
+    object-location question answering under partial observability.
+    \item We define a lightweight temporal KG memory with RDF-star-style
+    qualifiers and deterministic update rules.
+    \item We compare symbolic TKG agents with neural sequence baselines
+    under a shared interface and varying memory capacities.
+    \item We release the benchmark artifact through a stable Zenodo record together with
+    the benchmark software, baseline agents, and reproducibility scripts.
+\end{itemize}
 
-\runninghead{<Author surnames>}
+\section{Background}
 
-\title{<Initial capital only>}
+\subsection{RDF, RDF-star, and Knowledge Graph Representations}
 
-\author{<An Author\affilnum{1},
-Someone Else\affilnum{2} and
-Perhaps Another\affilnum{1}>}
+The Resource Description Framework (RDF) models facts as triples $(s,p,o)$ with subject,
+predicate, and object drawn from IRIs or literals. An RDF graph therefore corresponds to
+a directed, edge-labeled multigraph in which relations capture structured connections
+between entities. This representation is well suited for spatially structured domains:
+rooms, objects, and adjacency relations can be expressed directly as triples without
+task-specific encodings.
 
-\affiliation{<\affilnum{1}First and third authors' affiliation\\
-\affilnum{2}Second author affiliation>}
+RDF-star extends RDF with a concise syntax for \emph{statements about statements}. An
+embedded triple $\ll s\ p\ o\gg$ can be used as the subject of further triples, e.g.,
+$\ll s\ p\ o\gg\ \texttt{:time\_added}\ 7$. This allows qualifiers (timestamps,
+counters, provenance keys) to be attached directly to a base fact without the heavier
+reification vocabulary~\citep{hartig2021foundationsalternativeapproachreification}.
+Because embedded triples behave like ordinary RDF terms, RDF-star offers a lightweight
+and standard-compatible way to represent temporal annotations in an agent’s long-term
+memory.
 
-\corrauth{<Corresponding author's name and full postal address>}
+\subsection{Temporal Knowledge Graphs}
 
-\email{<Corresponding author's email address>}
+Temporal knowledge graphs (TKGs) represent facts whose validity or relevance changes
+over time. Common approaches include interval-based, event-based, and update-based
+models, all of which associate each triple with temporal metadata reflecting when it was
+introduced or last observed. RDF-star can express such metadata by attaching qualifier
+key–value pairs to embedded triples, enabling fine-grained annotations such as
+\texttt{time\_added}, \texttt{last\_accessed}, or
+\texttt{num\_recalled}~\citep{moreau2012prov}. Temporal KGs have been widely used in the
+Semantic Web to model evolving data, streaming
+updates~\citep{dellaglio2017streamreasoning}, and temporally indexed knowledge sources.
 
-\begin{abstract}
-<Text>
-\end{abstract}
+In interactive settings, temporal qualifiers allow agents to track the recency and usage
+of stored information, to maintain evolving internal models, and to reason over past
+observations. These properties align naturally with the needs of partially observable
+environments, where an agent’s internal state must integrate information gathered over
+many timesteps.
 
-\keywords{<List keywords>}
+\subsection{Symbolic Memory and Semantic State Tracking}
 
-\maketitle
+Research on long-term memory for artificial agents has increasingly explored neural
+vector-based representations, where stored information is encoded implicitly in
+embeddings or hidden
+states~\citep{graves2014neural,graves2016hybrid,Wayne2018MERLIN,DBLP:journals/corr/abs-1803-10122,pritzel2017neuralepisodiccontrol,blundell2016modelfreeepisodiccontrol}.
+While effective for high-dimensional signals, such representations are typically opaque:
+the contents of memory cannot be inspected directly as noted in neural-symbolic
+systems~\citep{besold2017neuralsymboliclearningreasoningsurvey}, and the basis for
+retrieval is difficult to trace.
 
-\section{Introduction}
-.
-.
-.
-\end{boxedverbatim}
-\end{center}
-\caption{Example header text.\label{F1}}
+In contrast, symbolic memory systems store explicit facts that can be examined, queried,
+and updated deterministically. KGs offer a particularly suitable substrate for this
+purpose, as they represent entities and relations at a semantic level and support
+principled operations for insertion, deletion, and reannotation. When temporal
+qualifiers are incorporated, symbolic memory becomes fully transparent: each fact
+carries a clear history of when and how it was observed.
+
+Heuristic update strategies such as recency-based selection, frequency-based selection,
+and simple eviction rules such as first-in, first-out (FIFO), least recently used
+(LRU), and least frequently used (LFU) can operate directly over qualifiers
+attached to embedded triples. Such heuristics preserve interpretability while providing
+meaningful signals for deciding which facts to retain when memory capacity is limited.
+
+\subsection{Semantic Representations for Agents and Interactive Environments}
+
+Semantic Web research has long explored structured representations, logical reasoning,
+and knowledge-driven decision processes. Several interactive or agent-based settings use
+symbolic descriptions of the world, but the underlying environments are rarely expressed
+directly as KGs, and the agent’s internal memory is typically not a temporal KG.
+Existing gridworld-style or relational reasoning benchmarks often provide symbolic
+observations without specifying how those observations should be integrated into a
+structured, evolving memory.
+
+As a result, there is limited empirical understanding of how temporal KGs function as
+internal state representations for agents, how simple qualifier-driven heuristics
+compare to unstructured sequence-based memory, and how temporal metadata affects
+generalization in deterministic but partially observable domains. The benchmark and
+memory model introduced in this paper address these gaps by providing a setting in which
+both the hidden state of the world and the agent’s memory are explicit, inspectable
+knowledge graphs represented in standard RDF and RDF-star syntax.
+
+
+\section{RoomKG Benchmark}
+\label{sec:env}
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\linewidth]{figures/bird_eye_view_step_099.pdf}
+\caption{Bird's-eye schematic of the hidden state at $t=99$ ($s_{t=99}$),
+showing spatial layout and entity placement. This view is only a schematic for intuition:
+the actual environment state and agent-facing world are represented in the RDF knowledge-graph
+world (Figure~\ref{fig:hidden-state-rdf-step99}). The agent does not directly observe $s_t$;
+its observation $o_t$ is the induced RDF subgraph of the current room and visible adjacency
+relations.}
+\label{fig:bird-eye-view-step99}
+\end{figure}
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\linewidth]{figures/graph_view_step_099.pdf}
+\caption{Knowledge-graph view of the same hidden state at $t=99$ ($s_{t=99}$), expressed
+as RDF structure. Node colors indicate semantic categories: rooms (yellow), agent (purple),
+static objects (blue), moving objects (green), and walls (grey).}
+\label{fig:hidden-state-rdf-step99}
+\end{figure}
+
+The RoomKG Benchmark (Figures~\ref{fig:bird-eye-view-step99} and
+\ref{fig:hidden-state-rdf-step99}) is instantiated through a configurable
+$g \!\times\! g$ grid world populated with named rooms, static and moving objects, and
+periodically changing inner walls. All benchmark components, namely hidden dynamics,
+observations, and the QA loop, are defined in RDF triples, making the benchmark a
+minimal but fully KG-shaped testbed for studying temporal memory.
+
+The benchmark deliberately couples navigation and question answering. Because objects
+move and visibility is local, correct answers require exploration, accumulation of
+partial observations, and persistent memory of object trajectories. This design prevents
+trivial solutions: without navigation the task reduces to static KG lookup, and without
+queries exploration has no semantic purpose. Their combination creates a controlled
+setting in which temporal memory is both necessary and measurable.
+
+The benchmark generalizes the earlier setting introduced by
+Kim~et~al.~\citep{10.1609/aaai.v37i1.25075}: instead of a single fixed layout, our
+benchmark supports arbitrary grid sizes, heterogeneous wall schedules, multiple moving
+objects with independent motion rules, and exposes the entire hidden state as an RDF KG;
+when used as long-term memory inside the agent, this can be extended into a temporal KG
+via qualifiers.
+
+\subsection{Benchmark Metadata, Scope, and Intended Use}
+
+The public benchmark artifact is archived at Zenodo as a software release with DOI
+\url{https://doi.org/10.5281/zenodo.18721817}, publication date 2026-02-21, and version
+\texttt{v3.0.6}. The archived benchmark software is based on the public repository
+\url{https://github.com/humemai/room-env}, which is released under the MIT license;
+the baseline-agent implementations used in this paper are hosted separately at
+\url{https://github.com/humemai/agent-room-env-v3} under the Apache License 2.0.
+Because the benchmark is procedurally specified rather than collected from external
+annotators, its source data consists of author-designed layouts, periodic wall patterns,
+object inventories, movement rules, and deterministic query schedules. Maintenance is
+therefore software-centered: new benchmark versions are created through versioned
+repository releases and archived snapshots.
+
+In scope, RoomKG Benchmark targets neurosymbolic systems that must integrate symbolic
+observations over time, maintain explicit or implicit world models, and answer semantic
+queries under partial observability. The primary task is object-location question
+answering during navigation. The primary evaluation metric is QA accuracy; the benchmark
+also reports room coverage, triple coverage, and memory-state visualizations to expose
+how different memory representations support or hinder the task. We therefore intend the
+benchmark as a compact testbed for temporal memory, symbolic state tracking, and
+generalization studies, rather than as a full embodied-AI benchmark covering language,
+continuous control, or open-ended planning.
+
+With this scope in place, we next specify the benchmark dynamics and observation model
+that create these long-term memory demands.
+
+\subsection{Hidden State and Dynamics}
+
+At timestep $t$, the hidden state $s_t$ consists of the on/off status of all inner
+walls, the positions of all static and moving objects, and the agent's current room.
+
+Each room is a node, and cardinal directions are modeled as labeled edges
+(\texttt{north}, \texttt{east}, \texttt{south}, \texttt{west}). Walls are represented
+explicitly, e.g., \texttt{(room, north, wall)}, rather than by removing adjacency edges,
+allowing the benchmark environment to expose both potential adjacencies and their blocked status.
+Every moving object is equipped with a fixed, ordered preference list drawn from
+$\{\texttt{north},\texttt{east},\texttt{south},\texttt{west},\texttt{stay}\}$. At each
+step it executes the \emph{first feasible} move in its list; if none are feasible, it
+remains in place. This rule, combined with wall schedules, makes object motion
+\emph{deterministic}.
+
+The inner walls follow fixed periodic schedules: if inner wall $i$ has a pattern of
+length $|p_i|$, then the joint wall configuration repeats every $P_w =
+\operatorname{lcm}(|p_1|,\dots,|p_W|)$ steps. Moving objects induce an additional period
+$P_m$. After an initial transient $T_{\text{settle}}$, the global state obeys
+\[
+  s_{t+P} = s_t, \qquad P = \operatorname{lcm}(P_w,\, P_m),
+\]
+so the benchmark environment is a finite deterministic system with a compact periodic
+orbit.
+
+Although deterministic, the state space is combinatorially large. With $R = g^2$ rooms,
+$M$ moving objects, and $W$ inner walls with pattern lengths $|p_1|,\dots,|p_W|$, a
+coarse upper bound on the state space is
+\[
+  |\mathcal{S}| \;\le\; R^M \prod_{i=1}^{W} |p_i|.
+\]
+For our running configuration ($g{=}7$, $R{=}49$, $M{=}18$, $W{=}36$), this exceeds
+$6.6\times 10^{33}$. Exact planning is infeasible; agents must instead reason over their
+own growing memory $M_t$.
+
+The periodic wall schedule and deterministic object motion are intentional design
+choices: they ensure that the hidden state evolves in a structured but nontrivial way,
+making it impossible for an agent to answer location queries from the current
+observation alone. Because objects move and visibility is local, accurate question
+answering requires integrating partial observations over many steps. Periodicity keeps
+the benchmark fully deterministic and replayable while still enforcing genuine
+long-term memory demands.
+
+A detailed description of the periodicity analysis, including closed-form bounds and
+deterministic replay examples, is provided in the public benchmark artifacts.
+
+\subsection{Observations as RDF Graph Fragments}
+
+At timestep $t$, the agent receives an observation $o_t$ consisting of the RDF subgraph
+induced by its current room: the room node for the agent’s location, any outgoing
+direction-labeled edges to adjacent rooms that are not blocked by walls, and
+object–location triples for all objects currently in that room. This yields 5–6 triples
+per step. Observations contain no information beyond the agent’s immediate neighborhood,
+so long-horizon queries require integrating partial observations over time.
+
+The benchmark couples these observations with an explicit query stream.
+Each timestep also issues a \emph{location query} of the form: $(X,\
+\texttt{:at\_location},\ ?)$. The agent must identify the current room of the queried
+object~\citep{bordes2015largescalesimplequestionanswering}. This requires maintaining a
+temporal model of object motion as observed indirectly through partial glimpses, echoing
+aspects of KG-based QA (question-answer)~\citep{yih-etal-2015-semantic}.
+
+\subsection{Deterministic Question–Move Loop}
+
+At each timestep the agent first answers the query by returning the room of the
+specified object (reward $+1$ if correct, otherwise $0$), and then executes a movement
+action chosen from \{\texttt{north}, \texttt{east}, \texttt{south}, \texttt{west},
+\texttt{stay}\}.
+
+Episodes last 100 steps, a length chosen to balance tractability with sufficient
+temporal depth. The full query sequence for each episode is pre-generated and fixed
+across all agents, ensuring strict comparability in evaluation.
+
+\subsection{Configurable Layouts and Test Split}
+
+The benchmark is fully parameterized by the grid length $g$, the number and placement
+of static and moving objects, the number and periodic patterns of inner walls, and the
+episode length.
+
+We use two deterministic layouts: a training layout with fixed walls and object
+preferences, and a held-out test layout with identical dynamics but a different query
+order. This difference in question order yields a controlled train–test generalization
+setting in which agents must transfer their learned memory strategy rather than memorize
+a fixed query sequence.
+
+\subsection{Memory Interface (Agent-Agnostic)}
+
+The benchmark maintains only the hidden state $s_t$ and the symbolic observation $o_t$
+emitted at each timestep. It does not prescribe any internal memory structure: agents
+may keep any private state they choose. The benchmark simply provides RDF
+observations, receives an action and an answer, and evaluates correctness against $s_t$.
+
+In our experiments, we compare four agents. The \emph{RDF-star agent} stores each
+observed fact as an RDF-star triple annotated with qualifiers (\texttt{time\_added},
+\texttt{last\_accessed}, \texttt{num\_recalled}). The \emph{RDF agent} stores the same
+observations as plain RDF triples without qualifiers. The two \emph{neural baselines}
+maintain fixed-length buffers of tokenized observations without explicit KG structure;
+one uses an LSTM encoder and the other uses a Transformer encoder. All agents operate in
+the same benchmark and query conditions.
+
+
+\subsection{Default Configuration}
+
+Unless stated otherwise, experiments use a \texttt{grid\_length} of $7$, with $18$
+static objects, $18$ moving objects, $36$ inner walls following periodic patterns, an
+episode length of $100$, and a fixed query list shared across all agents. The reward is
+simply the number of correct queries (maximum $100$). All benchmark code, layouts, and
+deterministic replay scripts are included in the public benchmark artifacts for full
+reproducibility.
+
+\section{Agents}
+\label{sec:agents}
+
+We evaluate four agents: two \emph{symbolic} agents that store explicit KG structures,
+and two \emph{neural} agents that store tokenized observation histories. All agents
+receive the same query sequence and operate in the same benchmark, but their
+exploration behaviors cause them to generate different observation histories. We
+evaluate them under memory capacities from 0 to 512 entries, which covers the range
+where capacity meaningfully constrains what can be stored. A capacity of $0$ means that
+no long-term memory is retained across timesteps, so agents must act only on the current
+observation and any non-persistent internal computation available within that step.
+For the TKG agent, the candidate query and exploration policies are most recently added
+(MRA), most recently used (MRU), and most frequently used (MFU), while the candidate
+eviction policies are FIFO, LRU, and LFU.
+Table~\ref{tab:agents}
+summarizes the four agents.
+
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Agent} &
+\textbf{Memory repr.} &
+\textbf{Qualifiers} &
+\textbf{QA rule} &
+\textbf{Eviction} \\
+\midrule
+Symbolic--RDF &
+RDF triples &
+No &
+SPARQL &
+Random \\
+
+Symbolic--TKG &
+RDF-star (TKG) &
+Yes &
+MRA/MRU/MFU &
+FIFO/LRU/LFU \\
+
+Neural--LSTM &
+Obs.\ history &
+No &
+Prediction head &
+FIFO \\
+
+Neural--Transformer &
+Obs.\ history &
+No &
+Prediction head &
+FIFO \\
+\bottomrule
+\end{tabular}
+\caption{Agent comparison. MRA = most recently added, MRU = most recently used,
+MFU = most frequently used.}
+\label{tab:agents}
+\end{table*}
+
+\subsection{Symbolic agents}
+
+Both symbolic agents store explicit triples. Their difference is whether
+they attach temporal qualifiers.
+
+\paragraph{RDF agent (plain triples).}
+Memory is a bounded set of RDF triples $(s,p,o)$. Because these entries carry \emph{no}
+timestamps or usage counts, the agent has no basis for ordering them. Therefore, when
+memory is full, the only principled choice is to evict a \emph{uniformly random} triple.
+
+\emph{QA rule.} Answers are obtained by plain SPARQL pattern matching:
+\begin{lstlisting}[language=SPARQL,basicstyle=\ttfamily\small,frame=single]
+SELECT ?o WHERE { <s> <r> ?o . }
+ORDER BY RAND() LIMIT 1
+\end{lstlisting}
+If multiple candidates match, tie-breaking is uniform because the agent
+lacks temporal metadata.
+
+\emph{Exploration.}
+The current map is reconstructed from the triples stored so far. The agent performs BFS
+(breadth-first search) to the nearest unvisited room. BFS is used because the memory
+itself is a graph and BFS is the simplest deterministic traversal aligned with that
+structure.
+
+\paragraph{TKG agent (RDF-star with qualifiers).}
+Each observed triple $(s,r,o)$ is stored as an embedded triple
+$\ll s\ r\ o\gg$ annotated with:
+\[
+\texttt{time\_added},\quad \texttt{last\_accessed},\quad
+\texttt{num\_recalled}.
+\]
+This creates a temporal knowledge graph $M_t$.
+
+\emph{QA rules.}  
+Each query $(s_q,r_q,?)$ is answered by selecting the object $o$ whose
+qualifier is maximal:
+\[
+\begin{aligned}
+\text{MRA} &: \arg\max \texttt{time\_added},\\
+\text{MRU} &: \arg\max \texttt{last\_accessed},\\
+\text{MFU} &: \arg\max \texttt{num\_recalled}.
+\end{aligned}
+\]
+
+\emph{Eviction.}  
+Using qualifiers permits structured removal:
+FIFO (oldest \texttt{time\_added}),  
+LRU (least recent \texttt{last\_accessed}),  
+LFU (smallest \texttt{num\_recalled}).
+
+\emph{Exploration.}  
+The agent ranks frontier rooms using MRA/MRU/MFU on edge triples and
+performs BFS to the top-ranked frontier.
+
+\emph{SPARQL-star example (MRU).}
+\begin{lstlisting}[language=SPARQL,basicstyle=\ttfamily\small,frame=single]
+SELECT ?o WHERE {
+  << <s> <r> ?o >> :last_accessed ?t .
+}
+ORDER BY DESC(?t)
+LIMIT 1
+\end{lstlisting}
+
+Thus, the TKG agent is entirely deterministic and fully traceable: every decision
+(answer, movement, eviction) is reproducible from $M_t$.
+
+\subsection{Neural agents}
+
+The neural agents store a fixed-length \emph{tokenized observation history} without
+explicit graph structure. They differ only in the sequence encoder used.
+
+\paragraph{Joint decision structure.}
+Unlike the symbolic agents, which decompose question answering and exploration into two
+independent rules, the neural agents produce a \emph{single joint operation} that
+simultaneously selects the answer and the movement. This results in a large option set
+(49 possible room answers $\times$ 5 movement choices) from which the prediction head
+chooses one element. Because answers referring to rooms that have not yet been observed
+are invalid, the option set is dynamically \emph{masked} at each timestep so that only
+admissible answers remain. Consequently, the neural agents must learn end-to-end how to
+resolve queries and how to navigate, without access to explicit graph structure,
+qualifiers, or symbolic update rules. The neural agents learn this joint policy using a
+standard reinforcement-learning objective implemented via a Deep Q-Network
+(DQN)~\citep{mnih2013playingatarideepreinforcement}.
+
+\paragraph{Tokenization.}
+Each triple $(s,p,o)$ is converted to an embedding vector
+\[
+\mathbf{e}_i
+   = W_{\mathrm{emb}}\,[\,\mathrm{emb}(s)\;\Vert\;\mathrm{emb}(p)
+      \;\Vert\;\mathrm{emb}(o)\,],
+\]
+and the last $L$ such tokens form the memory buffer. When full, the oldest token is
+removed (FIFO), reflecting the queue structure of a fixed-length sequence buffer.
+
+\subsection*{LSTM neural agent}
+The sequence $\mathbf{E}=[\mathbf{e}_1,\dots,\mathbf{e}_L]$ is encoded by:
+\[
+\mathbf{H} = \text{LSTM}(\mathbf{E}).
+\]
+Because LSTMs process data sequentially, temporal order is included
+implicitly~\citep{6795963}.
+
+\paragraph{Question-conditioned pooling.}
+Given a question triple $(s_q,r_q,?)$, embed it as $\mathbf{q}$ and compute
+attention weights:
+\[
+\alpha_i = \frac{\exp(\mathbf{q}^\top \mathbf{h}_i)}
+{\sum_j \exp(\mathbf{q}^\top \mathbf{h}_j)},\qquad
+\mathbf{c} = \sum_i \alpha_i \mathbf{h}_i.
+\]
+A feedforward prediction head maps $\mathbf{c}$ to the 245 possible
+operation options (answer $\times$ movement).
+
+\subsection*{Transformer neural agent}
+Here, $\mathbf{E}$ is fed to a Transformer encoder:
+\[
+\mathbf{H} = \text{Transformer}(\mathbf{E} + \mathrm{PE}),
+\]
+where $\mathrm{PE}$ are sinusoidal positional encodings that supply the temporal
+order~\citep{vaswani2023attentionneed}, enabling long-range temporal
+reasoning~\citep{dehghani2019universaltransformers}. The same question-conditioned
+pooling and prediction head are used as in the LSTM agent.
+
+\paragraph{Interpretability.}
+Neural agents have no explicit triples, qualifiers, or traceable update rules, similar
+to episodic-control
+agents~\citep{pritzel2017neuralepisodiccontrol,blundell2016modelfreeepisodiccontrol}.
+Their internal state is an opaque vector, and only soft attention weights give partial
+insight into which past observations were influential. Symbolic agents, in contrast,
+expose every stored fact and every eviction decision.
+
+
+\section{Experiments}
+
+We evaluate all agents in the deterministic RoomKG Benchmark under varying long-term
+memory capacities, from 0 to 512. Each configuration is trained and tested on $5$ random
+seeds, and we report the mean and standard deviation. All raw results, hardware
+specifications, and hyperparameters are provided in the public benchmark artifacts. In
+particular, a long-term memory capacity of $0$ denotes the no-memory setting: agents do
+not retain any long-term memory across timesteps.
+
+The primary task is object-location question answering under partial observability. We
+report two quantitative views of performance: QA accuracy across memory capacities and
+coverage over time, measured in terms of visited rooms and stored triples. In addition,
+we provide a qualitative visualization of memory-state evolution for the RDF-star agent
+to illustrate how temporal symbolic memory develops over an episode.
+
+\subsection{QA Accuracy Across Long-Term Memory Capacities}
+
+Figure~\ref{fig:qa_accuracy} shows the train and test QA accuracy for all agents. Neural
+agents learn exploration and question answering jointly under a single end-to-end
+policy, yielding a large discrete action space and difficult credit assignment. As
+memory capacity increases, these agents also receive longer observation histories,
+making the underlying learning problem more computationally demanding; in principle,
+higher-capacity models may require substantially more training to benefit from the
+additional information. In our experiments, however, all memory-capacity settings were
+trained for the same number of episodes (200) to ensure a fair comparison, which likely
+contributes to the minimal performance gains observed in the higher-capacity regime.
+
+Across almost all capacities, the Transformer agent slightly outperforms the LSTM agent,
+consistent with empirical trends in sequence modeling. However, neither architecture
+meaningfully exploits larger memory, and both exhibit substantial train--test gaps. In
+low-memory regimes ($0$--$16$), neural agents outperform symbolic ones---but this
+reflects random trial-and-error rather than informed reasoning. At capacity $0$, where
+agents have no long-term memory at all, performance is predictably poor across the board:
+the agents often guess object locations without provenance and only gradually reinforce
+correct answers through reward.
+
+Symbolic agents begin to outperform neural agents at capacity $32$. Their accuracy
+increases with memory because operations such as BFS and graph queries add computation
+but not statistical difficulty. Neural agents, by contrast, must learn these structures
+from data and therefore require much more training and capacity to benefit from larger
+memory.
+
+RDF-star achieves better QA accuracy in most memory capacities. The RDF-star agent
+family consists of 27 variants, arising from all combinations of three qualifier-based
+QA rules (MRA, MRU, MFU), three exploration priorities based on the same qualifiers, and
+three eviction heuristics (FIFO, LRU, LFU); these choices are independent because each
+stored fact carries the qualifiers \texttt{time\_added}, \texttt{last\_accessed}, and
+\texttt{num\_recalled}. We report the best-performing variant, selected by training
+accuracy and evaluated identically at test time. Although the plain RDF agent can store
+more main triples under a fixed memory budget, since it stores triples rather than
+quadruples, the temporal qualifiers in RDF-star yield a more informative and expressive
+memory state, leading to stronger performance once capacity is sufficient to retain both
+facts and their associated temporal metadata.
+
+At capacity $512$, the best symbolic agent (RDF-star) reaches a QA accuracy of $46.52$,
+whereas the best neural agent (LSTM) reaches $11.2$, a four-fold difference. These
+results highlight that explicit symbolic memory is considerably more effective for
+long-horizon, partially observable semantic reasoning. Statistical variation is shown as
+shaded regions.
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=\linewidth]{figures/agent_train_test_qa_accuracy.pdf}
+    \caption{Train--test QA accuracy for all agents across long-term memory capacities. Mean and standard deviation are computed across $5$ seeds. Raw values can be found in the public benchmark artifacts.}
+    \label{fig:qa_accuracy}
+\end{figure}
+
+
+\subsection{Coverage Metrics: Room and Triple Coverage}
+
+Figure~\ref{fig:coverage} shows, for the long-term memory capacity of $512$, the coverage metrics of the four agents: RDF, RDF-star, LSTM, and Transformer. Each subplot includes the cumulative number of unique rooms visited and the number of unique $(s,p,o)$ triples stored in memory at each timestep. Raw values are provided in the public benchmark artifacts.
+
+\paragraph{Symbolic agents.}
+Both symbolic agents achieve full coverage of all $49$ rooms in the benchmark.
+Moreover, the RDF-star agent reaches full room coverage slightly earlier (timestep~70)
+than the RDF agent (timestep~74). The temporal qualifiers in RDF-star allow it to track
+time-varying wall configurations more accurately, yielding a more up-to-date inferred
+map of the benchmark environment and enabling more efficient exploration. Triple-coverage results
+follow the same pattern: symbolic agents accumulate nearly complete internal maps
+because they continue to explore until all reachable structure has been observed.
+
+\paragraph{Neural agents.}
+In contrast, the LSTM and Transformer agents stop increasing room coverage long before
+the end of the episode (around step~50 for the Transformer and step~30 for the LSTM). A
+plausible explanation is that neural policies must couple exploration and answering
+within a single high-cardinality action space. Once training converges to a locally
+rewarding but suboptimal behavior, such as repeatedly answering queries with moderate
+reward or oscillating among familiar states, the agents no longer discover new rooms.
+Because the reward signal is sparse and not explicitly tied to exploration, the policies
+collapse into low-entropy, non-exploratory behaviors. These plateauing exploration
+patterns also explain the limited triple coverage: neural agents simply encounter fewer
+states from which to build internal structure.
+
+\begin{figure*}[tb]
+    \centering
+
+    % Row 1
+    \begin{minipage}{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/coverage_metrics_rdf.pdf}
+        \textbf{(c) RDF}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/coverage_metrics_rdf_star.pdf}
+        \textbf{(d) RDF-Star}
+    \end{minipage}
+
+    % Row 2
+    \begin{minipage}{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/coverage_metrics_lstm.pdf}
+        \textbf{(a) Neural -- LSTM}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/coverage_metrics_transformer.pdf}
+        \textbf{(b) Neural -- Transformer}
+    \end{minipage}
+
+    \caption{Coverage metrics for the four agents, at the long-term memory capacity of 512. Neural agents halt exploration early, while symbolic agents visit all $49$ rooms and accumulate nearly all unique triples. Raw values can be found in the public benchmark artifacts.}
+    \label{fig:coverage}
 \end{figure*}
 
-\section{The article header information}
-The heading for any file using \textsf{\journalclass} is shown in
-Figure~\ref{F1}. You must select options for the trim/text area and
-the reference style of the journal you are submitting to.
-The choice of \verb+options+ are listed in Table~\ref{T1}.
-
-\begin{table}[h]
-\small\sf\centering
-\caption{The choice of options.\label{T1}}
-\begin{tabular}{lll}
-\toprule
-Option&Trim and font size&Columns\\
-\midrule
-\texttt{shortAfour}& 210 $\times$ 280 mm, 10pt& Double column\\
-\texttt{Afour} &210 $\times$ 297 mm, 10pt& Double column\\
-\texttt{MCfour} &189 $\times$ 246 mm, 10pt& Double column\\
-\texttt{PCfour} &170 $\times$ 242 mm, 10pt& Double column\\
-\texttt{Royal} &156 $\times$ 234 mm, 10pt& Single column\\
-\texttt{Crown} &7.25 $\times$ 9.5 in, 10pt&Single column\\
-\texttt{Review} & 156 $\times$ 234 mm, 12pt & Single column\\
-\bottomrule
-\end{tabular}\\[10pt]
-\begin{tabular}{ll}
-\toprule
-Option&Reference style\\
-\midrule
-\texttt{sageh}&SAGE Harvard style (author-year)\\
-\texttt{sagev}&SAGE Vancouver style (superscript numbers)\\
-\texttt{sageapa}&APA style (author-year)\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-For example, if your journal is short A4 sized, uses Times fonts and has Harvard style references then you would need\\
-{\small\verb+\documentclass[ShortAfour,times,sageh]{sagej}+}
-
-Most \textit{SAGE} journals are published using Times fonts but if for any reason you have a problem using Times you can
-easily resort to Computer Modern fonts by removing the
-\verb"times" option.
-
-\subsection{`Review' option}
-Some journals (for example, \emph{Journal of the Society for Clinical Trials}) require that
-papers are set single column and with a larger font size to help with the review process.
-If this is a requirement for the journal that you are submitting to, just add the \verb+Review+ option to the \verb+\documenclass[]{sagej}+ line.
-
-\subsection{Remarks}
-\begin{enumerate}
-\item[(i)] In \verb"\runninghead" use `\textit{et~al.}' if there
-are three or more authors.
-
-\item[(ii)] For multiple author papers please note the use of \verb"\affilnum" to
-link names and affiliations. The corresponding author details need to be included using the
-\verb+\corrauth+ and \verb+\email+ commands.
-
-\item[(iii)] For submitting a double-spaced manuscript, add
-\verb"doublespace" as an option to the documentclass line.
-
-\item[(iv)] The abstract should be capable of standing by itself,
-in the absence of the body of the article and of the bibliography.
-Therefore, it must not contain any reference citations.
-
-\item[(v)] Keywords are separated by commas.
-
-\item[(vi)] If you are submitting to a \textit{SAGE} journal that requires numbered sections (for example, IJRR), please add the command
-  \verb+\setcounter{secnumdepth}{3}+ just above the \verb+\begin{document}+ line.
-
-\end{enumerate}
 
 
-\section{The body of the article}
+\subsection{Memory-State Evolution (RDF-Star)}
 
-\subsection{Mathematics} \textsf{\journalclass} makes the full
-functionality of \AmS\/\TeX\ available. We encourage the use of
-the \verb"align", \verb"gather" and \verb"multline" environments
-for displayed mathematics. \textsf{amsthm} is used for setting
-theorem-like and proof environments. The usual \verb"\newtheorem"
-command needs to be used to set up the environments for your
-particular document.
+To illustrate the expressive advantage of temporal symbolic memory,
+Figure~\ref{fig:memory_states} shows the RDF-star agent’s long-term memory at timesteps
+$t=0$, $t=50$, and $t=99$, using capacity $512$. Each edge label includes the number of
+associated memories when more than one quadruple exists. Node colors correspond to
+semantic categories (rooms, static objects, moving objects, walls, and agent).  
 
-\subsection{Figures and tables} \textsf{\journalclass} includes the
-\textsf{graphicx} package for handling figures.
+The graphs show the internal map becoming increasingly complete over time. Static
+objects and room nodes accumulate in a way that reflects what the agent has actually
+observed by each timestep. At $t=0$, the visualization contains only the current
+short-term observation: four room nodes (yellow), one wall node (grey), and one agent
+node (purple), with no stored object nodes yet. By $t=50$, after both short-term and
+long-term memories have accumulated, the graph contains 43 room nodes, 14 static object
+nodes (blue), 5 moving object nodes (green), together with the wall and agent nodes. By
+$t=99$, the graph contains all 49 room nodes, 16 static object nodes, and 6 moving
+object nodes, again together with the wall and agent nodes. This final snapshot shows
+that the agent has visited all rooms and has retained all room nodes in memory, while
+still storing fewer moving than static objects because moving objects are harder to
+observe consistently over time.
 
-Figures are called in as follows:
-\begin{verbatim}
-\begin{figure}
-\centering
-\includegraphics{<figure name>}
-\caption{<Figure caption>}
-\end{figure}
-\end{verbatim}
+Full memory evolution images for all agents (from $t=0$ to $t=99$) are available in the
+public benchmark artifacts.
 
-For further details on how to size figures, etc., with the
-\textsf{graphicx} package see, for example, \cite{R1}
-or \cite{R3}.
-
-The standard coding for a table is shown in Figure~\ref{F2}.
-
-\begin{figure}
-\setlength{\fboxsep}{0pt}%
-\setlength{\fboxrule}{0pt}%
-\begin{center}
-\begin{boxedverbatim}
-\begin{table}
-\small\sf\centering
-\caption{<Table caption.>}
-\begin{tabular}{<table alignment>}
-\toprule
-<column headings>\\
-\midrule
-<table entries
-(separated by & as usual)>\\
-<table entries>\\
-.
-.
-.\\
-\bottomrule
-\end{tabular}
-\end{table}
-\end{boxedverbatim}
-\end{center}
-\caption{Example table layout.\label{F2}}
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.65\linewidth]{figures/memory_state_000.pdf}
+    \includegraphics[width=\linewidth]{figures/memory_state_050.pdf}
+    \includegraphics[width=\linewidth]{figures/memory_state_099.pdf}
+    \caption{Memory state of the RDF-star agent at $t=0$, $t=50$, and $t=99$ (capacity $512$).  Counts in parentheses (e.g., ``\texttt{at\_location (3)}'') indicate how many RDF-star memories share the same main triple but differ in their temporal qualifiers.}
+    \label{fig:memory_states}
 \end{figure}
 
-\subsection{Cross-referencing}
-The use of the \LaTeX\ cross-reference system
-for figures, tables, equations, etc., is encouraged
-(using \verb"\ref{<name>}" and \verb"\label{<name>}").
 
-\subsection{End of paper special sections}
-Depending on the requirements of the journal that you are submitting to,
-there are macros defined to typeset various special sections.
+\section{Related Work}
+\label{sec:related_work}
 
-The commands available are:
-\begin{verbatim}
-\begin{acks}
-To typeset an
-  "Acknowledgements" section.
-\end{acks}
-\end{verbatim}
+\paragraph{Temporal and hyper-relational knowledge graphs.}
+The Semantic Web stack provides a mature basis for representing structured data as RDF
+graphs and querying them with SPARQL~\citep{Seaborne:13:SQL}. RDF-star and SPARQL-star
+extend this model with \emph{statements about statements}, allowing triples such as $\ll
+s\ p\ o\gg$ to be annotated with additional facts and queried
+directly~\citep{hartig2021foundationsalternativeapproachreification}. Temporal and
+hyper-relational knowledge graphs build on these ideas by attaching time and other
+qualifiers to edges and have been extensively studied for tasks such as link prediction
+and event forecasting (e.g.,~\citep{DBLP:journals/corr/abs-1809-03202}). In contrast, we
+use a temporal KG not primarily as a prediction target but as the \emph{internal state}
+of an agent: every observation becomes a reified RDF-star statement with temporal
+qualifiers, and downstream decisions (answering and exploration) are implemented as
+queries and updates over this KG.
 
-\begin{verbatim}
-\begin{biog}
-To typeset an
-  "Author biography" section.
-\end{biog}
-\end{verbatim}
+\paragraph{Memory under partial observability.}
+In partially observable environments, agents must aggregate information over time. A
+large body of work uses neural memories to maintain an internal state proxy, including
+recurrent architectures, memory-augmented networks such as Neural Turing Machines and
+Differentiable Neural Computers~\citep{graves2014neural,graves2016hybrid}, and
+long-context models with compression or retrieval (e.g., MERLIN and related world-model
+agents~\citep{Wayne2018MERLIN,DBLP:journals/corr/abs-1803-10122}). These approaches
+typically store history in dense vectors or key–value tensors, which makes it difficult
+to inspect what exactly is remembered at a given time. Our work instead treats the
+agent’s long-term memory as an explicit temporal knowledge graph in RDF-star: each
+stored fact is a verifiable triple with qualifiers, and the effect of capacity limits or
+update rules on question answering can be inspected directly at the graph level.
+Alongside this, we include simple neural baselines that operate on observation histories
+without explicit KG structure, highlighting the behavioural differences between latent
+and symbolic memories~\citep{kimura2021neurosymbolicreinforcementlearningfirstorder}.
+What is missing from this literature is a benchmark expressly constructed to make
+long-term memory failures visible, measurable, and comparable across symbolic and neural
+representations.
 
-\begin{verbatim}
-\begin{biogs}
-To typeset an
-  "Author Biographies" section.
-\end{biogs}
-\end{verbatim}
+This same issue appears when one looks at interactive environments and KG-based agents.
+\paragraph{Graph-structured environments and KG-based agents.}
+Several interactive environments expose graph-structured or relational
+state~\citep{chaplot2020neuraltopologicalslamvisual}, and neural architectures explicitly
+designed for graph-structured reasoning~\citep{yun2020graphtransformernetworks}.
+TextWorld and Jericho provide text-based games where an evolving symbolic world model
+can be extracted and used for control, leading to agents that query or learn over
+dynamic knowledge
+graphs~\citep{Cote2018TextWorld,Hausknecht2020Jericho,Ammanabrolu2020Graph,oh2017valuepredictionnetwork}.
+Agents with multiple KG-based memory stores have also been
+explored~\citep{10.1609/aaai.v37i1.25075}. Other systems use KGs as world models for
+planning, question answering, or
+recommendation~\citep{Hogan_2021,ehrlinger2016towards,bordes2015largescalesimplequestionanswering,yih-etal-2015-semantic}.
+More recent benchmark-oriented work in neuro-symbolic AI has argued for explicit task
+definitions, benchmark metadata, and diverse evaluation views, as illustrated by
+benchmarking surveys and suites such as those of Manhaeve et al.~\citep{Manhaeve2025BenchmarkingNeSy},
+Bortolotti et al.~\citep{Bortolotti2024RSBench}, and Hu et al.~\citep{Hu2025Text2World}.
+Compared to these settings, our focus is deliberately narrow: we design the Room
+KG Benchmark where (i) the hidden state and observations are \emph{already} KGs, (ii)
+the question format is fixed, and (iii) the benchmark parameters (number of rooms,
+walls, objects, episode length) are easily adjusted. This allows us to isolate the role
+of temporal KG memory and to compare symbolic and neural baselines under controlled
+conditions rather than to optimize a full task pipeline. Existing environments and
+benchmark suites are valuable for their own aims, but they are not sufficient when the
+goal is to evaluate whether an agent can build, maintain, and use explicit long-term
+memory about a changing symbolic world.
 
-%\newpage
+\paragraph{Semantic Web, agents, and explainability.}
+Within the Semantic Web community, KGs are increasingly used to support decision-making
+and explainable reasoning in multi-step processes, e.g., planning, data analytics, and
+interactive decision support. Traceability and provenance are central: KG
+representations allow one to link conclusions back to the underlying
+facts~\citep{anyanwu2003rho}. Our design follows this line by making the agent’s
+long-term memory itself a temporal KG; question answering is implemented as
+SPARQL-star-style retrieval over that memory, and memory contents can be visualized as
+graphs over time. This provides a compact testbed for studying how temporal qualifiers
+(e.g., recency and recall counts) interact with partial observability and capacity
+limits, and how symbolic KG memories compare to simple neural baselines in terms of
+generalization from training to held-out question orders.
 
-\begin{verbatim}
-\begin{dci}
-To typeset a "Declaration of
-  conflicting interests" section.
-\end{dci}
-\end{verbatim}
+\section{Limitations}
 
-\begin{verbatim}
-\begin{funding}
-To typeset a "Funding" section.
-\end{funding}
-\end{verbatim}
+RoomKG Benchmark is intentionally narrow. First, its hidden dynamics are deterministic,
+procedurally specified, and fully symbolic, which makes the benchmark well suited for
+controlled studies of memory but less representative of noisy embodied settings.
+Second, the current benchmark task is restricted to object-location question answering;
+it does not yet cover richer query families such as temporal comparison, counterfactual
+reasoning, or multi-hop compositional questions. Third, our released benchmark views are
+derived from synthetic layouts rather than from human-authored or naturally occurring
+datasets, so benchmark diversity is controlled by parameterization rather than by broad
+real-world variation. Finally, although we include both symbolic and neural baselines,
+the benchmark should support a wider range of future agents, training regimes, and
+evaluation protocols than those studied here.
 
-\begin{verbatim}
-\begin{sm}
-To typeset a
-  "Supplemental material" section.
-\end{sm}
-\end{verbatim}
+\section{Conclusion}
 
-\subsection{Endnotes}
-Most \textit{SAGE} journals use endnotes rather than footnotes, so any notes should be coded as \verb+\endnote{<Text>}+.
-Place the command \verb+\theendnotes+ just above the Reference section to typeset the endnotes.
+We presented the RoomKG Benchmark in which both the hidden state and the agent’s
+memory are represented as knowledge graphs, enabling a controlled study of temporal
+memory under partial observability. Using a lightweight RDF-star-based memory with
+temporal qualifiers, symbolic agents achieved full room coverage and
+substantially higher QA accuracy than neural sequence baselines under the same
+benchmark and query conditions. The results highlight the effectiveness and
+interpretability of temporal knowledge graphs as agent memory, and show why a dedicated
+benchmark is needed: without a setting that makes long-term memory explicit, structured,
+and inspectable, it is difficult to distinguish whether an agent succeeds because it
+remembers well or merely because the task under-tests memory. RoomKG Benchmark provides
+a compact testbed for future work on semantic representations, temporal update rules,
+and neuro-symbolic memory models, and is intended to serve as a reference point for
+evaluating long-term memory in neurosymbolic agents.
 
-To avoid any confusion for papers that use Vancouver style references,  footnotes/endnotes should be edited into the text.
 
-\subsection{References}
-Please note that the files \textsf{SageH.bst} and \textsf{SageV.bst} are included with the class file
-for those authors using \BibTeX.
-The files work in a completely standard way, and you just need to uncomment one of the lines in the below example depending on what style you require:
-\begin{verbatim}
-%%Harvard (name/date)
-%\bibliographystyle{SageH}
-%%Vancouver (numbered)
-%\bibliographystyle{SageV}
-\bibliography{<YourBibfile.bib>}
-\end{verbatim}
-and remember to add the relevant option to the \verb+\documentclass[]{sagej}+ line as listed in Table~\ref{T1}. 
-
-%\section{Support for \textsf{\journalclass}}
-%We offer on-line support to participating authors. Please contact
-%us via e-mail at \dots
-%
-%We would welcome any feedback, positive or otherwise, on your
-%experiences of using \textsf{\journalclass}.
-
-\section{Copyright statement}
-Please  be  aware that the use of  this \LaTeXe\ class file is
-governed by the following conditions.
-
-\subsection{Copyright}
-Copyright \copyright\ \volumeyear\ SAGE Publications Ltd,
-1 Oliver's Yard, 55 City Road, London, EC1Y~1SP, UK. All
-rights reserved.
-
-\subsection{Rules of use}
-This class file is made available for use by authors who wish to
-prepare an article for publication in a \textit{SAGE Publications} journal.
-The user may not exploit any
-part of the class file commercially.
-
-This class file is provided on an \textit{as is}  basis, without
-warranties of any kind, either express or implied, including but
-not limited to warranties of title, or implied  warranties of
-merchantablility or fitness for a particular purpose. There will
-be no duty on the author[s] of the software or SAGE Publications Ltd
-to correct any errors or defects in the software. Any
-statutory  rights you may have remain unaffected by your
-acceptance of these rules of use.
-
-\begin{acks}
-This class file was developed by Sunrise Setting Ltd,
-Brixham, Devon, UK.\\
-Website: \url{http://www.sunrise-setting.co.uk}
-\end{acks}
-
-\begin{thebibliography}{99}
-\bibitem[Kopka and Daly(2003)]{R1}
-Kopka~H and Daly~PW (2003) \textit{A Guide to \LaTeX}, 4th~edn.
-Addison-Wesley.
-
-\bibitem[Lamport(1994)]{R2}
-Lamport~L (1994) \textit{\LaTeX: a Document Preparation System},
-2nd~edn. Addison-Wesley.
-
-\bibitem[Mittelbach and Goossens(2004)]{R3}
-Mittelbach~F and Goossens~M (2004) \textit{The \LaTeX\ Companion},
-2nd~edn. Addison-Wesley.
-
-\end{thebibliography}
+\bibliographystyle{SageH}
+\bibliography{references}
 
 \end{document}
