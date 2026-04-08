@@ -1,6 +1,6 @@
 # Coverage Metrics
 
-## RDF Agent
+## KG Agent
 
 ### Raw Values
 
@@ -113,7 +113,7 @@
 - **Final Triple Coverage**: 289
 - **Total Steps**: 100
 
-## RDF-Star Agent
+## TKG Agent
 
 ### Raw Values
 

@@ -40,15 +40,15 @@ benchmark is easily adjustable in terms of grid size, number of rooms, inner wal
 moving objects.
 
 To evaluate this benchmark, we define a lightweight temporal KG memory for agents,
-based on RDF-star-style
-qualifiers (\texttt{time\_added}, \texttt{last\_accessed}, \texttt{num\_recalled}), and
+based on RDF 1.2 triple annotations with
+annotation properties (\texttt{:time\_added}, \texttt{:last\_accessed}, \texttt{:num\_recalled}), and
 evaluate several symbolic baselines that maintain and query this memory under different
 capacity constraints. Two neural sequence models (Long Short-Term Memory (LSTM) and
 Transformer) serve as
 contrasting baselines without explicit KG structure. Agents train on one layout and are
 evaluated on a held-out layout with the same dynamics but a different query order,
 exposing train–test generalization gaps in long-term memory rather than in perception.
-In this setting, temporal qualifiers lead to more stable performance, and the symbolic
+In this setting, temporal annotations lead to more stable performance, and the symbolic
 TKG (temporal knowledge graph) agent achieves roughly fourfold higher test QA
 (question-answer) accuracy than the neural baselines under the same benchmark and query
 conditions. RoomKG Benchmark therefore provides a compact benchmark for studying when
@@ -61,6 +61,11 @@ software for reproducible research.
 
 \keywords{neurosymbolic benchmark, partial observability, temporal knowledge graphs, agent memory}
 
+\def\volumeyear{0000}
+\def\volumenumber{XX}
+\def\issuenumber{X}
+\def\journalname{Testing}
+
 \maketitle
 
 \section{Introduction}
@@ -69,7 +74,7 @@ Agents operating in partially observable environments must infer and maintain st
 information about the world as it evolves over time~\citep{KAELBLING199899}. Because the
 world evolves according to structured dynamics, agents must store and update facts
 observed many steps earlier. Knowledge graphs (KGs) provide a natural representational
-substrate for such settings: entities, relations, and qualifiers can express spatial
+substrate for such settings: entities, relations, and annotations can express spatial
 structure, object locations, and temporal metadata in a uniform semantic
 framework~\citep{ehrlinger2016towards,Hogan_2021,battaglia2018relationalinductivebiasesdeep,zambaldi2018relationaldeepreinforcementlearning}.
 However, despite substantial work on relational and symbolic environments, most existing
@@ -101,13 +106,13 @@ their application as \emph{agent memory} in interactive environments remains
 underexplored. Prior work on gridworlds, symbolic environments, and relational reasoning
 benchmarks typically either (i) does not provide a KG-shaped hidden state, (ii) gives
 agents unstructured symbolic or text observations without a defined KG memory model, or
-(iii) uses neural representations that do not expose explicit triples or qualifiers for
+(iii) uses neural representations that do not expose explicit triples or annotations for
 inspection~\citep{Cote2018TextWorld,Hausknecht2020Jericho,Ammanabrolu2020Graph,10.1609/aaai.v37i1.25075,battaglia2018relationalinductivebiasesdeep,zambaldi2018relationaldeepreinforcementlearning,graves2014neural,graves2016hybrid,Wayne2018MERLIN,DBLP:journals/corr/abs-1803-10122}.
 Crucially, these limitations make it hard to answer the benchmark question we care
 about: when an agent must remember a changing world over long horizons, what memory
 representation actually helps? As a result, there is limited understanding of how
 explicit temporal KGs function as internal state representations, how simple symbolic
-update rules perform relative to neural sequence models, and how temporal qualifiers
+update rules perform relative to neural sequence models, and how temporal annotations
 influence generalization.
 
 This benchmark gap is especially important because existing work on long-term memory has
@@ -124,8 +129,8 @@ represented as explicit KGs. This enables interpretable memory inspection, deter
 updates, and transparent reasoning.
 
 We propose a lightweight temporal KG memory model for agents that extends standard RDF
-triples with RDF-star-style qualifiers capturing \texttt{time\_added},
-\texttt{last\_accessed}, and \texttt{num\_recalled}. These qualifiers provide a simple
+triples with RDF 1.2 triple annotations capturing \texttt{:time\_added},
+\texttt{:last\_accessed}, and \texttt{:num\_recalled}. These annotation properties provide a simple
 but expressive mechanism for tracking the recency and usage of stored facts, enabling
 memory strategies that remain fully interpretable~\citep{10.1145/2452376.2452478}. Based
 on this TKG framework, we implement several symbolic baselines that update and query
@@ -138,7 +143,7 @@ explicit KG structure.
 We evaluate all agents on two deterministic layouts: a training environment and a
 held-out test environment with identical dynamics but a different question order. This
 setup enables a controlled examination of train-to-test generalization and highlights
-the importance of structured temporal memory. Across capacities, temporal qualifiers
+the importance of structured temporal memory. Across capacities, temporal annotations
 contribute to more stable behavior, and the symbolic TKG agent exhibits significantly
 higher test performance than the neural baselines under the same benchmark and query
 conditions. The benchmark is therefore intended not only as a new environment, but as a
@@ -154,8 +159,8 @@ available via Zenodo and GitHub.
         knowledge graphs.
     \item We formalize a benchmark task, benchmark statistics, and benchmark metrics for
     object-location question answering under partial observability.
-    \item We define a lightweight temporal KG memory with RDF-star-style
-    qualifiers and deterministic update rules.
+    \item We define a lightweight temporal KG memory with RDF 1.2 triple
+    annotations and deterministic update rules.
     \item We compare symbolic TKG agents with neural sequence baselines
     under a shared interface and varying memory capacities.
     \item We release the benchmark artifact through a stable Zenodo record together with
@@ -164,7 +169,7 @@ available via Zenodo and GitHub.
 
 \section{Background}
 
-\subsection{RDF, RDF-star, and Knowledge Graph Representations}
+\subsection{RDF, RDF 1.2 Triple Annotations, and Knowledge Graph Representations}
 
 The Resource Description Framework (RDF) models facts as triples $(s,p,o)$ with subject,
 predicate, and object drawn from IRIs or literals. An RDF graph therefore corresponds to
@@ -173,28 +178,27 @@ between entities. This representation is well suited for spatially structured do
 rooms, objects, and adjacency relations can be expressed directly as triples without
 task-specific encodings.
 
-RDF-star extends RDF with a concise syntax for \emph{statements about statements}. An
-embedded triple $\ll s\ p\ o\gg$ can be used as the subject of further triples, e.g.,
-$\ll s\ p\ o\gg\ \texttt{:time\_added}\ 7$. This allows qualifiers (timestamps,
-counters, provenance keys) to be attached directly to a base fact without the heavier
-reification vocabulary~\citep{hartig2021foundationsalternativeapproachreification}.
-Because embedded triples behave like ordinary RDF terms, RDF-star offers a lightweight
-and standard-compatible way to represent temporal annotations in an agent’s long-term
-memory.
+RDF 1.2 extends RDF with triple terms, reifiers, and annotation syntax for
+\emph{statements about statements}~\citep{rdf12concepts,rdf12turtle}. In concrete
+syntax, a triple such as $\ll s\ p\ o\gg$ can be annotated with metadata such as
+\texttt{:time\_added} or \texttt{:last\_accessed}, giving a concise notation for
+temporal or provenance-style annotations on a base fact. For agent memory, this provides
+a lightweight and standard-compatible way to associate temporal metadata with observed
+facts.
 
 \subsection{Temporal Knowledge Graphs}
 
 Temporal knowledge graphs (TKGs) represent facts whose validity or relevance changes
 over time. Common approaches include interval-based, event-based, and update-based
 models, all of which associate each triple with temporal metadata reflecting when it was
-introduced or last observed. RDF-star can express such metadata by attaching qualifier
-key–value pairs to embedded triples, enabling fine-grained annotations such as
-\texttt{time\_added}, \texttt{last\_accessed}, or
-\texttt{num\_recalled}~\citep{moreau2012prov}. Temporal KGs have been widely used in the
+introduced or last observed. RDF 1.2 can express such metadata by attaching annotation
+key--value pairs to annotated triples, enabling fine-grained annotations such as
+\texttt{:time\_added}, \texttt{:last\_accessed}, or
+\texttt{:num\_recalled}~\citep{rdf12concepts,rdf12turtle,moreau2012prov}. Temporal KGs have been widely used in the
 Semantic Web to model evolving data, streaming
 updates~\citep{dellaglio2017streamreasoning}, and temporally indexed knowledge sources.
 
-In interactive settings, temporal qualifiers allow agents to track the recency and usage
+In interactive settings, temporal annotations allow agents to track the recency and usage
 of stored information, to maintain evolving internal models, and to reason over past
 observations. These properties align naturally with the needs of partially observable
 environments, where an agent’s internal state must integrate information gathered over
@@ -215,12 +219,12 @@ In contrast, symbolic memory systems store explicit facts that can be examined, 
 and updated deterministically. KGs offer a particularly suitable substrate for this
 purpose, as they represent entities and relations at a semantic level and support
 principled operations for insertion, deletion, and reannotation. When temporal
-qualifiers are incorporated, symbolic memory becomes fully transparent: each fact
+annotations are incorporated, symbolic memory becomes fully transparent: each fact
 carries a clear history of when and how it was observed.
 
 Heuristic update strategies such as recency-based selection, frequency-based selection,
 and simple eviction rules such as first-in, first-out (FIFO), least recently used
-(LRU), and least frequently used (LFU) can operate directly over qualifiers
+(LRU), and least frequently used (LFU) can operate directly over annotation values
 attached to embedded triples. Such heuristics preserve interpretability while providing
 meaningful signals for deciding which facts to retain when memory capacity is limited.
 
@@ -235,12 +239,12 @@ observations without specifying how those observations should be integrated into
 structured, evolving memory.
 
 As a result, there is limited empirical understanding of how temporal KGs function as
-internal state representations for agents, how simple qualifier-driven heuristics
+internal state representations for agents, how simple annotation-driven heuristics
 compare to unstructured sequence-based memory, and how temporal metadata affects
 generalization in deterministic but partially observable domains. The benchmark and
 memory model introduced in this paper address these gaps by providing a setting in which
 both the hidden state of the world and the agent’s memory are explicit, inspectable
-knowledge graphs represented in standard RDF and RDF-star syntax.
+knowledge graphs represented in standard RDF and RDF 1.2 annotation syntax.
 
 
 \section{RoomKG Benchmark}
@@ -286,7 +290,7 @@ Kim~et~al.~\citep{10.1609/aaai.v37i1.25075}: instead of a single fixed layout, o
 benchmark supports arbitrary grid sizes, heterogeneous wall schedules, multiple moving
 objects with independent motion rules, and exposes the entire hidden state as an RDF KG;
 when used as long-term memory inside the agent, this can be extended into a temporal KG
-via qualifiers.
+via annotations.
 
 \subsection{Benchmark Metadata, Scope, and Intended Use}
 
@@ -310,7 +314,11 @@ also reports room coverage, triple coverage, and memory-state visualizations to 
 how different memory representations support or hinder the task. We therefore intend the
 benchmark as a compact testbed for temporal memory, symbolic state tracking, and
 generalization studies, rather than as a full embodied-AI benchmark covering language,
-continuous control, or open-ended planning.
+continuous control, or open-ended planning. For the same reason, the present comparison
+does not include large-language-model-based agents: their performance would conflate
+bounded memory effects with pretraining, prompt design, context-window management, and
+optional tool or retrieval configurations, which would blur the paper's focus on
+controlled long-term memory mechanisms under fixed symbolic observations.
 
 With this scope in place, we next specify the benchmark dynamics and observation model
 that create these long-term memory demands.
@@ -321,9 +329,10 @@ At timestep $t$, the hidden state $s_t$ consists of the on/off status of all inn
 walls, the positions of all static and moving objects, and the agent's current room.
 
 Each room is a node, and cardinal directions are modeled as labeled edges
-(\texttt{north}, \texttt{east}, \texttt{south}, \texttt{west}). Walls are represented
-explicitly, e.g., \texttt{(room, north, wall)}, rather than by removing adjacency edges,
-allowing the benchmark environment to expose both potential adjacencies and their blocked status.
+(\texttt{north}, \texttt{east}, \texttt{south}, \texttt{west}). For a given room, a
+direction can point either to an adjacent room or to a wall, e.g.,
+\texttt{(roomA, north, roomB)} or \texttt{(roomA, south, wall)}. This representation
+keeps blocked and unblocked directions explicit in the graph.
 Every moving object is equipped with a fixed, ordered preference list drawn from
 $\{\texttt{north},\texttt{east},\texttt{south},\texttt{west},\texttt{stay}\}$. At each
 step it executes the \emph{first feasible} move in its list; if none are feasible, it
@@ -373,7 +382,7 @@ so long-horizon queries require integrating partial observations over time.
 The benchmark couples these observations with an explicit query stream.
 Each timestep also issues a \emph{location query} of the form: $(X,\
 \texttt{:at\_location},\ ?)$. The agent must identify the current room of the queried
-object~\citep{bordes2015largescalesimplequestionanswering}. This requires maintaining a
+object. This requires maintaining a
 temporal model of object motion as observed indirectly through partial glimpses, echoing
 aspects of KG-based QA (question-answer)~\citep{yih-etal-2015-semantic}.
 
@@ -407,10 +416,10 @@ emitted at each timestep. It does not prescribe any internal memory structure: a
 may keep any private state they choose. The benchmark simply provides RDF
 observations, receives an action and an answer, and evaluates correctness against $s_t$.
 
-In our experiments, we compare four agents. The \emph{RDF-star agent} stores each
-observed fact as an RDF-star triple annotated with qualifiers (\texttt{time\_added},
-\texttt{last\_accessed}, \texttt{num\_recalled}). The \emph{RDF agent} stores the same
-observations as plain RDF triples without qualifiers. The two \emph{neural baselines}
+In our experiments, we compare four agents. The \emph{TKG agent} stores each
+observed fact as an RDF 1.2-annotated triple with annotation properties (\texttt{:time\_added},
+\texttt{:last\_accessed}, \texttt{:num\_recalled}). The \emph{KG agent} stores the same
+observations as plain RDF triples without annotations. The two \emph{neural baselines}
 maintain fixed-length buffers of tokenized observations without explicit KG structure;
 one uses an LSTM encoder and the other uses a Transformer encoder. All agents operate in
 the same benchmark and query conditions.
@@ -449,18 +458,18 @@ summarizes the four agents.
 \toprule
 \textbf{Agent} &
 \textbf{Memory repr.} &
-\textbf{Qualifiers} &
+\textbf{Annotations} &
 \textbf{QA rule} &
 \textbf{Eviction} \\
 \midrule
-Symbolic--RDF &
+Symbolic--KG &
 RDF triples &
 No &
 SPARQL &
 Random \\
 
 Symbolic--TKG &
-RDF-star (TKG) &
+RDF 1.2 annotations &
 Yes &
 MRA/MRU/MFU &
 FIFO/LRU/LFU \\
@@ -486,9 +495,9 @@ MFU = most frequently used.}
 \subsection{Symbolic agents}
 
 Both symbolic agents store explicit triples. Their difference is whether
-they attach temporal qualifiers.
+they attach temporal annotations.
 
-\paragraph{RDF agent (plain triples).}
+\paragraph{KG agent (plain RDF triples).}
 Memory is a bounded set of RDF triples $(s,p,o)$. Because these entries carry \emph{no}
 timestamps or usage counts, the agent has no basis for ordering them. Therefore, when
 memory is full, the only principled choice is to evict a \emph{uniformly random} triple.
@@ -507,44 +516,48 @@ The current map is reconstructed from the triples stored so far. The agent perfo
 itself is a graph and BFS is the simplest deterministic traversal aligned with that
 structure.
 
-\paragraph{TKG agent (RDF-star with qualifiers).}
-Each observed triple $(s,r,o)$ is stored as an embedded triple
-$\ll s\ r\ o\gg$ annotated with:
+\paragraph{TKG agent (RDF 1.2 annotations).}
+Each observed triple $(s,r,o)$ is stored together with annotation assertions over its
+annotated form, written here using the concise notation $\ll s\ r\ o\gg$ with:
 \[
-\texttt{time\_added},\quad \texttt{last\_accessed},\quad
-\texttt{num\_recalled}.
+\texttt{:time\_added},\quad \texttt{:last\_accessed},\quad
+\texttt{:num\_recalled}.
 \]
 This creates a temporal knowledge graph $M_t$.
 
 \emph{QA rules.}  
 Each query $(s_q,r_q,?)$ is answered by selecting the object $o$ whose
-qualifier is maximal:
+annotation value is maximal:
 \[
 \begin{aligned}
-\text{MRA} &: \arg\max \texttt{time\_added},\\
-\text{MRU} &: \arg\max \texttt{last\_accessed},\\
-\text{MFU} &: \arg\max \texttt{num\_recalled}.
+\text{MRA} &: \arg\max \texttt{:time\_added},\\
+\text{MRU} &: \arg\max \texttt{:last\_accessed},\\
+\text{MFU} &: \arg\max \texttt{:num\_recalled}.
 \end{aligned}
 \]
 
-\emph{Eviction.}  
-Using qualifiers permits structured removal:
-FIFO (oldest \texttt{time\_added}),  
-LRU (least recent \texttt{last\_accessed}),  
-LFU (smallest \texttt{num\_recalled}).
-
-\emph{Exploration.}  
-The agent ranks frontier rooms using MRA/MRU/MFU on edge triples and
-performs BFS to the top-ranked frontier.
-
-\emph{SPARQL-star example (MRU).}
+A concrete SPARQL 1.2 realization of the MRU rule is:
 \begin{lstlisting}[language=SPARQL,basicstyle=\ttfamily\small,frame=single]
 SELECT ?o WHERE {
-  << <s> <r> ?o >> :last_accessed ?t .
+    << <s> <r> ?o >> :last_accessed ?t .
 }
 ORDER BY DESC(?t)
 LIMIT 1
 \end{lstlisting}
+
+\emph{Eviction.}  
+Using annotations permits structured removal:
+\[
+\begin{aligned}
+\text{FIFO} &: \arg\min \texttt{:time\_added},\\
+\text{LRU} &: \arg\min \texttt{:last\_accessed},\\
+\text{LFU} &: \arg\min \texttt{:num\_recalled}.
+\end{aligned}
+\]
+
+\emph{Exploration.}  
+The agent ranks frontier rooms using MRA/MRU/MFU on edge triples and
+performs BFS to the top-ranked frontier.
 
 Thus, the TKG agent is entirely deterministic and fully traceable: every decision
 (answer, movement, eviction) is reproducible from $M_t$.
@@ -563,7 +576,7 @@ chooses one element. Because answers referring to rooms that have not yet been o
 are invalid, the option set is dynamically \emph{masked} at each timestep so that only
 admissible answers remain. Consequently, the neural agents must learn end-to-end how to
 resolve queries and how to navigate, without access to explicit graph structure,
-qualifiers, or symbolic update rules. The neural agents learn this joint policy using a
+annotations, or symbolic update rules. The neural agents learn this joint policy using a
 standard reinforcement-learning objective implemented via a Deep Q-Network
 (DQN)~\citep{mnih2013playingatarideepreinforcement}.
 
@@ -603,11 +616,11 @@ Here, $\mathbf{E}$ is fed to a Transformer encoder:
 \]
 where $\mathrm{PE}$ are sinusoidal positional encodings that supply the temporal
 order~\citep{vaswani2023attentionneed}, enabling long-range temporal
-reasoning~\citep{dehghani2019universaltransformers}. The same question-conditioned
+reasoning. The same question-conditioned
 pooling and prediction head are used as in the LSTM agent.
 
 \paragraph{Interpretability.}
-Neural agents have no explicit triples, qualifiers, or traceable update rules, similar
+Neural agents have no explicit triples, annotations, or traceable update rules, similar
 to episodic-control
 agents~\citep{pritzel2017neuralepisodiccontrol,blundell2016modelfreeepisodiccontrol}.
 Their internal state is an opaque vector, and only soft attention weights give partial
@@ -627,10 +640,18 @@ not retain any long-term memory across timesteps.
 The primary task is object-location question answering under partial observability. We
 report two quantitative views of performance: QA accuracy across memory capacities and
 coverage over time, measured in terms of visited rooms and stored triples. In addition,
-we provide a qualitative visualization of memory-state evolution for the RDF-star agent
+we provide a qualitative visualization of memory-state evolution for the TKG agent
 to illustrate how temporal symbolic memory develops over an episode.
 
 \subsection{QA Accuracy Across Long-Term Memory Capacities}
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=\linewidth]{figures/agent_train_test_qa_accuracy.pdf}
+    \caption{Train--test QA accuracy for all agents across long-term memory capacities. Mean and standard deviation are computed across $5$ seeds. Raw values can be found in the public benchmark artifacts.}
+    \label{fig:qa_accuracy}
+\end{figure}
+
 
 Figure~\ref{fig:qa_accuracy} shows the train and test QA accuracy for all agents. Neural
 agents learn exploration and question answering jointly under a single end-to-end
@@ -657,56 +678,34 @@ but not statistical difficulty. Neural agents, by contrast, must learn these str
 from data and therefore require much more training and capacity to benefit from larger
 memory.
 
-RDF-star achieves better QA accuracy in most memory capacities. The RDF-star agent
-family consists of 27 variants, arising from all combinations of three qualifier-based
-QA rules (MRA, MRU, MFU), three exploration priorities based on the same qualifiers, and
+The TKG agent achieves better QA accuracy in most memory capacities. The TKG agent
+family consists of 27 variants, arising from all combinations of three annotation-based
+QA rules (MRA, MRU, MFU), three exploration priorities based on the same annotation properties, and
 three eviction heuristics (FIFO, LRU, LFU); these choices are independent because each
-stored fact carries the qualifiers \texttt{time\_added}, \texttt{last\_accessed}, and
-\texttt{num\_recalled}. We report the best-performing variant, selected by training
-accuracy and evaluated identically at test time. Although the plain RDF agent can store
-more main triples under a fixed memory budget, since it stores triples rather than
-quadruples, the temporal qualifiers in RDF-star yield a more informative and expressive
-memory state, leading to stronger performance once capacity is sufficient to retain both
-facts and their associated temporal metadata.
+stored fact carries the annotation properties \texttt{:time\_added}, \texttt{:last\_accessed}, and
+\texttt{:num\_recalled}. We report the best-performing variant, selected by training
+accuracy and evaluated identically at test time. All 27 train/test combinations for
+every memory capacity are provided in the public benchmark artifacts. At capacity
+$512$, the training-selected variant uses MRU for QA, MRU for exploration, and LFU for
+eviction. This suggests that recency is the most useful signal both for answer
+selection and for frontier prioritization, while LFU eviction helps preserve repeatedly
+useful facts under a fixed memory budget.
 
-At capacity $512$, the best symbolic agent (RDF-star) reaches a QA accuracy of $46.52$,
-whereas the best neural agent (LSTM) reaches $11.2$, a four-fold difference. These
-results highlight that explicit symbolic memory is considerably more effective for
-long-horizon, partially observable semantic reasoning. Statistical variation is shown as
-shaded regions.
+This setup favors the plain KG agent. Long-term memory
+capacity is counted in stored entries, so at the same nominal capacity the KG agent can
+retain more main triples than the TKG agent. By contrast, the TKG agent uses each entry for an annotated
+triple, combining the base fact with temporal metadata. Even with this storage
+disadvantage, the TKG agent performs better, indicating that temporal annotations make
+the memory state more informative and expressive than a larger store of unannotated
+triples.
 
-\begin{figure}[tb]
-    \centering
-    \includegraphics[width=\linewidth]{figures/agent_train_test_qa_accuracy.pdf}
-    \caption{Train--test QA accuracy for all agents across long-term memory capacities. Mean and standard deviation are computed across $5$ seeds. Raw values can be found in the public benchmark artifacts.}
-    \label{fig:qa_accuracy}
-\end{figure}
-
+At capacity $512$, this MRU/MRU/LFU TKG variant reaches a QA accuracy of $44.48$ on
+train and $45.64$ on test, whereas the best neural agent (LSTM) reaches $11.2$, a
+four-fold difference on test. These results highlight that explicit symbolic memory is
+considerably more effective for long-horizon, partially observable semantic reasoning.
+Statistical variation is shown as shaded regions.
 
 \subsection{Coverage Metrics: Room and Triple Coverage}
-
-Figure~\ref{fig:coverage} shows, for the long-term memory capacity of $512$, the coverage metrics of the four agents: RDF, RDF-star, LSTM, and Transformer. Each subplot includes the cumulative number of unique rooms visited and the number of unique $(s,p,o)$ triples stored in memory at each timestep. Raw values are provided in the public benchmark artifacts.
-
-\paragraph{Symbolic agents.}
-Both symbolic agents achieve full coverage of all $49$ rooms in the benchmark.
-Moreover, the RDF-star agent reaches full room coverage slightly earlier (timestep~70)
-than the RDF agent (timestep~74). The temporal qualifiers in RDF-star allow it to track
-time-varying wall configurations more accurately, yielding a more up-to-date inferred
-map of the benchmark environment and enabling more efficient exploration. Triple-coverage results
-follow the same pattern: symbolic agents accumulate nearly complete internal maps
-because they continue to explore until all reachable structure has been observed.
-
-\paragraph{Neural agents.}
-In contrast, the LSTM and Transformer agents stop increasing room coverage long before
-the end of the episode (around step~50 for the Transformer and step~30 for the LSTM). A
-plausible explanation is that neural policies must couple exploration and answering
-within a single high-cardinality action space. Once training converges to a locally
-rewarding but suboptimal behavior, such as repeatedly answering queries with moderate
-reward or oscillating among familiar states, the agents no longer discover new rooms.
-Because the reward signal is sparse and not explicitly tied to exploration, the policies
-collapse into low-entropy, non-exploratory behaviors. These plateauing exploration
-patterns also explain the limited triple coverage: neural agents simply encounter fewer
-states from which to build internal structure.
 
 \begin{figure*}[tb]
     \centering
@@ -714,14 +713,14 @@ states from which to build internal structure.
     % Row 1
     \begin{minipage}{0.49\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/coverage_metrics_rdf.pdf}
-        \textbf{(c) RDF}
+        \includegraphics[width=\linewidth]{figures/coverage_metrics_kg.pdf}
+        \textbf{(c) KG}
     \end{minipage}
     \hfill
     \begin{minipage}{0.49\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/coverage_metrics_rdf_star.pdf}
-        \textbf{(d) RDF-Star}
+        \includegraphics[width=\linewidth]{figures/coverage_metrics_tkg.pdf}
+        \textbf{(d) TKG}
     \end{minipage}
 
     % Row 2
@@ -742,13 +741,48 @@ states from which to build internal structure.
 \end{figure*}
 
 
+Figure~\ref{fig:coverage} shows, for the long-term memory capacity of $512$, the
+coverage metrics of the four agents: KG, TKG, LSTM, and Transformer. Each subplot
+includes the cumulative number of unique rooms visited and the number of unique
+$(s,p,o)$ triples stored in memory at each timestep. Raw values are provided in the
+public benchmark artifacts.
 
-\subsection{Memory-State Evolution (RDF-Star)}
+\paragraph{Symbolic agents.}
+Both symbolic agents achieve full coverage of all $49$ rooms in the benchmark.
+Moreover, the TKG agent reaches full room coverage slightly earlier (timestep~70)
+than the KG agent (timestep~74). The temporal annotations in the TKG memory allow it to track
+time-varying wall configurations more accurately, yielding a more up-to-date inferred
+map of the benchmark environment and enabling more efficient exploration. Triple-coverage results
+follow the same pattern: symbolic agents accumulate nearly complete internal maps
+because they continue to explore until all reachable structure has been observed.
+
+\paragraph{Neural agents.}
+In contrast, the LSTM and Transformer agents stop increasing room coverage long before
+the end of the episode (around step~50 for the Transformer and step~30 for the LSTM). A
+plausible explanation is that neural policies must couple exploration and answering
+within a single high-cardinality action space. Once training converges to a locally
+rewarding but suboptimal behavior, such as repeatedly answering queries with moderate
+reward or oscillating among familiar states, the agents no longer discover new rooms.
+Because the reward signal is sparse and not explicitly tied to exploration, the policies
+collapse into low-entropy, non-exploratory behaviors. These plateauing exploration
+patterns also explain the limited triple coverage: neural agents simply encounter fewer
+states from which to build internal structure.
+
+\subsection{Memory-State Evolution (TKG)}
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.65\linewidth]{figures/memory_state_000.pdf}
+    \includegraphics[width=\linewidth]{figures/memory_state_050.pdf}
+    \includegraphics[width=\linewidth]{figures/memory_state_099.pdf}
+    \caption{Memory state of the TKG agent at $t=0$, $t=50$, and $t=99$ (capacity $512$). Counts in parentheses (e.g., ``\texttt{at\_location (3)}'') indicate how many TKG memories share the same main triple but differ in their temporal annotation values.}
+    \label{fig:memory_states}
+\end{figure}
 
 To illustrate the expressive advantage of temporal symbolic memory,
-Figure~\ref{fig:memory_states} shows the RDF-star agent’s long-term memory at timesteps
+Figure~\ref{fig:memory_states} shows the TKG agent’s long-term memory at timesteps
 $t=0$, $t=50$, and $t=99$, using capacity $512$. Each edge label includes the number of
-associated memories when more than one quadruple exists. Node colors correspond to
+associated memories when more than one annotated triple exists. Node colors correspond to
 semantic categories (rooms, static objects, moving objects, walls, and agent).  
 
 The graphs show the internal map becoming increasingly complete over time. Static
@@ -767,14 +801,7 @@ observe consistently over time.
 Full memory evolution images for all agents (from $t=0$ to $t=99$) are available in the
 public benchmark artifacts.
 
-\begin{figure}[tb]
-    \centering
-    \includegraphics[width=0.65\linewidth]{figures/memory_state_000.pdf}
-    \includegraphics[width=\linewidth]{figures/memory_state_050.pdf}
-    \includegraphics[width=\linewidth]{figures/memory_state_099.pdf}
-    \caption{Memory state of the RDF-star agent at $t=0$, $t=50$, and $t=99$ (capacity $512$).  Counts in parentheses (e.g., ``\texttt{at\_location (3)}'') indicate how many RDF-star memories share the same main triple but differ in their temporal qualifiers.}
-    \label{fig:memory_states}
-\end{figure}
+
 
 
 \section{Related Work}
@@ -782,16 +809,15 @@ public benchmark artifacts.
 
 \paragraph{Temporal and hyper-relational knowledge graphs.}
 The Semantic Web stack provides a mature basis for representing structured data as RDF
-graphs and querying them with SPARQL~\citep{Seaborne:13:SQL}. RDF-star and SPARQL-star
-extend this model with \emph{statements about statements}, allowing triples such as $\ll
-s\ p\ o\gg$ to be annotated with additional facts and queried
-directly~\citep{hartig2021foundationsalternativeapproachreification}. Temporal and
-hyper-relational knowledge graphs build on these ideas by attaching time and other
-qualifiers to edges and have been extensively studied for tasks such as link prediction
+graphs and querying them with SPARQL~\citep{Seaborne:13:SQL}. RDF 1.2 and SPARQL 1.2
+extend this model with triple terms, reifiers, and annotation syntax for
+\emph{statements about statements}~\citep{rdf12concepts,rdf12turtle,sparql12query}.
+Temporal and hyper-relational knowledge graphs build on these ideas by attaching time and other
+annotations to edges and have been extensively studied for tasks such as link prediction
 and event forecasting (e.g.,~\citep{DBLP:journals/corr/abs-1809-03202}). In contrast, we
 use a temporal KG not primarily as a prediction target but as the \emph{internal state}
-of an agent: every observation becomes a reified RDF-star statement with temporal
-qualifiers, and downstream decisions (answering and exploration) are implemented as
+of an agent: every observation becomes an RDF 1.2-annotated statement with temporal
+annotations, and downstream decisions (answering and exploration) are implemented as
 queries and updates over this KG.
 
 \paragraph{Memory under partial observability.}
@@ -801,19 +827,18 @@ recurrent architectures, memory-augmented networks such as Neural Turing Machine
 Differentiable Neural Computers~\citep{graves2014neural,graves2016hybrid}, and
 long-context models with compression or retrieval (e.g., MERLIN and related world-model
 agents~\citep{Wayne2018MERLIN,DBLP:journals/corr/abs-1803-10122}). These approaches
-typically store history in dense vectors or key–value tensors, which makes it difficult
+typically store history in dense vectors or key--value tensors, which makes it difficult
 to inspect what exactly is remembered at a given time. Our work instead treats the
-agent’s long-term memory as an explicit temporal knowledge graph in RDF-star: each
-stored fact is a verifiable triple with qualifiers, and the effect of capacity limits or
+agent’s long-term memory as an explicit temporal knowledge graph in RDF 1.2 annotation
+syntax: each stored fact is a verifiable triple with annotations, and the effect of capacity limits or
 update rules on question answering can be inspected directly at the graph level.
-Alongside this, we include simple neural baselines that operate on observation histories
+Alongside this, we include neural baselines that operate on observation histories
 without explicit KG structure, highlighting the behavioural differences between latent
 and symbolic memories~\citep{kimura2021neurosymbolicreinforcementlearningfirstorder}.
 What is missing from this literature is a benchmark expressly constructed to make
 long-term memory failures visible, measurable, and comparable across symbolic and neural
-representations.
+representations.This same issue appears when one looks at interactive environments and KG-based agents.
 
-This same issue appears when one looks at interactive environments and KG-based agents.
 \paragraph{Graph-structured environments and KG-based agents.}
 Several interactive environments expose graph-structured or relational
 state~\citep{chaplot2020neuraltopologicalslamvisual}, and neural architectures explicitly
@@ -847,10 +872,10 @@ interactive decision support. Traceability and provenance are central: KG
 representations allow one to link conclusions back to the underlying
 facts~\citep{anyanwu2003rho}. Our design follows this line by making the agent’s
 long-term memory itself a temporal KG; question answering is implemented as
-SPARQL-star-style retrieval over that memory, and memory contents can be visualized as
-graphs over time. This provides a compact testbed for studying how temporal qualifiers
+SPARQL 1.2 retrieval over that memory, and memory contents can be visualized as
+graphs over time. This provides a compact testbed for studying how temporal annotations
 (e.g., recency and recall counts) interact with partial observability and capacity
-limits, and how symbolic KG memories compare to simple neural baselines in terms of
+limits, and how symbolic KG memories compare to neural baselines in terms of
 generalization from training to held-out question orders.
 
 \section{Limitations}
@@ -864,15 +889,15 @@ reasoning, or multi-hop compositional questions. Third, our released benchmark v
 derived from synthetic layouts rather than from human-authored or naturally occurring
 datasets, so benchmark diversity is controlled by parameterization rather than by broad
 real-world variation. Finally, although we include both symbolic and neural baselines,
-the benchmark should support a wider range of future agents, training regimes, and
-evaluation protocols than those studied here.
+future work can evaluate a wider range of agents, training regimes, and evaluation
+protocols than those studied here.
 
 \section{Conclusion}
 
 We presented the RoomKG Benchmark in which both the hidden state and the agent’s
 memory are represented as knowledge graphs, enabling a controlled study of temporal
-memory under partial observability. Using a lightweight RDF-star-based memory with
-temporal qualifiers, symbolic agents achieved full room coverage and
+memory under partial observability. Using a lightweight RDF 1.2-based memory with
+temporal annotations, symbolic agents achieved full room coverage and
 substantially higher QA accuracy than neural sequence baselines under the same
 benchmark and query conditions. The results highlight the effectiveness and
 interpretability of temporal knowledge graphs as agent memory, and show why a dedicated

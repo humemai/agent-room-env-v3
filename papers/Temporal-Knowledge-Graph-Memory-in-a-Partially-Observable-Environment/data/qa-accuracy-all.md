@@ -1,6 +1,6 @@
 # QA accuracy for all agents
 
-## RDF Agent
+## KG Agent
 
 ### train
 
@@ -126,7 +126,7 @@
 | -----: | ----: | :----- | :------ | :------ | -----------------: |
 | 42.080 | 0.845 | SPARQL | BFS     | Uniform |              0.000 |
 
-## RDF-Star Agent
+## TKG Agent
 
 ### Train
 
