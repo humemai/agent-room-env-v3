@@ -78,9 +78,3 @@ python run-dqn-simple-test.py
 - `run-dqn-simple-test.py`: neural baseline test run
 - `papers/`: manuscript, benchmark artifacts, figures, and data summaries
 - `assets/readme/`: PNG previews used by this README
-
-## 📌 Notes
-
-- The manuscript and benchmark artifacts use RDF 1.2 annotation terminology.
-- The README previews are PNG conversions of the PDF figures shipped with the paper.
-- The full benchmark context, figures, and supporting analyses live under the `papers/` directory.
