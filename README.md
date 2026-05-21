@@ -3,7 +3,7 @@
 **Authors:** [Taewoon Kim](https://taewoon.kim/), [Vincent Francois-Lavet](http://vincent.francois-l.be/), and [Michael Cochez](https://www.cochez.nl/).
 
 Code for symbolic and neural baselines that operate in
-[RoomEnv-v3](https://github.com/humemai/room-env/blob/main/README-v3.md), the RoomKG
+[RoomEnv-v3](https://github.com/humemai/room-env), the RoomKG
 benchmark.
 
 For the research overview, see the [project page](https://humem.ai/projects/roomkg-baselines)
