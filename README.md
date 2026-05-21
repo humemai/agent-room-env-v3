@@ -1,80 +1,109 @@
-# Temporal Knowledge-Graph Memory in a Partially Observable Environment
+# RoomKG Baselines
 
-This repository accompanies the RoomKG Benchmark, a neurosymbolic benchmark for studying long-term memory in partially observable environments.
+**Authors:** [Taewoon Kim](https://taewoon.kim/), [Vincent Francois-Lavet](http://vincent.francois-l.be/), and [Michael Cochez](https://www.cochez.nl/).
 
-Instead of treating memory as a side effect of policy learning, RoomKG makes it the main object of study: the hidden world state is an RDF knowledge graph, the observations are RDF triples, and agents must answer object-location queries while navigating a changing environment.
+Code for symbolic and neural baselines that operate in
+[RoomEnv-v3](https://github.com/humemai/room-env/blob/main/README-v3.md), the RoomKG
+benchmark.
 
-## ✨ Why this repo exists
+For the research overview, see the [project page](https://humem.ai/projects/roomkg-baselines)
+or the paper on [arXiv](https://arxiv.org/abs/2408.05861).
 
-- 🧭 A configurable benchmark for persistent memory under partial observability
-- 🕸️ Symbolic baselines built around explicit KG and TKG memory
-- 🤖 Neural baselines built around sequence-based observation history
-- 📊 Reproducible figures, benchmark data, and paper artifacts
+This README focuses on the code, setup, benchmark entry points, and reproduced results
+in this repository.
 
-In the current benchmark setup, the symbolic TKG agent achieves roughly 4x higher test QA accuracy than the neural baselines under the same benchmark conditions.
+## Repository layout
 
-## 🖼️ Preview
+- [`agent/`](./agent): symbolic agents, neural agents, and shared benchmark logic
+- [`run-symbolic.py`](./run-symbolic.py): full symbolic benchmark sweep over QA and exploration policies
+- [`run-symbolic-simple.py`](./run-symbolic-simple.py): simplified symbolic baseline sweep
+- [`run-dqn-simple.py`](./run-dqn-simple.py): neural baseline training sweep for LSTM and Transformer agents
+- [`run-dqn-simple-test.py`](./run-dqn-simple-test.py): test-time evaluation for completed neural training runs
+- [`figures/`](./figures): README figures and benchmark visualizations
 
-<p align="center">
-	<a href="papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/ns-ai-2026/figures/bird_eye_view_step_099.pdf">
-		<img src="assets/readme/bird_eye_view_step_099.png" width="48%" alt="Bird's-eye view of the hidden state" />
-	</a>
-	<a href="papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/ns-ai-2026/figures/graph_view_step_099.pdf">
-		<img src="assets/readme/graph_view_step_099.png" width="48%" alt="Knowledge-graph view of the hidden state" />
-	</a>
-</p>
+## Prerequisites
 
-<p align="center">
-	<a href="papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/ns-ai-2026/figures/agent_train_test_qa_accuracy.pdf">
-		<img src="assets/readme/agent_train_test_qa_accuracy.png" width="85%" alt="Train-test QA accuracy across memory capacities" />
-	</a>
-</p>
+1. Python 3.10 or higher
+1. A virtual environment is recommended
+1. Install the requirements with `uv pip install -r requirements.txt`
 
-<p align="center">
-	<a href="papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/ns-ai-2026/figures/coverage_metrics_tkg.pdf">
-		<img src="assets/readme/coverage_metrics_tkg.png" width="70%" alt="Coverage metrics for the TKG agent" />
-	</a>
-</p>
+## Run the benchmark
 
-Click any preview to open the original PDF figure.
+Run the full symbolic sweep:
 
-## 🚀 Quick start
-
-Install the dependencies:
-
-```bash
-uv pip install -r requirements.txt
+```sh
+python run-symbolic.py --workers 4
 ```
 
-Run the main benchmark scripts:
+Run the simplified symbolic baseline:
 
-```bash
-python run-symbolic.py
-python run-symbolic-simple.py
-python run-dqn-simple.py
-python run-dqn-simple-test.py
+```sh
+python run-symbolic-simple.py --workers 4
 ```
 
-## 📁 What to look at
+Train the neural baselines on one environment configuration:
 
-- 📄 Paper source: [papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/ns-ai-2026/main.tex](papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/ns-ai-2026/main.tex)
-- 🖼️ Paper figures (PDF): [papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/ns-ai-2026/figures](papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/ns-ai-2026/figures)
-- 📦 Benchmark data bundle: [papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/data](papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/data)
-- 📘 Environment analysis: [papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/env-analysis.pdf](papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/env-analysis.pdf)
-- 📈 QA accuracy summary: [papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/data/qa-accuracy-all.md](papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/data/qa-accuracy-all.md)
-- 📊 Coverage summary: [papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/data/coverage_metrics.md](papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/data/coverage_metrics.md)
-- 🧠 Symbolic KG memory config: [papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/data/memory-kg.yaml](papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/data/memory-kg.yaml)
-- 🕰️ Temporal KG memory config: [papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/data/memory-tkg.yaml](papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/data/memory-tkg.yaml)
-- 🤖 LSTM memory config: [papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/data/memory-lstm.yaml](papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/data/memory-lstm.yaml)
-- 🔁 Transformer memory config: [papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/data/memory-transformer.yaml](papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/data/memory-transformer.yaml)
-- 🧩 Memory state graph exports: [papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/data/memory_state_graphs](papers/Temporal-Knowledge-Graph-Memory-in-a-Partially-Observable-Environment/data/memory_state_graphs)
+```sh
+python run-dqn-simple.py --env large-02 --workers 4
+```
 
-## 🗂️ Repository layout
+Evaluate completed neural training runs on the held-out environment:
 
-- `agent/`: agent implementations and neural modules
-- `run-symbolic.py`: full symbolic benchmark run
-- `run-symbolic-simple.py`: simplified symbolic run
-- `run-dqn-simple.py`: neural baseline training run
-- `run-dqn-simple-test.py`: neural baseline test run
-- `papers/`: manuscript, benchmark artifacts, figures, and data summaries
-- `assets/readme/`: PNG previews used by this README
+```sh
+python run-dqn-simple-test.py --env large-02-q --workers 1
+```
+
+The symbolic scripts write results under `training-results-symbolic/` and
+`training-results-symbolic-simple/`. The neural scripts write training and test outputs
+under `training-results-simple-dqn/`.
+
+## Benchmark setup
+
+The repository compares four memory styles on the same partially observable task.
+
+- **KG symbolic agent**: stores explicit RDF triples and answers queries by graph lookup
+- **TKG symbolic agent**: stores annotated RDF triples with temporal metadata such as time added, last accessed, and recall count
+- **LSTM neural baseline**: learns from tokenized observation histories
+- **Transformer neural baseline**: learns from the same sequence-based observation histories with a Transformer encoder
+
+The benchmark uses two related layouts, `large-02` and `large-02-q`, so agents are
+evaluated on held-out query conditions rather than a trivial replay of the training
+order.
+
+## Results
+
+| Hidden-state view | Knowledge-graph view |
+| :---------------: | :------------------: |
+| ![Bird's-eye view of the hidden state](./figures/bird_eye_view_step_099.png) | ![Knowledge-graph view of the hidden state](./figures/graph_view_step_099.png) |
+
+| Train and test QA accuracy across long-term memory capacities |
+| :----------------------------------------------------------: |
+| ![Train and test QA accuracy across long-term memory capacities](./figures/agent_train_test_qa_accuracy.png) |
+
+| Coverage metrics for the TKG symbolic agent |
+| :-----------------------------------------: |
+| ![Coverage metrics for the TKG symbolic agent](./figures/coverage_metrics_tkg.png) |
+
+In the benchmark setting used in the paper, the temporal knowledge-graph agent reaches
+substantially higher test QA accuracy than the neural baselines under the same memory
+capacity constraints.
+
+## Further reading
+
+- [Project page](https://humem.ai/projects/roomkg-baselines)
+- [Paper on arXiv](https://arxiv.org/abs/2408.05861)
+- [RoomEnv](https://github.com/humemai/room-env)
+
+## Cite our paper
+
+```bibtex
+@misc{kim2026temporalknowledgegraphmemorypartially,
+      title={Temporal Knowledge-Graph Memory in a Partially Observable Environment},
+      author={Taewoon Kim and Vincent François-Lavet and Michael Cochez},
+      year={2026},
+      eprint={2408.05861},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2408.05861},
+}
+```
