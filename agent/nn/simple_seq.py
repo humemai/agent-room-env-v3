@@ -59,18 +59,27 @@ class SimpleSeqTokenizer(nn.Module):
         relations: list[str],
         embedding_dim: int,
         device: str | torch.device = "cpu",
+        temporal_features: bool = False,
     ) -> None:
         super().__init__()
         self.device = _default_device(device)
         self.embedding_dim = embedding_dim
+        self.temporal_features = temporal_features
 
         # Build vocabularies
         self.entity2idx = {str(e): i for i, e in enumerate(sorted(set(entities)))}
         self.relation2idx = {str(r): i for i, r in enumerate(sorted(set(relations)))}
         self.entity_emb = nn.Embedding(len(self.entity2idx), embedding_dim)
         self.relation_emb = nn.Embedding(len(self.relation2idx), embedding_dim)
-        # Project concatenated triple (head, rel, tail) to E
-        self.token_proj = nn.Linear(embedding_dim * 3, embedding_dim)
+        if self.temporal_features:
+            # Embed the (normalized) arrival timestep of each observed triple,
+            # the sequence analog of the TKG agent's :time_added annotation
+            self.time_proj = nn.Linear(1, embedding_dim)
+            # Project concatenated (head, rel, tail, time) to E
+            self.token_proj = nn.Linear(embedding_dim * 4, embedding_dim)
+        else:
+            # Project concatenated triple (head, rel, tail) to E
+            self.token_proj = nn.Linear(embedding_dim * 3, embedding_dim)
 
         # Question projection: (subj, pred) -> E
         self.q_proj = nn.Linear(embedding_dim * 2, embedding_dim)
@@ -120,7 +129,14 @@ class SimpleSeqTokenizer(nn.Module):
             r_e = self.relation_emb(r_idx)
             t_e = self.entity_emb(t_idx)
 
-            feat = torch.cat([h_e, r_e, t_e], dim=-1)
+            if self.temporal_features:
+                obs_step = float(item[3]) if len(item) >= 4 else 0.0
+                time_e = self.time_proj(
+                    torch.tensor([obs_step / 100.0], device=self.device)
+                )
+                feat = torch.cat([h_e, r_e, t_e, time_e], dim=-1)
+            else:
+                feat = torch.cat([h_e, r_e, t_e], dim=-1)
             tok = self.token_proj(feat)
             tokens.append(tok)
 
@@ -223,12 +239,13 @@ class LSTMSequenceNet(nn.Module):
         action_dim: int,
         mlp_hidden_layers: int = 1,
         device: str | torch.device = "cpu",
+        temporal_features: bool = False,
     ) -> None:
         super().__init__()
         self.device = _default_device(device)
         self.embedding_dim = embedding_dim
         self.tokenizer = SimpleSeqTokenizer(
-            entities, relations, embedding_dim, self.device
+            entities, relations, embedding_dim, self.device, temporal_features
         )
 
         hidden = embedding_dim
@@ -285,12 +302,13 @@ class TransformerSequenceNet(nn.Module):
         mlp_hidden_layers: int = 1,
         dropout: float = 0.0,
         device: str | torch.device = "cpu",
+        temporal_features: bool = False,
     ) -> None:
         super().__init__()
         self.device = _default_device(device)
         self.embedding_dim = embedding_dim
         self.tokenizer = SimpleSeqTokenizer(
-            entities, relations, embedding_dim, self.device
+            entities, relations, embedding_dim, self.device, temporal_features
         )
         self.posenc = PositionalEncoding(embedding_dim)
 

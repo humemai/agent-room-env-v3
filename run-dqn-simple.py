@@ -45,6 +45,7 @@ network_configs = {
     },
 }
 default_root_dir = "training-results-simple-dqn"
+TEMPORAL_FEATURES = False
 
 
 def run_simple_dqn_experiment(run_params):
@@ -114,6 +115,7 @@ def run_simple_dqn_experiment(run_params):
         use_gradient_clipping=True,
         gradient_clip_value=10.0,
         max_long_term_memory_size=p_max_memory,
+        temporal_features=TEMPORAL_FEATURES,
     )
 
     agent.train()
@@ -210,15 +212,43 @@ if __name__ == "__main__":
         default="large-02",
         help="Environment room size (e.g., large-02, large-02-q)",
     )
+    parser.add_argument(
+        "--temporal_features",
+        action="store_true",
+        help="Give observation tokens explicit arrival-time features "
+        "(sequence analog of the TKG agent's :time_added annotation)",
+    )
+    parser.add_argument(
+        "--archs",
+        type=str,
+        default="lstm,transformer",
+        help="Comma-separated architectures to run",
+    )
+    parser.add_argument(
+        "--network_sizes",
+        type=str,
+        default="small,big",
+        help="Comma-separated network sizes to run",
+    )
+    parser.add_argument(
+        "--memory_sizes",
+        type=str,
+        default="0,2,4,8,16,32,64,128,256,512",
+        help="Comma-separated long-term memory capacities to run",
+    )
     args = parser.parse_args()
+
+    if args.temporal_features:
+        TEMPORAL_FEATURES = True
+        default_root_dir = "training-results-simple-dqn-temporal" 
 
     num_processes = args.workers
     room_sizes = [args.env]
     seeds = [0, 5, 10, 15, 20]
-    architecture_types = ["lstm", "transformer"]
-    network_sizes = ["small", "big"]
+    architecture_types = [a.strip() for a in args.archs.split(",") if a.strip()]
+    network_sizes = [n.strip() for n in args.network_sizes.split(",") if n.strip()]
     gamma_values = [0.95]
-    memory_sizes = [0, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+    memory_sizes = [int(m) for m in args.memory_sizes.split(",") if m.strip()]
 
     all_combinations = []
 

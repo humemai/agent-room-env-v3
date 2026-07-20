@@ -63,6 +63,7 @@ class SimpleDQNAgent(Agent):
         use_gradient_clipping: bool = True,
         gradient_clip_value: float = 1.0,
         max_long_term_memory_size: int = 100,
+        temporal_features: bool = False,
     ) -> None:
         """Initialize the SimpleDQNAgent.
 
@@ -151,6 +152,9 @@ class SimpleDQNAgent(Agent):
         self.gradient_clip_value = gradient_clip_value
         self.val_file_names = []
         self.max_long_term_memory_size = max_long_term_memory_size
+        # When enabled, each stored observation carries its arrival timestep,
+        # exposed to the encoder as an explicit temporal feature
+        self.temporal_features = temporal_features
         # Initialize attributes commonly set later to satisfy linters and clarity
         self.observations = None
         self.memory = []  # sequence of (h,r,t) triples
@@ -200,6 +204,7 @@ class SimpleDQNAgent(Agent):
                 action_dim=self.total_actions,
                 mlp_hidden_layers=self.mlp_params.get("num_hidden_layers", 1),
                 device=self.device,
+                temporal_features=self.temporal_features,
             )
             self.dqn_target = LSTMSequenceNet(
                 entities=entities,
@@ -209,6 +214,7 @@ class SimpleDQNAgent(Agent):
                 action_dim=self.total_actions,
                 mlp_hidden_layers=self.mlp_params.get("num_hidden_layers", 1),
                 device=self.device,
+                temporal_features=self.temporal_features,
             )
         elif self.architecture_type == "transformer":
             emb = self.transformer_params.get("embedding_dim", 64)
@@ -225,6 +231,7 @@ class SimpleDQNAgent(Agent):
                 mlp_hidden_layers=self.mlp_params.get("num_hidden_layers", 1),
                 dropout=dropout,
                 device=self.device,
+                temporal_features=self.temporal_features,
             )
             self.dqn_target = TransformerSequenceNet(
                 entities=entities,
@@ -236,6 +243,7 @@ class SimpleDQNAgent(Agent):
                 mlp_hidden_layers=self.mlp_params.get("num_hidden_layers", 1),
                 dropout=dropout,
                 device=self.device,
+                temporal_features=self.temporal_features,
             )
         else:
             raise ValueError(f"Unsupported architecture: {self.architecture_type}")
@@ -306,7 +314,10 @@ class SimpleDQNAgent(Agent):
         # Append observed triples
         for obs in self.observations["room"]:
             if len(obs) >= 3:
-                self.memory.append([str(obs[0]), str(obs[1]), str(obs[2])])
+                entry = [str(obs[0]), str(obs[1]), str(obs[2])]
+                if self.temporal_features:
+                    entry.append(self.current_step)
+                self.memory.append(entry)
         # Enforce capacity (fifo)
         if (
             self.max_long_term_memory_size is not None
