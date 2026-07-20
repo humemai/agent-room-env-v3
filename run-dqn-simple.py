@@ -45,7 +45,6 @@ network_configs = {
     },
 }
 default_root_dir = "training-results-simple-dqn"
-TEMPORAL_FEATURES = False
 
 
 def run_simple_dqn_experiment(run_params):
@@ -59,7 +58,13 @@ def run_simple_dqn_experiment(run_params):
         p_mlp_hidden_layers,
         p_gamma_value,
         p_max_memory,
+        p_temporal,
     ) = run_params
+
+    root_dir = (
+        "training-results-simple-dqn-temporal" if p_temporal
+        else default_root_dir
+    )
 
     batch_size = 32
     terminates_at = 99
@@ -92,7 +97,7 @@ def run_simple_dqn_experiment(run_params):
         },
         num_samples_for_results={"val": 1, "test": 1},  # to account for determinism
         save_results=True,
-        default_root_dir=default_root_dir,
+        default_root_dir=root_dir,
         num_iterations=num_iterations,
         replay_buffer_size=num_iterations,
         batch_size=batch_size,
@@ -115,7 +120,7 @@ def run_simple_dqn_experiment(run_params):
         use_gradient_clipping=True,
         gradient_clip_value=10.0,
         max_long_term_memory_size=p_max_memory,
-        temporal_features=TEMPORAL_FEATURES,
+        temporal_features=p_temporal,
     )
 
     agent.train()
@@ -238,9 +243,11 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    if args.temporal_features:
-        TEMPORAL_FEATURES = True
-        default_root_dir = "training-results-simple-dqn-temporal" 
+    results_root = (
+        "training-results-simple-dqn-temporal"
+        if args.temporal_features
+        else default_root_dir
+    )
 
     num_processes = args.workers
     room_sizes = [args.env]
@@ -270,11 +277,12 @@ if __name__ == "__main__":
                                 config["mlp_hidden_layers"],
                                 gamma_value,
                                 mem_size,
+                                args.temporal_features,
                             )
 
                             # Only add if not already completed
                             if not is_experiment_completed_simple(
-                                exp_params, default_root_dir
+                                exp_params[:-1], results_root
                             ):
                                 all_combinations.append(exp_params)
                             else:
