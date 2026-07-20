@@ -1,0 +1,5006 @@
+@prefix humemai: <https://humem.ai/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<bookshelf> <at_location> <powder> .
+
+<cabinet> <at_location> <parlor> .
+
+<coffeetable> <at_location> <gameroom> .
+
+<diningtable> <at_location> <nook> .
+
+<table> <at_location> <studio> .
+
+<bed> <at_location> <bedroom> .
+
+<desk> <at_location> <gym> .
+
+<door> <at_location> <garage> .
+
+<dresser> <at_location> <foyer> .
+
+<jessica> <at_location> <den>,
+        <study> .
+
+<john> <at_location> <den>,
+        <study> .
+
+<armchair> <at_location> <laundry> .
+
+<emily> <at_location> <cottage>,
+        <suite> .
+
+<floorlamp> <at_location> <attic> .
+
+<sarah> <at_location> <family>,
+        <hallway> .
+
+<sofa> <at_location> <mudroom> .
+
+<stephanie> <at_location> <cafe>,
+        <nook> .
+
+<william> <at_location> <garage>,
+        <living> .
+
+<ceilingfan> <at_location> <sunroom> .
+
+<nightstand> <at_location> <loft> .
+
+<window> <at_location> <dining> .
+
+<chair> <at_location> <nursery> .
+
+<lounge> <east> <bar> ;
+    <north> <wardrobe> ;
+    <south> <wall> ;
+    <west> <parlor> .
+
+<office> <east> <den> ;
+    <north> <wall> ;
+    <south> <family> ;
+    <west> <bathroom> .
+
+<balcony> <east> <sunroom> ;
+    <north> <wall> ;
+    <south> <workshop> ;
+    <west> <patio> .
+
+<cottage> <east> <suite> ;
+    <north> <wall> ;
+    <south> <wall> ;
+    <west> <wall> .
+
+<kitchen> <east> <bedroom> ;
+    <north> <wall> ;
+    <south> <basement> ;
+    <west> <wall> .
+
+<living> <east> <wall> ;
+    <north> <wall> ;
+    <south> <garage> ;
+    <west> <wall> .
+
+<lodge> <east> <wall> ;
+    <north> <storage> ;
+    <south> <nook> ;
+    <west> <cabin> .
+
+<storage> <east> <wall> ;
+    <north> <gameroom> ;
+    <south> <lodge> ;
+    <west> <cellar> .
+
+<basement> <east> <attic> ;
+    <north> <kitchen> ;
+    <south> <pantry>,
+        <wall> ;
+    <west> <garage> .
+
+<guest> <east> <master> ;
+    <north> <den> ;
+    <south> <wall> ;
+    <west> <family> .
+
+<study> <east> <wall> ;
+    <north> <wall> ;
+    <south> <master> ;
+    <west> <den> .
+
+<utility> <east> <mudroom> ;
+    <north> <studio> ;
+    <south> <wall> ;
+    <west> <wall> .
+
+<master> <east> <wall> ;
+    <north> <wall> ;
+    <south> <deck> ;
+    <west> <guest> .
+
+<parlor> <east> <wall> ;
+    <north> <powder> ;
+    <south> <wall> ;
+    <west> <suite> .
+
+<porch> <east> <deck> ;
+    <north> <wall> ;
+    <south> <playroom> ;
+    <west> <hallway> .
+
+<powder> <east> <wall> ;
+    <north> <wall> ;
+    <south> <wall> ;
+    <west> <mudroom> .
+
+<gameroom> <east> <wall> ;
+    <north> <deck> ;
+    <south> <wall> ;
+    <west> <wall> .
+
+<nook> <east> <wall> ;
+    <north> <wall> ;
+    <south> <wall> ;
+    <west> <cafe> .
+
+<pantry> <east> <closet> ;
+    <north> <wall> ;
+    <south> <balcony>,
+        <wall> ;
+    <west> <laundry> .
+
+<spa> <east> <wall> ;
+    <north> <library> ;
+    <south> <wardrobe> ;
+    <west> <gym> .
+
+<den> <east> <study> ;
+    <north> <wall> ;
+    <south> <guest> ;
+    <west> <office> .
+
+<deck> <east> <wall> ;
+    <north> <master> ;
+    <south> <gameroom> ;
+    <west> <porch> .
+
+<studio> <east> <workshop> ;
+    <north> <patio> ;
+    <south> <utility> ;
+    <west> <wall> .
+
+<wardrobe> <at_location> <patio> ;
+    <east> <loft> ;
+    <north> <wall> ;
+    <south> <lounge> ;
+    <west> <wall> .
+
+<workshop> <east> <gym> ;
+    <north> <wall> ;
+    <south> <wall> ;
+    <west> <studio> .
+
+<cellar> <east> <storage> ;
+    <north> <wall> ;
+    <south> <cabin> ;
+    <west> <wall> .
+
+<playroom> <east> <gameroom>,
+        <wall> ;
+    <north> <porch> ;
+    <south> <cellar> ;
+    <west> <nursery> .
+
+<bedroom> <east> <bathroom> ;
+    <north> <wall> ;
+    <south> <wall> ;
+    <west> <kitchen> .
+
+<family> <east> <guest> ;
+    <north> <wall> ;
+    <south> <hallway> ;
+    <west> <dining> .
+
+<bar> <east> <cafe> ;
+    <north> <loft> ;
+    <south> <wall> ;
+    <west> <wall> .
+
+<cafe> <east> <nook> ;
+    <north> <cabin>,
+        <wall> ;
+    <south> <wall> ;
+    <west> <bar> .
+
+<closet> <east> <foyer> ;
+    <north> <attic> ;
+    <south> <sunroom> ;
+    <west> <pantry> .
+
+<suite> <east> <parlor> ;
+    <north> <mudroom> ;
+    <south> <wall> ;
+    <west> <cottage> .
+
+<cabin> <east> <lodge> ;
+    <north> <cellar> ;
+    <south> <cafe> ;
+    <west> <loft> .
+
+<foyer> <east> <hallway> ;
+    <north> <dining> ;
+    <south> <library>,
+        <wall> ;
+    <west> <wall> .
+
+<patio> <east> <balcony> ;
+    <north> <laundry> ;
+    <south> <studio> ;
+    <west> <wall> .
+
+<gym> <east> <wall> ;
+    <north> <sunroom> ;
+    <south> <wall> ;
+    <west> <wall> .
+
+<garage> <east> <wall> ;
+    <north> <living> ;
+    <south> <laundry> ;
+    <west> <wall> .
+
+<laundry> <east> <pantry> ;
+    <north> <garage> ;
+    <south> <patio> ;
+    <west> <wall> .
+
+<bathroom> <east> <office>,
+        <wall> ;
+    <north> <wall> ;
+    <south> <dining> ;
+    <west> <bedroom> .
+
+<hallway> <east> <porch>,
+        <wall> ;
+    <north> <family> ;
+    <south> <wall> ;
+    <west> <foyer> .
+
+<mudroom> <east> <powder> ;
+    <north> <wall>,
+        <workshop> ;
+    <south> <suite> ;
+    <west> <utility> .
+
+<attic> <east> <dining> ;
+    <north> <wall> ;
+    <south> <closet> ;
+    <west> <basement>,
+        <wall> .
+
+<sauna> <east> <wall> ;
+    <north> <nursery> ;
+    <south> <loft> ;
+    <west> <spa>,
+        <wall> .
+
+<loft> <east> <cabin> ;
+    <north> <sauna> ;
+    <south> <bar> ;
+    <west> <wardrobe> .
+
+<dining> <east> <family> ;
+    <north> <bathroom> ;
+    <south> <wall> ;
+    <west> <attic> .
+
+<sunroom> <east> <library> ;
+    <north> <closet> ;
+    <south> <gym> ;
+    <west> <wall> .
+
+<library> <east> <nursery> ;
+    <north> <foyer>,
+        <wall> ;
+    <south> <spa> ;
+    <west> <sunroom> .
+
+<nursery> <east> <playroom> ;
+    <north> <hallway> ;
+    <south> <sauna> ;
+    <west> <library> .
+
+<agent> <at_location> <attic>,
+        <balcony>,
+        <bar>,
+        <basement>,
+        <bathroom>,
+        <bedroom>,
+        <cabin>,
+        <cafe>,
+        <cellar>,
+        <closet>,
+        <cottage>,
+        <deck>,
+        <den>,
+        <dining>,
+        <family>,
+        <foyer>,
+        <gameroom>,
+        <garage>,
+        <guest>,
+        <gym>,
+        <hallway>,
+        <kitchen>,
+        <laundry>,
+        <library>,
+        <living>,
+        <lodge>,
+        <loft>,
+        <lounge>,
+        <master>,
+        <mudroom>,
+        <nook>,
+        <nursery>,
+        <office>,
+        <pantry>,
+        <parlor>,
+        <patio>,
+        <playroom>,
+        <porch>,
+        <powder>,
+        <sauna>,
+        <spa>,
+        <storage>,
+        <studio>,
+        <study>,
+        <suite>,
+        <sunroom>,
+        <utility>,
+        <wardrobe>,
+        <workshop> .
+
+<wall> <at_location> <sauna> .
+
+[] a rdf:Statement ;
+    rdf:object <den> ;
+    rdf:predicate <north> ;
+    rdf:subject <guest> ;
+    humemai:last_accessed "2025-03-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 330 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-01-29T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sauna> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <wall> ;
+    humemai:last_accessed "2025-03-28T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 737 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-03-06T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <lodge> ;
+    rdf:predicate <east> ;
+    rdf:subject <cabin> ;
+    humemai:last_accessed "2025-02-10T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 460 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-10T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <storage> ;
+    rdf:predicate <east> ;
+    rdf:subject <cellar> ;
+    humemai:last_accessed "2025-03-29T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 995 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-29T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <spa> ;
+    rdf:predicate <south> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-02-24T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 618 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-24T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <gym> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-20T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 573 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-20T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <loft> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <nightstand> ;
+    humemai:last_accessed "2025-02-11T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 471 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-11T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <spa> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-23T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 607 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-23T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bedroom> ;
+    rdf:predicate <east> ;
+    rdf:subject <kitchen> ;
+    humemai:last_accessed "2025-03-13T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 813 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-13T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sauna> ;
+    rdf:predicate <south> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-03-27T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 971 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-27T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cafe> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 701 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-03T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <studio> ;
+    rdf:predicate <west> ;
+    rdf:subject <workshop> ;
+    humemai:last_accessed "2025-02-19T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 563 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-19T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <master> ;
+    rdf:predicate <east> ;
+    rdf:subject <guest> ;
+    humemai:last_accessed "2025-01-29T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 333 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-29T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <pantry> ;
+    rdf:predicate <west> ;
+    rdf:subject <closet> ;
+    humemai:last_accessed "2025-04-09T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1116 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-09T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <studio> ;
+    rdf:predicate <west> ;
+    rdf:subject <workshop> ;
+    humemai:last_accessed "2025-01-20T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 227 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-20T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <north> ;
+    rdf:subject <sauna> ;
+    humemai:last_accessed "2025-03-05T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 638 ;
+    humemai:num_recalled 4 ;
+    humemai:time_added "2025-02-26T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <dining> ;
+    rdf:predicate <south> ;
+    rdf:subject <bathroom> ;
+    humemai:last_accessed "2025-03-17T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 857 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-17T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <gym> ;
+    rdf:predicate <south> ;
+    rdf:subject <sunroom> ;
+    humemai:last_accessed "2025-02-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 585 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <foyer> ;
+    rdf:predicate <north> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-01-23T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 260 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-23T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <powder> ;
+    rdf:predicate <north> ;
+    rdf:subject <parlor> ;
+    humemai:last_accessed "2025-02-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 503 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-14T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nook> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <diningtable> ;
+    humemai:last_accessed "2025-03-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 687 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-02T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <mudroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-17T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 192 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-17T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <deck> ;
+    rdf:predicate <north> ;
+    rdf:subject <gameroom> ;
+    humemai:last_accessed "2025-02-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 392 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-03T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <dining> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <window> ;
+    humemai:last_accessed "2025-04-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1096 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-07T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <library> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-24T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 615 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-24T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <attic> ;
+    rdf:predicate <west> ;
+    rdf:subject <dining> ;
+    humemai:last_accessed "2025-03-18T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 869 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-18T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <master> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 369 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-01T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <kitchen> ;
+    humemai:last_accessed "2025-03-13T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 816 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-13T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <gym> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <desk> ;
+    humemai:last_accessed "2025-01-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 236 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sauna> ;
+    rdf:predicate <south> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-02-25T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 627 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-25T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <suite> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <emily> ;
+    humemai:last_accessed "2025-02-15T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 519 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-15T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <mudroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-19T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 217 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-19T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <library> ;
+    rdf:predicate <west> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-04-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1039 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-02T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bathroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-11T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 795 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-11T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <dining> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <window> ;
+    humemai:last_accessed "2025-03-10T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 782 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-10T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <gym> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <desk> ;
+    humemai:last_accessed "2025-03-30T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 572 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-02-20T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <patio> ;
+    rdf:predicate <west> ;
+    rdf:subject <balcony> ;
+    humemai:last_accessed "2025-03-24T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 939 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-24T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <bathroom> ;
+    humemai:last_accessed "2025-03-11T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 792 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-11T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <bedroom> ;
+    humemai:last_accessed "2025-03-12T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 807 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-12T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <gym> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 239 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <porch> ;
+    rdf:predicate <west> ;
+    rdf:subject <deck> ;
+    humemai:last_accessed "2025-02-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 380 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-02-02T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <porch> ;
+    humemai:last_accessed "2025-02-05T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 413 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-05T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <gym> ;
+    humemai:last_accessed "2025-02-20T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 576 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-20T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <wardrobe> ;
+    humemai:last_accessed "2025-02-12T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 482 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-12T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bar> ;
+    rdf:predicate <south> ;
+    rdf:subject <loft> ;
+    humemai:last_accessed "2025-03-05T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 721 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-05T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cafe> ;
+    rdf:predicate <east> ;
+    rdf:subject <bar> ;
+    humemai:last_accessed "2025-03-04T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 712 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-04T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <dining> ;
+    humemai:last_accessed "2025-04-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1093 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-07T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nook> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <stephanie> ;
+    humemai:last_accessed "2025-03-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 691 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-02T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <dining> ;
+    rdf:predicate <east> ;
+    rdf:subject <attic> ;
+    humemai:last_accessed "2025-04-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1082 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-06T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <mudroom> ;
+    rdf:predicate <east> ;
+    rdf:subject <utility> ;
+    humemai:last_accessed "2025-01-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 182 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-16T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <spa> ;
+    rdf:predicate <west> ;
+    rdf:subject <sauna> ;
+    humemai:last_accessed "2025-03-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 736 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-06T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <library> ;
+    rdf:predicate <east> ;
+    rdf:subject <sunroom> ;
+    humemai:last_accessed "2025-02-20T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 250 ;
+    humemai:num_recalled 5 ;
+    humemai:time_added "2025-01-22T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cellar> ;
+    rdf:predicate <south> ;
+    rdf:subject <playroom> ;
+    humemai:last_accessed "2025-03-28T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 983 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-28T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sauna> ;
+    rdf:predicate <north> ;
+    rdf:subject <loft> ;
+    humemai:last_accessed "2025-03-31T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1013 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-31T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 747 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-07T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nook> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 690 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-02T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <spa> ;
+    rdf:predicate <south> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-02-22T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 599 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-22T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <east> ;
+    rdf:subject <balcony> ;
+    humemai:last_accessed "2025-03-24T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 937 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-24T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <patio> ;
+    humemai:last_accessed "2025-03-23T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 929 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-23T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <attic> ;
+    rdf:predicate <east> ;
+    rdf:subject <basement> ;
+    humemai:last_accessed "2025-03-20T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 889 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-20T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <patio> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-23T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 930 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-23T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <guest> ;
+    humemai:last_accessed "2025-01-29T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 332 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-29T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <spa> ;
+    rdf:predicate <west> ;
+    rdf:subject <sauna> ;
+    humemai:last_accessed "2025-02-26T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 640 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-26T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <garage> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <william> ;
+    humemai:last_accessed "2025-03-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 907 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <library> ;
+    rdf:predicate <west> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-01-24T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 273 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-24T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <foyer> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <dresser> ;
+    humemai:last_accessed "2025-03-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 299 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-01-26T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <office> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 847 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-16T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <sauna> ;
+    humemai:last_accessed "2025-02-26T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 639 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-26T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <mudroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <sofa> ;
+    humemai:last_accessed "2025-01-17T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 194 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-17T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <workshop> ;
+    rdf:predicate <north> ;
+    rdf:subject <mudroom> ;
+    humemai:last_accessed "2025-02-17T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 219 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-01-19T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <attic> ;
+    humemai:last_accessed "2025-04-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1080 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-06T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cafe> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <stephanie> ;
+    humemai:last_accessed "2025-03-11T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 702 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-03-03T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <foyer> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-09T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 771 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-09T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <gym> ;
+    rdf:predicate <south> ;
+    rdf:subject <sunroom> ;
+    humemai:last_accessed "2025-01-22T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 252 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-22T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <dining> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-18T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 868 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-18T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <gym> ;
+    humemai:last_accessed "2025-02-20T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 577 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-20T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <hallway> ;
+    humemai:last_accessed "2025-03-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 756 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-08T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <playroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 423 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-06T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <powder> ;
+    rdf:predicate <east> ;
+    rdf:subject <mudroom> ;
+    humemai:last_accessed "2025-01-17T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 190 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-17T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bar> ;
+    rdf:predicate <east> ;
+    rdf:subject <lounge> ;
+    humemai:last_accessed "2025-02-13T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 493 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-13T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <utility> ;
+    humemai:last_accessed "2025-01-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 180 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-16T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <chair> ;
+    humemai:last_accessed "2025-03-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 745 ;
+    humemai:num_recalled 4 ;
+    humemai:time_added "2025-03-07T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <guest> ;
+    rdf:predicate <west> ;
+    rdf:subject <master> ;
+    humemai:last_accessed "2025-02-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 368 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-01T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bathroom> ;
+    rdf:predicate <north> ;
+    rdf:subject <dining> ;
+    humemai:last_accessed "2025-04-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1095 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-07T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bedroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <bed> ;
+    humemai:last_accessed "2025-03-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 829 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-14T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <hallway> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <sarah> ;
+    humemai:last_accessed "2025-03-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 760 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-08T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <kitchen> ;
+    rdf:predicate <west> ;
+    rdf:subject <bedroom> ;
+    humemai:last_accessed "2025-03-12T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 806 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-12T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bedroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-12T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 802 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-12T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <utility> ;
+    rdf:predicate <west> ;
+    rdf:subject <mudroom> ;
+    humemai:last_accessed "2025-01-19T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 216 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-19T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <playroom> ;
+    rdf:predicate <east> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-01-24T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 274 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-24T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <utility> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 181 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-16T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <loft> ;
+    rdf:predicate <north> ;
+    rdf:subject <bar> ;
+    humemai:last_accessed "2025-03-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 664 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-02-28T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <suite> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-17T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 540 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-17T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <suite> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <emily> ;
+    humemai:last_accessed "2025-04-09T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 539 ;
+    humemai:num_recalled 3 ;
+    humemai:time_added "2025-02-17T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <garage> ;
+    humemai:last_accessed "2025-03-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 902 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <hallway> ;
+    rdf:predicate <east> ;
+    rdf:subject <foyer> ;
+    humemai:last_accessed "2025-01-26T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 298 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-26T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <west> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-01-23T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 261 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-23T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <studio> ;
+    rdf:predicate <south> ;
+    rdf:subject <patio> ;
+    humemai:last_accessed "2025-01-13T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 84 ;
+    humemai:num_recalled 3 ;
+    humemai:time_added "2025-01-08T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <chair> ;
+    humemai:last_accessed "2025-03-27T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 973 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-27T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <playroom> ;
+    rdf:predicate <east> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-04-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1040 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-02T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <loft> ;
+    rdf:predicate <north> ;
+    rdf:subject <bar> ;
+    humemai:last_accessed "2025-03-04T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 711 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-04T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <attic> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-04-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1083 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-06T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cellar> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-29T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 993 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-29T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <lounge> ;
+    rdf:predicate <south> ;
+    rdf:subject <wardrobe> ;
+    humemai:last_accessed "2025-02-12T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 483 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-12T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-02-22T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 595 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-22T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <patio> ;
+    rdf:predicate <south> ;
+    rdf:subject <laundry> ;
+    humemai:last_accessed "2025-03-22T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 918 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-22T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <laundry> ;
+    rdf:predicate <south> ;
+    rdf:subject <garage> ;
+    humemai:last_accessed "2025-03-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 905 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <gym> ;
+    humemai:last_accessed "2025-01-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 241 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <garage> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-12T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 132 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-12T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <pantry> ;
+    humemai:current_time "2025-04-10T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1124 .
+
+[] a rdf:Statement ;
+    rdf:object <bar> ;
+    rdf:predicate <south> ;
+    rdf:subject <loft> ;
+    humemai:last_accessed "2025-03-31T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1014 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-31T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cafe> ;
+    rdf:predicate <south> ;
+    rdf:subject <cabin> ;
+    humemai:last_accessed "2025-02-10T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 462 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-10T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <north> ;
+    rdf:subject <gym> ;
+    humemai:last_accessed "2025-02-20T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 575 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-20T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <library> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-22T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 596 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-22T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <attic> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <floorlamp> ;
+    humemai:last_accessed "2025-04-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1085 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-06T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <closet> ;
+    rdf:predicate <south> ;
+    rdf:subject <attic> ;
+    humemai:last_accessed "2025-03-19T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 880 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-19T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <hallway> ;
+    rdf:predicate <north> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-03-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 744 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-07T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <workshop> ;
+    rdf:predicate <north> ;
+    rdf:subject <mudroom> ;
+    humemai:last_accessed "2025-02-18T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 554 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-18T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <gym> ;
+    humemai:last_accessed "2025-01-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 240 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bathroom> ;
+    rdf:predicate <north> ;
+    rdf:subject <dining> ;
+    humemai:last_accessed "2025-03-10T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 785 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-10T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <gameroom> ;
+    humemai:last_accessed "2025-02-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 391 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-03T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bedroom> ;
+    rdf:predicate <west> ;
+    rdf:subject <bathroom> ;
+    humemai:last_accessed "2025-04-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 859 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-03-17T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <dining> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-27T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 308 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-27T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <workshop> ;
+    humemai:last_accessed "2025-01-20T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 225 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-20T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cabin> ;
+    rdf:predicate <east> ;
+    rdf:subject <loft> ;
+    humemai:last_accessed "2025-02-27T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 653 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-27T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <gym> ;
+    humemai:last_accessed "2025-02-20T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 574 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-20T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <closet> ;
+    rdf:predicate <north> ;
+    rdf:subject <sunroom> ;
+    humemai:last_accessed "2025-04-04T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1059 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-04T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <gym> ;
+    rdf:predicate <east> ;
+    rdf:subject <workshop> ;
+    humemai:last_accessed "2025-02-19T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 565 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-19T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <parlor> ;
+    humemai:last_accessed "2025-02-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 502 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-14T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <den> ;
+    humemai:last_accessed "2025-01-30T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 342 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-30T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <garage> ;
+    rdf:predicate <south> ;
+    rdf:subject <living> ;
+    humemai:last_accessed "2025-01-11T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 120 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-11T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bathroom> ;
+    rdf:predicate <north> ;
+    rdf:subject <dining> ;
+    humemai:last_accessed "2025-04-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 871 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-03-18T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <porch> ;
+    rdf:predicate <north> ;
+    rdf:subject <playroom> ;
+    humemai:last_accessed "2025-02-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 419 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-06T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <family> ;
+    rdf:predicate <west> ;
+    rdf:subject <guest> ;
+    humemai:last_accessed "2025-01-29T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 331 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-29T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-04-04T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1061 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-04T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <cafe> ;
+    humemai:last_accessed "2025-03-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 674 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-01T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bathroom> ;
+    rdf:predicate <east> ;
+    rdf:subject <bedroom> ;
+    humemai:last_accessed "2025-03-13T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 803 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-03-12T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cabin> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-30T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1004 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-30T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <loft> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-27T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 654 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-27T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <family> ;
+    rdf:predicate <east> ;
+    rdf:subject <dining> ;
+    humemai:last_accessed "2025-01-27T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 306 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-27T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <patio> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <wardrobe> ;
+    humemai:last_accessed "2025-04-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 931 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-03-23T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cellar> ;
+    rdf:predicate <north> ;
+    rdf:subject <cabin> ;
+    humemai:last_accessed "2025-02-10T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 459 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-10T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <hallway> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 758 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-08T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <gym> ;
+    humemai:last_accessed "2025-01-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 238 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <workshop> ;
+    humemai:last_accessed "2025-02-19T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 564 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-19T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <garage> ;
+    humemai:last_accessed "2025-01-12T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 137 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-12T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <powder> ;
+    rdf:predicate <east> ;
+    rdf:subject <mudroom> ;
+    humemai:last_accessed "2025-01-19T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 215 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-19T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <den> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <john> ;
+    humemai:last_accessed "2025-01-30T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 347 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-30T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <attic> ;
+    rdf:predicate <west> ;
+    rdf:subject <dining> ;
+    humemai:last_accessed "2025-03-17T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 781 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-03-10T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <east> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-01-23T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 263 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-23T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <study> ;
+    humemai:last_accessed "2025-01-31T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 361 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-31T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <library> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-23T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 259 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-23T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <kitchen> ;
+    humemai:last_accessed "2025-03-13T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 814 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-13T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <patio> ;
+    rdf:predicate <south> ;
+    rdf:subject <laundry> ;
+    humemai:last_accessed "2025-01-12T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 92 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-01-09T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <loft> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-05T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 724 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-05T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <bathroom> ;
+    humemai:last_accessed "2025-03-17T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 855 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-17T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <foyer> ;
+    rdf:predicate <east> ;
+    rdf:subject <closet> ;
+    humemai:last_accessed "2025-04-05T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1069 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-05T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <basement> ;
+    rdf:predicate <south> ;
+    rdf:subject <kitchen> ;
+    humemai:last_accessed "2025-04-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 815 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-03-13T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <loft> ;
+    rdf:predicate <south> ;
+    rdf:subject <sauna> ;
+    humemai:last_accessed "2025-02-26T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 643 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-26T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <attic> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <floorlamp> ;
+    humemai:last_accessed "2025-03-19T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 883 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-19T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bar> ;
+    rdf:predicate <south> ;
+    rdf:subject <loft> ;
+    humemai:last_accessed "2025-02-27T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 655 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-27T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <west> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-02-22T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 597 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-22T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <library> ;
+    rdf:predicate <west> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-02-25T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 626 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-25T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <library> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-04-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1048 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-03T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <dining> ;
+    rdf:predicate <east> ;
+    rdf:subject <attic> ;
+    humemai:last_accessed "2025-04-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1106 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-08T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <master> ;
+    rdf:predicate <south> ;
+    rdf:subject <study> ;
+    humemai:last_accessed "2025-01-31T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 358 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-31T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <west> ;
+    rdf:subject <playroom> ;
+    humemai:last_accessed "2025-02-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 422 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-06T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <studio> ;
+    rdf:predicate <south> ;
+    rdf:subject <patio> ;
+    humemai:last_accessed "2025-03-23T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 928 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-23T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <parlor> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <cabinet> ;
+    humemai:last_accessed "2025-03-26T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 504 ;
+    humemai:num_recalled 3 ;
+    humemai:time_added "2025-02-14T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <closet> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-04-05T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1073 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-05T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <gameroom> ;
+    rdf:predicate <north> ;
+    rdf:subject <storage> ;
+    humemai:last_accessed "2025-02-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 442 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-08T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cafe> ;
+    rdf:predicate <east> ;
+    rdf:subject <bar> ;
+    humemai:last_accessed "2025-02-28T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 665 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-28T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <cottage> ;
+    humemai:last_accessed "2025-02-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 530 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-16T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cafe> ;
+    rdf:predicate <west> ;
+    rdf:subject <nook> ;
+    humemai:last_accessed "2025-03-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 686 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-02T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <closet> ;
+    rdf:predicate <north> ;
+    rdf:subject <sunroom> ;
+    humemai:last_accessed "2025-01-22T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 253 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-22T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <basement> ;
+    rdf:predicate <west> ;
+    rdf:subject <attic> ;
+    humemai:last_accessed "2025-04-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1104 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-08T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <study> ;
+    rdf:predicate <east> ;
+    rdf:subject <den> ;
+    humemai:last_accessed "2025-01-30T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 341 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-30T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <loft> ;
+    rdf:predicate <west> ;
+    rdf:subject <cabin> ;
+    humemai:last_accessed "2025-02-10T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 461 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-10T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <deck> ;
+    humemai:last_accessed "2025-02-04T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 401 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-04T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <powder> ;
+    humemai:last_accessed "2025-01-18T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 203 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-18T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <gameroom> ;
+    humemai:last_accessed "2025-02-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 388 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-03T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <sauna> ;
+    humemai:last_accessed "2025-03-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 732 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-06T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <office> ;
+    rdf:predicate <east> ;
+    rdf:subject <bathroom> ;
+    humemai:last_accessed "2025-03-15T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 838 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-15T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <attic> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-04-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1108 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-08T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <suite> ;
+    rdf:predicate <south> ;
+    rdf:subject <mudroom> ;
+    humemai:last_accessed "2025-01-19T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 218 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-19T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-22T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 249 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-22T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <cafe> ;
+    humemai:last_accessed "2025-03-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 675 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-01T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <sunroom> ;
+    humemai:last_accessed "2025-01-22T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 251 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-22T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <balcony> ;
+    humemai:last_accessed "2025-03-24T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 940 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-24T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <gameroom> ;
+    rdf:predicate <east> ;
+    rdf:subject <playroom> ;
+    humemai:last_accessed "2025-03-28T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 982 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-28T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <pantry> ;
+    rdf:predicate <south> ;
+    rdf:subject <basement> ;
+    humemai:last_accessed "2025-03-19T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 49 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-01-05T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <suite> ;
+    rdf:predicate <east> ;
+    rdf:subject <cottage> ;
+    humemai:last_accessed "2025-02-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 528 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-16T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <workshop> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-19T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 561 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-19T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cabin> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-10T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 463 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-10T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <east> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-02-23T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 598 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-02-22T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <patio> ;
+    rdf:predicate <north> ;
+    rdf:subject <studio> ;
+    humemai:last_accessed "2025-01-15T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 170 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-15T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <closet> ;
+    rdf:predicate <north> ;
+    rdf:subject <sunroom> ;
+    humemai:last_accessed "2025-02-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 587 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sauna> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 735 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-06T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <nook> ;
+    humemai:last_accessed "2025-03-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 685 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-02T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <patio> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 161 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-14T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <porch> ;
+    rdf:predicate <west> ;
+    rdf:subject <deck> ;
+    humemai:last_accessed "2025-02-04T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 403 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-04T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sauna> ;
+    rdf:predicate <north> ;
+    rdf:subject <loft> ;
+    humemai:last_accessed "2025-03-04T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 652 ;
+    humemai:num_recalled 3 ;
+    humemai:time_added "2025-02-27T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <balcony> ;
+    rdf:predicate <east> ;
+    rdf:subject <patio> ;
+    humemai:last_accessed "2025-03-23T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 927 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-23T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bathroom> ;
+    rdf:predicate <east> ;
+    rdf:subject <bedroom> ;
+    humemai:last_accessed "2025-03-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 825 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-14T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sauna> ;
+    rdf:predicate <south> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-04-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1038 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-02T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bar> ;
+    rdf:predicate <south> ;
+    rdf:subject <loft> ;
+    humemai:last_accessed "2025-02-26T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 475 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-02-11T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <mudroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <sofa> ;
+    humemai:last_accessed "2025-02-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 214 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-01-19T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <cellar> ;
+    humemai:last_accessed "2025-02-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 431 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-07T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <study> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <john> ;
+    humemai:last_accessed "2025-02-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 357 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-01-31T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <loft> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-11T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 470 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-11T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <sauna> ;
+    humemai:last_accessed "2025-04-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1028 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-01T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <hallway> ;
+    rdf:predicate <north> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-04-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1041 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-02T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cafe> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <stephanie> ;
+    humemai:last_accessed "2025-03-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 672 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-01T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cabin> ;
+    rdf:predicate <south> ;
+    rdf:subject <cellar> ;
+    humemai:last_accessed "2025-03-29T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 994 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-29T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <family> ;
+    rdf:predicate <south> ;
+    rdf:subject <office> ;
+    humemai:last_accessed "2025-03-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 849 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-16T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <loft> ;
+    rdf:predicate <west> ;
+    rdf:subject <cabin> ;
+    humemai:last_accessed "2025-03-30T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1002 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-30T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <attic> ;
+    humemai:last_accessed "2025-04-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1105 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-08T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <garage> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 906 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <foyer> ;
+    humemai:last_accessed "2025-03-09T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 769 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-09T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <pantry> ;
+    humemai:current_time "2025-04-10T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1123 .
+
+[] a rdf:Statement ;
+    rdf:object <guest> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-29T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 329 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-29T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bar> ;
+    rdf:predicate <west> ;
+    rdf:subject <cafe> ;
+    humemai:last_accessed "2025-03-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 673 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-03-01T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <foyer> ;
+    rdf:predicate <east> ;
+    rdf:subject <closet> ;
+    humemai:last_accessed "2025-04-09T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1115 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-09T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <studio> ;
+    humemai:last_accessed "2025-01-15T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 172 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-15T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cottage> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 531 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-16T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <powder> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-18T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 206 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-18T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <family> ;
+    rdf:predicate <east> ;
+    rdf:subject <dining> ;
+    humemai:last_accessed "2025-03-18T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 866 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-18T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bar> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-28T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 663 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-28T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <parlor> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 506 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-14T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <office> ;
+    rdf:predicate <west> ;
+    rdf:subject <den> ;
+    humemai:last_accessed "2025-03-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 344 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-01-30T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <cottage> ;
+    humemai:last_accessed "2025-02-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 527 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-16T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <foyer> ;
+    rdf:predicate <north> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-02-24T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 619 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-24T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sauna> ;
+    rdf:predicate <south> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-03-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 746 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-07T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <loft> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <nightstand> ;
+    humemai:last_accessed "2025-03-13T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 723 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-03-05T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <hallway> ;
+    rdf:predicate <south> ;
+    rdf:subject <family> ;
+    humemai:last_accessed "2025-01-28T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 323 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-28T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <laundry> ;
+    rdf:predicate <north> ;
+    rdf:subject <patio> ;
+    humemai:last_accessed "2025-01-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 160 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-14T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <playroom> ;
+    rdf:predicate <east> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-03-26T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 748 ;
+    humemai:num_recalled 3 ;
+    humemai:time_added "2025-03-07T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <north> ;
+    rdf:subject <sauna> ;
+    humemai:last_accessed "2025-04-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1025 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-01T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <attic> ;
+    rdf:predicate <west> ;
+    rdf:subject <dining> ;
+    humemai:last_accessed "2025-01-27T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 311 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-27T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <dining> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-04-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1094 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-07T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <sunroom> ;
+    humemai:last_accessed "2025-04-04T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1058 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-04T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <family> ;
+    rdf:predicate <north> ;
+    rdf:subject <hallway> ;
+    humemai:last_accessed "2025-01-25T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 286 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-25T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <hallway> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-25T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 282 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-25T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <powder> ;
+    rdf:predicate <east> ;
+    rdf:subject <mudroom> ;
+    humemai:last_accessed "2025-02-18T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 552 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-18T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <library> ;
+    rdf:predicate <west> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-04-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 970 ;
+    humemai:num_recalled 3 ;
+    humemai:time_added "2025-03-27T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <bar> ;
+    humemai:last_accessed "2025-03-04T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 713 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-04T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <laundry> ;
+    humemai:last_accessed "2025-01-13T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 144 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-13T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <garage> ;
+    rdf:predicate <north> ;
+    rdf:subject <laundry> ;
+    humemai:last_accessed "2025-01-13T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 147 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-13T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <bedroom> ;
+    humemai:last_accessed "2025-03-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 827 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-14T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <lounge> ;
+    humemai:last_accessed "2025-02-13T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 494 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-13T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <laundry> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <armchair> ;
+    humemai:last_accessed "2025-01-13T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 145 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-13T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <garage> ;
+    humemai:last_accessed "2025-03-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 904 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <spa> ;
+    rdf:predicate <south> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-02-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 262 ;
+    humemai:num_recalled 6 ;
+    humemai:time_added "2025-01-23T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <lodge> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-09T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 449 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-09T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <east> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-01-22T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 6 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-01-01T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <foyer> ;
+    humemai:last_accessed "2025-01-26T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 295 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-26T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <pantry> ;
+    rdf:predicate <east> ;
+    rdf:subject <laundry> ;
+    humemai:last_accessed "2025-01-13T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 149 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-13T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <kitchen> ;
+    rdf:predicate <west> ;
+    rdf:subject <bedroom> ;
+    humemai:last_accessed "2025-04-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 826 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-03-14T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <laundry> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <armchair> ;
+    humemai:last_accessed "2025-01-10T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 94 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-01-09T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <dining> ;
+    humemai:last_accessed "2025-01-27T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 309 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-27T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <utility> ;
+    humemai:last_accessed "2025-01-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 179 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-16T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <suite> ;
+    rdf:predicate <south> ;
+    rdf:subject <mudroom> ;
+    humemai:last_accessed "2025-01-18T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 195 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-01-17T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <deck> ;
+    rdf:predicate <east> ;
+    rdf:subject <porch> ;
+    humemai:last_accessed "2025-02-05T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 410 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-05T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <closet> ;
+    rdf:predicate <south> ;
+    rdf:subject <attic> ;
+    humemai:last_accessed "2025-04-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1107 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-08T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <powder> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <bookshelf> ;
+    humemai:last_accessed "2025-02-23T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 207 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-01-18T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <west> ;
+    rdf:subject <playroom> ;
+    humemai:last_accessed "2025-03-28T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 981 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-28T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <dining> ;
+    rdf:predicate <south> ;
+    rdf:subject <bathroom> ;
+    humemai:last_accessed "2025-03-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 835 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-03-15T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <garage> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <william> ;
+    humemai:last_accessed "2025-03-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 134 ;
+    humemai:num_recalled 6 ;
+    humemai:time_added "2025-01-12T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <gameroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <coffeetable> ;
+    humemai:last_accessed "2025-02-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 393 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-03T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <south> ;
+    rdf:subject <closet> ;
+    humemai:last_accessed "2025-04-05T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1071 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-05T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <playroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-28T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 985 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-28T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <lodge> ;
+    rdf:predicate <south> ;
+    rdf:subject <storage> ;
+    humemai:last_accessed "2025-02-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 443 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-08T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <laundry> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-13T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 148 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-13T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <parlor> ;
+    rdf:predicate <west> ;
+    rdf:subject <lounge> ;
+    humemai:last_accessed "2025-02-13T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 491 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-13T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <north> ;
+    rdf:subject <gym> ;
+    humemai:last_accessed "2025-02-19T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 237 ;
+    humemai:num_recalled 4 ;
+    humemai:time_added "2025-01-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <mudroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-18T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 550 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-18T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <pantry> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:current_time "2025-04-10T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1120 .
+
+[] a rdf:Statement ;
+    rdf:object <garage> ;
+    rdf:predicate <north> ;
+    rdf:subject <laundry> ;
+    humemai:last_accessed "2025-03-22T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 919 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-22T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <loft> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <nightstand> ;
+    humemai:last_accessed "2025-04-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1017 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-03-31T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <lodge> ;
+    rdf:predicate <east> ;
+    rdf:subject <cabin> ;
+    humemai:last_accessed "2025-03-30T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1005 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-30T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <gym> ;
+    rdf:predicate <east> ;
+    rdf:subject <workshop> ;
+    humemai:last_accessed "2025-02-18T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 228 ;
+    humemai:num_recalled 3 ;
+    humemai:time_added "2025-01-20T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cabin> ;
+    rdf:predicate <west> ;
+    rdf:subject <lodge> ;
+    humemai:last_accessed "2025-02-09T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 451 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-09T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <parlor> ;
+    humemai:last_accessed "2025-02-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 507 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-14T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <suite> ;
+    rdf:predicate <south> ;
+    rdf:subject <mudroom> ;
+    humemai:last_accessed "2025-02-18T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 553 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-18T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cabin> ;
+    rdf:predicate <east> ;
+    rdf:subject <loft> ;
+    humemai:last_accessed "2025-03-31T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1016 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-31T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <porch> ;
+    rdf:predicate <east> ;
+    rdf:subject <hallway> ;
+    humemai:last_accessed "2025-03-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 761 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-08T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <master> ;
+    rdf:predicate <north> ;
+    rdf:subject <deck> ;
+    humemai:last_accessed "2025-02-04T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 402 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-04T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <suite> ;
+    humemai:last_accessed "2025-02-15T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 516 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-15T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-24T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 271 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-24T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <basement> ;
+    humemai:last_accessed "2025-03-20T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 891 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-20T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <bathroom> ;
+    humemai:last_accessed "2025-03-15T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 836 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-15T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <foyer> ;
+    rdf:predicate <west> ;
+    rdf:subject <hallway> ;
+    humemai:last_accessed "2025-03-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 759 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-08T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <master> ;
+    humemai:last_accessed "2025-02-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 370 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-01T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cellar> ;
+    rdf:predicate <west> ;
+    rdf:subject <storage> ;
+    humemai:last_accessed "2025-02-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 441 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-08T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <master> ;
+    humemai:last_accessed "2025-02-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 367 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-01T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cottage> ;
+    rdf:predicate <west> ;
+    rdf:subject <suite> ;
+    humemai:last_accessed "2025-02-15T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 517 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-15T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <parlor> ;
+    rdf:predicate <east> ;
+    rdf:subject <suite> ;
+    humemai:last_accessed "2025-02-17T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 542 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-17T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <family> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <sarah> ;
+    humemai:last_accessed "2025-02-10T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 318 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-01-28T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bar> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-04T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 710 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-04T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <library> ;
+    rdf:predicate <east> ;
+    rdf:subject <sunroom> ;
+    humemai:last_accessed "2025-03-25T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 952 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-25T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <playroom> ;
+    humemai:last_accessed "2025-02-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 421 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-06T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <porch> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-05T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 412 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-05T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <dining> ;
+    humemai:last_accessed "2025-03-18T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 867 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-18T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <chair> ;
+    humemai:last_accessed "2025-02-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 272 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-01-24T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <dining> ;
+    rdf:predicate <north> ;
+    rdf:subject <foyer> ;
+    humemai:last_accessed "2025-03-09T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 773 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-09T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <bedroom> ;
+    humemai:last_accessed "2025-03-12T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 804 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-12T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <pantry> ;
+    rdf:predicate <west> ;
+    rdf:subject <closet> ;
+    humemai:last_accessed "2025-04-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1070 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-04-05T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <cafe> ;
+    humemai:last_accessed "2025-03-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 703 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-03T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <kitchen> ;
+    rdf:predicate <north> ;
+    rdf:subject <basement> ;
+    humemai:last_accessed "2025-03-20T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 892 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-20T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <deck> ;
+    humemai:last_accessed "2025-02-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 377 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-02T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <loft> ;
+    rdf:predicate <south> ;
+    rdf:subject <sauna> ;
+    humemai:last_accessed "2025-03-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 734 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-06T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sauna> ;
+    rdf:predicate <north> ;
+    rdf:subject <loft> ;
+    humemai:last_accessed "2025-03-30T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 722 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-03-05T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <loft> ;
+    rdf:predicate <south> ;
+    rdf:subject <sauna> ;
+    humemai:last_accessed "2025-04-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1024 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-01T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <balcony> ;
+    rdf:predicate <south> ;
+    rdf:subject <pantry> ;
+    humemai:last_accessed "2025-03-19T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 60 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-01-06T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <playroom> ;
+    rdf:predicate <south> ;
+    rdf:subject <porch> ;
+    humemai:last_accessed "2025-02-05T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 411 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-05T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <spa> ;
+    humemai:last_accessed "2025-02-23T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 608 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-23T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sauna> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-04-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1026 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-01T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <parlor> ;
+    rdf:predicate <east> ;
+    rdf:subject <suite> ;
+    humemai:last_accessed "2025-02-15T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 514 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-15T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <hallway> ;
+    rdf:predicate <east> ;
+    rdf:subject <foyer> ;
+    humemai:last_accessed "2025-03-09T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 770 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-09T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nook> ;
+    rdf:predicate <east> ;
+    rdf:subject <cafe> ;
+    humemai:last_accessed "2025-03-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 700 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-03T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <dining> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <window> ;
+    humemai:last_accessed "2025-03-18T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 870 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-18T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <studio> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <table> ;
+    humemai:last_accessed "2025-04-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 169 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-01-15T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <utility> ;
+    rdf:predicate <west> ;
+    rdf:subject <mudroom> ;
+    humemai:last_accessed "2025-02-18T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 551 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-18T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <chair> ;
+    humemai:last_accessed "2025-03-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 630 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-02-25T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <laundry> ;
+    humemai:last_accessed "2025-03-22T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 914 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-22T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <laundry> ;
+    rdf:predicate <south> ;
+    rdf:subject <garage> ;
+    humemai:last_accessed "2025-03-20T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 136 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-01-12T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <gym> ;
+    rdf:predicate <south> ;
+    rdf:subject <sunroom> ;
+    humemai:last_accessed "2025-03-25T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 950 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-25T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <powder> ;
+    humemai:last_accessed "2025-01-18T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 205 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-18T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <storage> ;
+    rdf:predicate <east> ;
+    rdf:subject <cellar> ;
+    humemai:last_accessed "2025-02-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 429 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-07T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <workshop> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-20T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 229 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-20T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <attic> ;
+    rdf:predicate <north> ;
+    rdf:subject <closet> ;
+    humemai:last_accessed "2025-04-09T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1117 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-09T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <hallway> ;
+    rdf:predicate <north> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-03-27T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 975 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-27T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nook> ;
+    rdf:predicate <south> ;
+    rdf:subject <lodge> ;
+    humemai:last_accessed "2025-02-09T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 453 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-09T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <deck> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 381 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-02T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <foyer> ;
+    humemai:last_accessed "2025-01-26T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 297 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-26T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <living> ;
+    humemai:last_accessed "2025-01-11T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 123 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-11T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <attic> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-19T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 881 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-19T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <workshop> ;
+    rdf:predicate <south> ;
+    rdf:subject <balcony> ;
+    humemai:last_accessed "2025-03-24T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 938 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-24T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <laundry> ;
+    rdf:predicate <west> ;
+    rdf:subject <pantry> ;
+    humemai:current_time "2025-04-10T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1122 .
+
+[] a rdf:Statement ;
+    rdf:object <hallway> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <sarah> ;
+    humemai:last_accessed "2025-01-25T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 285 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-25T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <mudroom> ;
+    rdf:predicate <north> ;
+    rdf:subject <suite> ;
+    humemai:last_accessed "2025-02-17T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 541 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-17T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <closet> ;
+    rdf:predicate <east> ;
+    rdf:subject <pantry> ;
+    humemai:current_time "2025-04-10T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1121 .
+
+[] a rdf:Statement ;
+    rdf:object <library> ;
+    rdf:predicate <east> ;
+    rdf:subject <sunroom> ;
+    humemai:last_accessed "2025-03-24T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 584 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-02-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <foyer> ;
+    rdf:predicate <west> ;
+    rdf:subject <hallway> ;
+    humemai:last_accessed "2025-03-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 284 ;
+    humemai:num_recalled 6 ;
+    humemai:time_added "2025-01-25T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <gameroom> ;
+    humemai:last_accessed "2025-02-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 389 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-03T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wardrobe> ;
+    rdf:predicate <west> ;
+    rdf:subject <loft> ;
+    humemai:last_accessed "2025-03-31T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1012 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-31T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <deck> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-04T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 400 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-04T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <sunroom> ;
+    humemai:last_accessed "2025-02-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 589 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <den> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <jessica> ;
+    humemai:last_accessed "2025-01-30T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 343 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-30T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <den> ;
+    rdf:predicate <west> ;
+    rdf:subject <study> ;
+    humemai:last_accessed "2025-01-31T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 355 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-31T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <east> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-03-25T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 616 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-02-24T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <studio> ;
+    rdf:predicate <north> ;
+    rdf:subject <utility> ;
+    humemai:last_accessed "2025-01-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 183 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-16T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wardrobe> ;
+    rdf:predicate <west> ;
+    rdf:subject <loft> ;
+    humemai:last_accessed "2025-02-27T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 650 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-27T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <study> ;
+    humemai:last_accessed "2025-01-31T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 359 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-31T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <playroom> ;
+    rdf:predicate <east> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-02-25T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 631 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-25T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <library> ;
+    rdf:predicate <east> ;
+    rdf:subject <sunroom> ;
+    humemai:last_accessed "2025-04-04T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1063 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-04T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bathroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-17T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 856 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-17T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <office> ;
+    humemai:last_accessed "2025-03-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 848 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-16T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <workshop> ;
+    humemai:last_accessed "2025-02-19T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 562 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-19T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <laundry> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-22T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 915 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-22T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sauna> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-26T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 642 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-26T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bathroom> ;
+    rdf:predicate <west> ;
+    rdf:subject <office> ;
+    humemai:last_accessed "2025-03-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 845 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-16T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <lounge> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-13T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 492 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-13T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-03-26T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 960 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-26T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <ceilingfan> ;
+    humemai:last_accessed "2025-02-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 588 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <attic> ;
+    rdf:predicate <west> ;
+    rdf:subject <dining> ;
+    humemai:last_accessed "2025-04-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1097 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-07T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <mudroom> ;
+    rdf:predicate <north> ;
+    rdf:subject <suite> ;
+    humemai:last_accessed "2025-02-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 515 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-02-15T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <east> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-04-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1047 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-03T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <gym> ;
+    rdf:predicate <west> ;
+    rdf:subject <spa> ;
+    humemai:last_accessed "2025-02-23T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 609 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-23T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nook> ;
+    rdf:predicate <east> ;
+    rdf:subject <cafe> ;
+    humemai:last_accessed "2025-03-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 677 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-01T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <hallway> ;
+    rdf:predicate <north> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-01-24T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 270 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-24T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <closet> ;
+    rdf:predicate <north> ;
+    rdf:subject <sunroom> ;
+    humemai:last_accessed "2025-04-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 949 ;
+    humemai:num_recalled 5 ;
+    humemai:time_added "2025-03-25T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <ceilingfan> ;
+    humemai:last_accessed "2025-03-25T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 951 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-25T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <ceilingfan> ;
+    humemai:last_accessed "2025-04-04T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1060 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-04T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <chair> ;
+    humemai:last_accessed "2025-04-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1036 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-02T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <family> ;
+    rdf:predicate <east> ;
+    rdf:subject <dining> ;
+    humemai:last_accessed "2025-03-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 783 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-03-10T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <powder> ;
+    humemai:last_accessed "2025-01-18T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 204 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-18T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sauna> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <wall> ;
+    humemai:last_accessed "2025-02-26T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 641 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-26T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <library> ;
+    rdf:predicate <north> ;
+    rdf:subject <spa> ;
+    humemai:last_accessed "2025-02-23T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 605 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-23T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <cellar> ;
+    humemai:last_accessed "2025-02-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 433 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-07T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <west> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-02-24T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 617 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-24T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <storage> ;
+    humemai:last_accessed "2025-02-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 439 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-08T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <mudroom> ;
+    humemai:last_accessed "2025-01-17T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 191 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-17T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wardrobe> ;
+    rdf:predicate <south> ;
+    rdf:subject <spa> ;
+    humemai:last_accessed "2025-02-23T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 606 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-23T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-27T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 974 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-27T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <spa> ;
+    rdf:predicate <south> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-03-26T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 959 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-26T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <balcony> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-24T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 941 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-24T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bedroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 828 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-14T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <porch> ;
+    rdf:predicate <north> ;
+    rdf:subject <playroom> ;
+    humemai:last_accessed "2025-03-28T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 984 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-28T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-04-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1049 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-03T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bedroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <bed> ;
+    humemai:last_accessed "2025-03-12T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 805 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-12T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <lodge> ;
+    humemai:last_accessed "2025-02-09T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 452 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-09T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <utility> ;
+    rdf:predicate <west> ;
+    rdf:subject <mudroom> ;
+    humemai:last_accessed "2025-01-17T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 193 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-17T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <loft> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <nightstand> ;
+    humemai:last_accessed "2025-02-27T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 651 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-27T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <family> ;
+    rdf:predicate <east> ;
+    rdf:subject <dining> ;
+    humemai:last_accessed "2025-04-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1092 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-07T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <kitchen> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-13T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 817 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-13T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bathroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-15T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 839 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-15T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <library> ;
+    rdf:predicate <east> ;
+    rdf:subject <sunroom> ;
+    humemai:last_accessed "2025-01-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 18 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-01-02T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <bar> ;
+    humemai:last_accessed "2025-03-04T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 709 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-04T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <playroom> ;
+    rdf:predicate <east> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-03-27T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 972 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-27T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <garage> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <door> ;
+    humemai:last_accessed "2025-02-24T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 131 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-01-12T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wardrobe> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-12T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 485 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-12T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <den> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-30T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 346 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-30T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <attic> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <floorlamp> ;
+    humemai:last_accessed "2025-04-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1109 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-08T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <basement> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-20T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 893 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-20T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bedroom> ;
+    rdf:predicate <west> ;
+    rdf:subject <bathroom> ;
+    humemai:last_accessed "2025-03-11T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 794 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-11T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <family> ;
+    humemai:last_accessed "2025-01-28T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 319 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-28T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <dining> ;
+    rdf:predicate <east> ;
+    rdf:subject <attic> ;
+    humemai:last_accessed "2025-03-19T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 882 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-19T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <hallway> ;
+    rdf:predicate <north> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-03-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 629 ;
+    humemai:num_recalled 5 ;
+    humemai:time_added "2025-02-25T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <family> ;
+    rdf:predicate <north> ;
+    rdf:subject <hallway> ;
+    humemai:last_accessed "2025-03-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 757 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-08T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <dining> ;
+    rdf:predicate <south> ;
+    rdf:subject <bathroom> ;
+    humemai:last_accessed "2025-03-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 793 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-03-11T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <library> ;
+    rdf:predicate <west> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-03-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 749 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-07T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cellar> ;
+    rdf:predicate <south> ;
+    rdf:subject <playroom> ;
+    humemai:last_accessed "2025-03-27T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 420 ;
+    humemai:num_recalled 4 ;
+    humemai:time_added "2025-02-06T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cabin> ;
+    rdf:predicate <south> ;
+    rdf:subject <cellar> ;
+    humemai:last_accessed "2025-03-28T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 432 ;
+    humemai:num_recalled 5 ;
+    humemai:time_added "2025-02-07T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sauna> ;
+    rdf:predicate <south> ;
+    rdf:subject <nursery> ;
+    humemai:last_accessed "2025-02-24T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 275 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-01-24T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <bathroom> ;
+    humemai:last_accessed "2025-03-17T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 858 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-17T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <bedroom> ;
+    humemai:last_accessed "2025-03-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 824 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-14T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <suite> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-15T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 518 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-15T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <dining> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-10T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 780 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-10T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <foyer> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-26T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 296 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-26T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <mudroom> ;
+    rdf:predicate <west> ;
+    rdf:subject <powder> ;
+    humemai:last_accessed "2025-01-18T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 202 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-18T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cottage> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <emily> ;
+    humemai:last_accessed "2025-02-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 526 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-16T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-25T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 953 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-25T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <gameroom> ;
+    rdf:predicate <south> ;
+    rdf:subject <deck> ;
+    humemai:last_accessed "2025-02-04T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 399 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-04T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <sauna> ;
+    humemai:last_accessed "2025-04-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1027 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-01T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <cottage> ;
+    humemai:last_accessed "2025-02-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 529 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-16T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <spa> ;
+    rdf:predicate <south> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-04-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1051 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-03T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cellar> ;
+    rdf:predicate <north> ;
+    rdf:subject <cabin> ;
+    humemai:last_accessed "2025-03-30T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1001 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-30T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <nook> ;
+    humemai:last_accessed "2025-03-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 689 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-02T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cabin> ;
+    rdf:predicate <east> ;
+    rdf:subject <loft> ;
+    humemai:last_accessed "2025-03-05T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 720 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-05T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sauna> ;
+    rdf:predicate <north> ;
+    rdf:subject <loft> ;
+    humemai:last_accessed "2025-02-11T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 473 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-11T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <workshop> ;
+    humemai:last_accessed "2025-01-20T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 226 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-20T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <dining> ;
+    rdf:predicate <north> ;
+    rdf:subject <foyer> ;
+    humemai:last_accessed "2025-03-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 294 ;
+    humemai:num_recalled 7 ;
+    humemai:time_added "2025-01-26T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <west> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-04-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 963 ;
+    humemai:num_recalled 4 ;
+    humemai:time_added "2025-03-26T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wardrobe> ;
+    rdf:predicate <west> ;
+    rdf:subject <loft> ;
+    humemai:last_accessed "2025-03-05T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 725 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-05T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <library> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-26T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 961 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-26T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <utility> ;
+    rdf:predicate <south> ;
+    rdf:subject <studio> ;
+    humemai:last_accessed "2025-01-15T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 171 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-15T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <west> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-04-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1050 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-03T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <studio> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-15T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 168 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-15T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <closet> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-04-09T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1119 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-09T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <mudroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <sofa> ;
+    humemai:last_accessed "2025-04-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 555 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-02-18T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <attic> ;
+    rdf:predicate <north> ;
+    rdf:subject <closet> ;
+    humemai:last_accessed "2025-04-05T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1072 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-05T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wardrobe> ;
+    rdf:predicate <north> ;
+    rdf:subject <lounge> ;
+    humemai:last_accessed "2025-02-13T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 495 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-13T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <living> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <william> ;
+    humemai:last_accessed "2025-01-11T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 121 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-11T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <north> ;
+    rdf:subject <sauna> ;
+    humemai:last_accessed "2025-03-31T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 733 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-03-06T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <guest> ;
+    rdf:predicate <east> ;
+    rdf:subject <family> ;
+    humemai:last_accessed "2025-03-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 320 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-01-28T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <laundry> ;
+    rdf:predicate <south> ;
+    rdf:subject <garage> ;
+    humemai:last_accessed "2025-01-11T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 107 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-01-10T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cabin> ;
+    rdf:predicate <east> ;
+    rdf:subject <loft> ;
+    humemai:last_accessed "2025-02-11T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 474 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-11T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <basement> ;
+    rdf:predicate <west> ;
+    rdf:subject <attic> ;
+    humemai:last_accessed "2025-03-19T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 878 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-19T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <cellar> ;
+    humemai:last_accessed "2025-03-29T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 991 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-29T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cellar> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 430 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-07T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sauna> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <wall> ;
+    humemai:last_accessed "2025-04-04T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1029 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-04-01T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <bar> ;
+    humemai:last_accessed "2025-02-28T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 662 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-28T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <dining> ;
+    rdf:predicate <west> ;
+    rdf:subject <family> ;
+    humemai:last_accessed "2025-01-28T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 321 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-28T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <loft> ;
+    rdf:predicate <east> ;
+    rdf:subject <wardrobe> ;
+    humemai:last_accessed "2025-02-12T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 481 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-12T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <bathroom> ;
+    humemai:last_accessed "2025-03-11T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 791 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-11T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cafe> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 676 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-01T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <foyer> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <dresser> ;
+    humemai:last_accessed "2025-03-09T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 772 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-09T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <deck> ;
+    rdf:predicate <south> ;
+    rdf:subject <master> ;
+    humemai:last_accessed "2025-02-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 371 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-01T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <ceilingfan> ;
+    humemai:last_accessed "2025-02-13T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 248 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-01-22T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <hallway> ;
+    humemai:last_accessed "2025-01-25T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 283 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-25T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bar> ;
+    rdf:predicate <west> ;
+    rdf:subject <cafe> ;
+    humemai:last_accessed "2025-03-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 698 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-03T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <east> ;
+    rdf:subject <library> ;
+    humemai:last_accessed "2025-03-26T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 962 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-26T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <garage> ;
+    rdf:predicate <west> ;
+    rdf:subject <basement> ;
+    humemai:last_accessed "2025-03-20T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 890 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-20T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <south> ;
+    rdf:subject <closet> ;
+    humemai:last_accessed "2025-04-09T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1118 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-09T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <living> ;
+    humemai:last_accessed "2025-01-11T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 118 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-11T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <library> ;
+    rdf:predicate <south> ;
+    rdf:subject <foyer> ;
+    humemai:last_accessed "2025-03-09T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 768 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-09T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <study> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-31T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 360 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-31T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <gym> ;
+    rdf:predicate <south> ;
+    rdf:subject <sunroom> ;
+    humemai:last_accessed "2025-04-04T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1062 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-04T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <living> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-11T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 122 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-11T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cafe> ;
+    rdf:predicate <south> ;
+    rdf:subject <cabin> ;
+    humemai:last_accessed "2025-03-30T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1003 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-30T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <hallway> ;
+    rdf:predicate <west> ;
+    rdf:subject <porch> ;
+    humemai:last_accessed "2025-02-05T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 409 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-05T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <garage> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <door> ;
+    humemai:last_accessed "2025-04-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 903 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-03-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <suite> ;
+    humemai:last_accessed "2025-02-17T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 538 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-17T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <east> ;
+    rdf:subject <hallway> ;
+    humemai:last_accessed "2025-01-25T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 287 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-25T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <suite> ;
+    rdf:predicate <west> ;
+    rdf:subject <parlor> ;
+    humemai:last_accessed "2025-02-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 505 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-14T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wardrobe> ;
+    rdf:predicate <west> ;
+    rdf:subject <loft> ;
+    humemai:last_accessed "2025-02-11T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 472 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-11T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <study> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <jessica> ;
+    humemai:last_accessed "2025-03-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 356 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-01-31T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <storage> ;
+    rdf:predicate <north> ;
+    rdf:subject <lodge> ;
+    humemai:last_accessed "2025-02-09T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 450 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-09T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <closet> ;
+    rdf:predicate <south> ;
+    rdf:subject <attic> ;
+    humemai:last_accessed "2025-04-07T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1084 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-04-06T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-04-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1037 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-02T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <bar> ;
+    humemai:last_accessed "2025-02-28T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 661 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-28T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cottage> ;
+    rdf:predicate <west> ;
+    rdf:subject <suite> ;
+    humemai:last_accessed "2025-02-17T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 543 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-17T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-25T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 628 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-25T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <cabin> ;
+    rdf:predicate <north> ;
+    rdf:subject <cafe> ;
+    humemai:last_accessed "2025-03-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 699 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-03T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <attic> ;
+    humemai:last_accessed "2025-04-06T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1081 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-04-06T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <workshop> ;
+    rdf:predicate <east> ;
+    rdf:subject <studio> ;
+    humemai:last_accessed "2025-01-15T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 173 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-15T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <loft> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-03-31T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1015 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-31T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <patio> ;
+    humemai:last_accessed "2025-01-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 156 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-14T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <storage> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-08T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 440 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-08T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <living> ;
+    humemai:last_accessed "2025-01-11T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 119 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-11T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <living> ;
+    rdf:predicate <north> ;
+    rdf:subject <garage> ;
+    humemai:last_accessed "2025-01-12T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 135 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-12T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <master> ;
+    rdf:predicate <north> ;
+    rdf:subject <deck> ;
+    humemai:last_accessed "2025-02-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 378 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-02T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <family> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-01-28T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 322 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-28T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <patio> ;
+    rdf:predicate <south> ;
+    rdf:subject <laundry> ;
+    humemai:last_accessed "2025-03-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 146 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-01-13T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <laundry> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <armchair> ;
+    humemai:last_accessed "2025-03-29T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 917 ;
+    humemai:num_recalled 1 ;
+    humemai:time_added "2025-03-22T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <dining> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <window> ;
+    humemai:last_accessed "2025-02-12T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 307 ;
+    humemai:num_recalled 2 ;
+    humemai:time_added "2025-01-27T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <attic> ;
+    humemai:last_accessed "2025-03-19T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 879 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-19T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <nook> ;
+    humemai:last_accessed "2025-03-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 688 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-02T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <balcony> ;
+    rdf:predicate <east> ;
+    rdf:subject <patio> ;
+    humemai:last_accessed "2025-03-22T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 158 ;
+    humemai:num_recalled 3 ;
+    humemai:time_added "2025-01-14T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <garage> ;
+    humemai:last_accessed "2025-01-12T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 133 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-12T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bedroom> ;
+    rdf:predicate <west> ;
+    rdf:subject <bathroom> ;
+    humemai:last_accessed "2025-03-15T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 837 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-15T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <sunroom> ;
+    humemai:last_accessed "2025-03-25T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 948 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-25T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <pantry> ;
+    rdf:predicate <east> ;
+    rdf:subject <laundry> ;
+    humemai:last_accessed "2025-03-22T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 916 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-22T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <laundry> ;
+    rdf:predicate <north> ;
+    rdf:subject <patio> ;
+    humemai:last_accessed "2025-03-23T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 926 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-23T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <den> ;
+    rdf:predicate <east> ;
+    rdf:subject <office> ;
+    humemai:last_accessed "2025-03-16T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 846 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-16T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <living> ;
+    rdf:predicate <north> ;
+    rdf:subject <garage> ;
+    humemai:last_accessed "2025-03-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 901 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-21T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 586 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-21T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <south> ;
+    rdf:subject <dining> ;
+    humemai:last_accessed "2025-03-10T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 784 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-10T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <bathroom> ;
+    rdf:predicate <north> ;
+    rdf:subject <dining> ;
+    humemai:last_accessed "2025-03-09T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 310 ;
+    humemai:num_recalled 8 ;
+    humemai:time_added "2025-01-27T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <studio> ;
+    rdf:predicate <south> ;
+    rdf:subject <patio> ;
+    humemai:last_accessed "2025-01-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 157 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-14T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <west> ;
+    rdf:subject <wardrobe> ;
+    humemai:last_accessed "2025-02-12T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 484 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-12T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <patio> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <wardrobe> ;
+    humemai:last_accessed "2025-01-14T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 159 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-14T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <guest> ;
+    rdf:predicate <south> ;
+    rdf:subject <den> ;
+    humemai:last_accessed "2025-01-30T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 345 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-01-30T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <gameroom> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:last_accessed "2025-02-03T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 390 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-03T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <cellar> ;
+    humemai:last_accessed "2025-03-29T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 992 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-03-29T00:00:00"^^xsd:dateTime .
+
+[] a rdf:Statement ;
+    rdf:object <gameroom> ;
+    rdf:predicate <south> ;
+    rdf:subject <deck> ;
+    humemai:last_accessed "2025-02-02T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 379 ;
+    humemai:num_recalled 0 ;
+    humemai:time_added "2025-02-02T00:00:00"^^xsd:dateTime .
+

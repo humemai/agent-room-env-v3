@@ -1,0 +1,46 @@
+@prefix humemai: <https://humem.ai/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<agent> <at_location> <library> .
+
+<library> <east> <nursery> ;
+    <north> <wall> ;
+    <south> <spa> ;
+    <west> <sunroom> .
+
+[] a rdf:Statement ;
+    rdf:object <sunroom> ;
+    rdf:predicate <west> ;
+    rdf:subject <library> ;
+    humemai:current_time "2025-01-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 0 .
+
+[] a rdf:Statement ;
+    rdf:object <nursery> ;
+    rdf:predicate <east> ;
+    rdf:subject <library> ;
+    humemai:current_time "2025-01-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 1 .
+
+[] a rdf:Statement ;
+    rdf:object <spa> ;
+    rdf:predicate <south> ;
+    rdf:subject <library> ;
+    humemai:current_time "2025-01-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 3 .
+
+[] a rdf:Statement ;
+    rdf:object <library> ;
+    rdf:predicate <at_location> ;
+    rdf:subject <agent> ;
+    humemai:current_time "2025-01-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 2 .
+
+[] a rdf:Statement ;
+    rdf:object <wall> ;
+    rdf:predicate <north> ;
+    rdf:subject <library> ;
+    humemai:current_time "2025-01-01T00:00:00"^^xsd:dateTime ;
+    humemai:memory_id 4 .
+
