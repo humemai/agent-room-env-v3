@@ -107,6 +107,7 @@ def build_agent_from_train_yaml(
         use_gradient_clipping=bool(data.get("use_gradient_clipping", True)),
         gradient_clip_value=float(data.get("gradient_clip_value", 10.0)),
         max_long_term_memory_size=int(data.get("max_long_term_memory_size", 100)),
+        temporal_features=bool(data.get("temporal_features", False)),
     )
 
     return agent, checkpoint
