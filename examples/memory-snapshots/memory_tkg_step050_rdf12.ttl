@@ -1,0 +1,1728 @@
+@prefix humemai: <https://humem.ai/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# RDF 1.2 annotation serialization (named reifiers), converted from
+# the reification serialization in memory_tkg_step050.ttl.
+
+<library> <west> <sunroom> ~ humemai:m5
+    {|
+       humemai:last_accessed "2025-01-01T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-01T00:00:00"^^xsd:dateTime |} .
+
+<library> <east> <nursery> ~ humemai:m6
+    {|
+       humemai:last_accessed "2025-01-22T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "2"^^xsd:integer ;
+       humemai:time_added "2025-01-01T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <library> ~ humemai:m7
+    {|
+       humemai:last_accessed "2025-01-01T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-01T00:00:00"^^xsd:dateTime |} .
+
+<library> <south> <spa> ~ humemai:m8
+    {|
+       humemai:last_accessed "2025-01-01T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-01T00:00:00"^^xsd:dateTime |} .
+
+<library> <north> <wall> ~ humemai:m9
+    {|
+       humemai:last_accessed "2025-01-01T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-01T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <sunroom> ~ humemai:m16
+    {|
+       humemai:last_accessed "2025-01-02T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-02T00:00:00"^^xsd:dateTime |} .
+
+<ceilingfan> <at_location> <sunroom> ~ humemai:m17
+    {|
+       humemai:last_accessed "2025-01-02T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-02T00:00:00"^^xsd:dateTime |} .
+
+<sunroom> <east> <library> ~ humemai:m18
+    {|
+       humemai:last_accessed "2025-01-21T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "1"^^xsd:integer ;
+       humemai:time_added "2025-01-02T00:00:00"^^xsd:dateTime |} .
+
+<sunroom> <west> <wall> ~ humemai:m19
+    {|
+       humemai:last_accessed "2025-01-02T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-02T00:00:00"^^xsd:dateTime |} .
+
+<sunroom> <north> <closet> ~ humemai:m20
+    {|
+       humemai:last_accessed "2025-01-02T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-02T00:00:00"^^xsd:dateTime |} .
+
+<sunroom> <south> <gym> ~ humemai:m21
+    {|
+       humemai:last_accessed "2025-01-02T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-02T00:00:00"^^xsd:dateTime |} .
+
+<closet> <north> <attic> ~ humemai:m27
+    {|
+       humemai:last_accessed "2025-01-03T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-03T00:00:00"^^xsd:dateTime |} .
+
+<closet> <west> <pantry> ~ humemai:m28
+    {|
+       humemai:last_accessed "2025-01-03T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-03T00:00:00"^^xsd:dateTime |} .
+
+<closet> <south> <sunroom> ~ humemai:m29
+    {|
+       humemai:last_accessed "2025-01-03T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-03T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <closet> ~ humemai:m30
+    {|
+       humemai:last_accessed "2025-01-03T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-03T00:00:00"^^xsd:dateTime |} .
+
+<closet> <east> <wall> ~ humemai:m31
+    {|
+       humemai:last_accessed "2025-01-03T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-03T00:00:00"^^xsd:dateTime |} .
+
+<attic> <west> <basement> ~ humemai:m38
+    {|
+       humemai:last_accessed "2025-01-04T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-04T00:00:00"^^xsd:dateTime |} .
+
+<attic> <north> <wall> ~ humemai:m39
+    {|
+       humemai:last_accessed "2025-01-04T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-04T00:00:00"^^xsd:dateTime |} .
+
+<attic> <east> <dining> ~ humemai:m40
+    {|
+       humemai:last_accessed "2025-01-04T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-04T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <attic> ~ humemai:m41
+    {|
+       humemai:last_accessed "2025-01-04T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-04T00:00:00"^^xsd:dateTime |} .
+
+<attic> <south> <closet> ~ humemai:m42
+    {|
+       humemai:last_accessed "2025-01-04T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-04T00:00:00"^^xsd:dateTime |} .
+
+<floorlamp> <at_location> <attic> ~ humemai:m43
+    {|
+       humemai:last_accessed "2025-01-04T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-04T00:00:00"^^xsd:dateTime |} .
+
+<basement> <south> <pantry> ~ humemai:m49
+    {|
+       humemai:last_accessed "2025-01-05T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-05T00:00:00"^^xsd:dateTime |} .
+
+<basement> <north> <kitchen> ~ humemai:m50
+    {|
+       humemai:last_accessed "2025-01-05T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-05T00:00:00"^^xsd:dateTime |} .
+
+<basement> <west> <wall> ~ humemai:m51
+    {|
+       humemai:last_accessed "2025-01-05T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-05T00:00:00"^^xsd:dateTime |} .
+
+<basement> <east> <wall> ~ humemai:m52
+    {|
+       humemai:last_accessed "2025-01-05T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-05T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <basement> ~ humemai:m53
+    {|
+       humemai:last_accessed "2025-01-05T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-05T00:00:00"^^xsd:dateTime |} .
+
+<pantry> <north> <basement> ~ humemai:m59
+    {|
+       humemai:last_accessed "2025-01-06T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-06T00:00:00"^^xsd:dateTime |} .
+
+<pantry> <south> <balcony> ~ humemai:m60
+    {|
+       humemai:last_accessed "2025-01-06T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-06T00:00:00"^^xsd:dateTime |} .
+
+<pantry> <east> <closet> ~ humemai:m61
+    {|
+       humemai:last_accessed "2025-01-06T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-06T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <pantry> ~ humemai:m62
+    {|
+       humemai:last_accessed "2025-01-06T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-06T00:00:00"^^xsd:dateTime |} .
+
+<pantry> <west> <laundry> ~ humemai:m63
+    {|
+       humemai:last_accessed "2025-01-06T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-06T00:00:00"^^xsd:dateTime |} .
+
+<balcony> <north> <pantry> ~ humemai:m69
+    {|
+       humemai:last_accessed "2025-01-07T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-07T00:00:00"^^xsd:dateTime |} .
+
+<balcony> <south> <wall> ~ humemai:m70
+    {|
+       humemai:last_accessed "2025-01-07T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-07T00:00:00"^^xsd:dateTime |} .
+
+<balcony> <west> <patio> ~ humemai:m71
+    {|
+       humemai:last_accessed "2025-01-07T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-07T00:00:00"^^xsd:dateTime |} .
+
+<balcony> <east> <wall> ~ humemai:m72
+    {|
+       humemai:last_accessed "2025-01-07T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-07T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <balcony> ~ humemai:m73
+    {|
+       humemai:last_accessed "2025-01-07T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-07T00:00:00"^^xsd:dateTime |} .
+
+<patio> <north> <laundry> ~ humemai:m80
+    {|
+       humemai:last_accessed "2025-01-08T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-08T00:00:00"^^xsd:dateTime |} .
+
+<patio> <west> <wall> ~ humemai:m81
+    {|
+       humemai:last_accessed "2025-01-08T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-08T00:00:00"^^xsd:dateTime |} .
+
+<wardrobe> <at_location> <patio> ~ humemai:m82
+    {|
+       humemai:last_accessed "2025-01-08T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-08T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <patio> ~ humemai:m83
+    {|
+       humemai:last_accessed "2025-01-08T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-08T00:00:00"^^xsd:dateTime |} .
+
+<patio> <south> <studio> ~ humemai:m84
+    {|
+       humemai:last_accessed "2025-01-13T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "3"^^xsd:integer ;
+       humemai:time_added "2025-01-08T00:00:00"^^xsd:dateTime |} .
+
+<patio> <east> <balcony> ~ humemai:m85
+    {|
+       humemai:last_accessed "2025-01-08T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-08T00:00:00"^^xsd:dateTime |} .
+
+<laundry> <south> <patio> ~ humemai:m92
+    {|
+       humemai:last_accessed "2025-01-12T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "2"^^xsd:integer ;
+       humemai:time_added "2025-01-09T00:00:00"^^xsd:dateTime |} .
+
+<laundry> <east> <pantry> ~ humemai:m93
+    {|
+       humemai:last_accessed "2025-01-09T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-09T00:00:00"^^xsd:dateTime |} .
+
+<armchair> <at_location> <laundry> ~ humemai:m94
+    {|
+       humemai:last_accessed "2025-01-10T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "1"^^xsd:integer ;
+       humemai:time_added "2025-01-09T00:00:00"^^xsd:dateTime |} .
+
+<laundry> <west> <wall> ~ humemai:m95
+    {|
+       humemai:last_accessed "2025-01-09T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-09T00:00:00"^^xsd:dateTime |} .
+
+<laundry> <north> <garage> ~ humemai:m96
+    {|
+       humemai:last_accessed "2025-01-09T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-09T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <laundry> ~ humemai:m97
+    {|
+       humemai:last_accessed "2025-01-09T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-09T00:00:00"^^xsd:dateTime |} .
+
+<garage> <east> <wall> ~ humemai:m105
+    {|
+       humemai:last_accessed "2025-01-10T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-10T00:00:00"^^xsd:dateTime |} .
+
+<door> <at_location> <garage> ~ humemai:m106
+    {|
+       humemai:last_accessed "2025-01-10T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-10T00:00:00"^^xsd:dateTime |} .
+
+<garage> <south> <laundry> ~ humemai:m107
+    {|
+       humemai:last_accessed "2025-01-11T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "1"^^xsd:integer ;
+       humemai:time_added "2025-01-10T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <garage> ~ humemai:m108
+    {|
+       humemai:last_accessed "2025-01-10T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-10T00:00:00"^^xsd:dateTime |} .
+
+<garage> <west> <wall> ~ humemai:m109
+    {|
+       humemai:last_accessed "2025-01-10T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-10T00:00:00"^^xsd:dateTime |} .
+
+<garage> <north> <living> ~ humemai:m110
+    {|
+       humemai:last_accessed "2025-01-10T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-10T00:00:00"^^xsd:dateTime |} .
+
+<william> <at_location> <garage> ~ humemai:m111
+    {|
+       humemai:last_accessed "2025-01-10T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-10T00:00:00"^^xsd:dateTime |} .
+
+<living> <north> <wall> ~ humemai:m118
+    {|
+       humemai:last_accessed "2025-01-11T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-11T00:00:00"^^xsd:dateTime |} .
+
+<living> <west> <wall> ~ humemai:m119
+    {|
+       humemai:last_accessed "2025-01-11T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-11T00:00:00"^^xsd:dateTime |} .
+
+<living> <south> <garage> ~ humemai:m120
+    {|
+       humemai:last_accessed "2025-01-11T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-11T00:00:00"^^xsd:dateTime |} .
+
+<william> <at_location> <living> ~ humemai:m121
+    {|
+       humemai:last_accessed "2025-01-11T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-11T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <living> ~ humemai:m122
+    {|
+       humemai:last_accessed "2025-01-11T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-11T00:00:00"^^xsd:dateTime |} .
+
+<living> <east> <wall> ~ humemai:m123
+    {|
+       humemai:last_accessed "2025-01-11T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-11T00:00:00"^^xsd:dateTime |} .
+
+<door> <at_location> <garage> ~ humemai:m131
+    {|
+       humemai:last_accessed "2025-01-18T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "1"^^xsd:integer ;
+       humemai:time_added "2025-01-12T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <garage> ~ humemai:m132
+    {|
+       humemai:last_accessed "2025-01-12T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-12T00:00:00"^^xsd:dateTime |} .
+
+<garage> <west> <wall> ~ humemai:m133
+    {|
+       humemai:last_accessed "2025-01-12T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-12T00:00:00"^^xsd:dateTime |} .
+
+<william> <at_location> <garage> ~ humemai:m134
+    {|
+       humemai:last_accessed "2025-02-19T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "4"^^xsd:integer ;
+       humemai:time_added "2025-01-12T00:00:00"^^xsd:dateTime |} .
+
+<garage> <north> <living> ~ humemai:m135
+    {|
+       humemai:last_accessed "2025-01-12T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-12T00:00:00"^^xsd:dateTime |} .
+
+<garage> <south> <laundry> ~ humemai:m136
+    {|
+       humemai:last_accessed "2025-01-12T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-12T00:00:00"^^xsd:dateTime |} .
+
+<garage> <east> <wall> ~ humemai:m137
+    {|
+       humemai:last_accessed "2025-01-12T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-12T00:00:00"^^xsd:dateTime |} .
+
+<laundry> <west> <wall> ~ humemai:m144
+    {|
+       humemai:last_accessed "2025-01-13T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-13T00:00:00"^^xsd:dateTime |} .
+
+<armchair> <at_location> <laundry> ~ humemai:m145
+    {|
+       humemai:last_accessed "2025-01-13T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-13T00:00:00"^^xsd:dateTime |} .
+
+<laundry> <south> <patio> ~ humemai:m146
+    {|
+       humemai:last_accessed "2025-01-13T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-13T00:00:00"^^xsd:dateTime |} .
+
+<laundry> <north> <garage> ~ humemai:m147
+    {|
+       humemai:last_accessed "2025-01-13T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-13T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <laundry> ~ humemai:m148
+    {|
+       humemai:last_accessed "2025-01-13T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-13T00:00:00"^^xsd:dateTime |} .
+
+<laundry> <east> <pantry> ~ humemai:m149
+    {|
+       humemai:last_accessed "2025-01-13T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-13T00:00:00"^^xsd:dateTime |} .
+
+<patio> <west> <wall> ~ humemai:m156
+    {|
+       humemai:last_accessed "2025-01-14T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-14T00:00:00"^^xsd:dateTime |} .
+
+<patio> <south> <studio> ~ humemai:m157
+    {|
+       humemai:last_accessed "2025-01-14T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-14T00:00:00"^^xsd:dateTime |} .
+
+<patio> <east> <balcony> ~ humemai:m158
+    {|
+       humemai:last_accessed "2025-01-14T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-14T00:00:00"^^xsd:dateTime |} .
+
+<wardrobe> <at_location> <patio> ~ humemai:m159
+    {|
+       humemai:last_accessed "2025-01-14T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-14T00:00:00"^^xsd:dateTime |} .
+
+<patio> <north> <laundry> ~ humemai:m160
+    {|
+       humemai:last_accessed "2025-01-14T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-14T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <patio> ~ humemai:m161
+    {|
+       humemai:last_accessed "2025-01-14T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-14T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <studio> ~ humemai:m168
+    {|
+       humemai:last_accessed "2025-01-15T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-15T00:00:00"^^xsd:dateTime |} .
+
+<table> <at_location> <studio> ~ humemai:m169
+    {|
+       humemai:last_accessed "2025-01-15T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-15T00:00:00"^^xsd:dateTime |} .
+
+<studio> <north> <patio> ~ humemai:m170
+    {|
+       humemai:last_accessed "2025-01-15T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-15T00:00:00"^^xsd:dateTime |} .
+
+<studio> <south> <utility> ~ humemai:m171
+    {|
+       humemai:last_accessed "2025-01-15T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-15T00:00:00"^^xsd:dateTime |} .
+
+<studio> <west> <wall> ~ humemai:m172
+    {|
+       humemai:last_accessed "2025-01-15T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-15T00:00:00"^^xsd:dateTime |} .
+
+<studio> <east> <workshop> ~ humemai:m173
+    {|
+       humemai:last_accessed "2025-01-15T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-15T00:00:00"^^xsd:dateTime |} .
+
+<utility> <south> <wall> ~ humemai:m179
+    {|
+       humemai:last_accessed "2025-01-16T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-16T00:00:00"^^xsd:dateTime |} .
+
+<utility> <west> <wall> ~ humemai:m180
+    {|
+       humemai:last_accessed "2025-01-16T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-16T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <utility> ~ humemai:m181
+    {|
+       humemai:last_accessed "2025-01-16T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-16T00:00:00"^^xsd:dateTime |} .
+
+<utility> <east> <mudroom> ~ humemai:m182
+    {|
+       humemai:last_accessed "2025-01-16T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-16T00:00:00"^^xsd:dateTime |} .
+
+<utility> <north> <studio> ~ humemai:m183
+    {|
+       humemai:last_accessed "2025-01-16T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-16T00:00:00"^^xsd:dateTime |} .
+
+<mudroom> <east> <powder> ~ humemai:m190
+    {|
+       humemai:last_accessed "2025-01-17T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-17T00:00:00"^^xsd:dateTime |} .
+
+<mudroom> <north> <wall> ~ humemai:m191
+    {|
+       humemai:last_accessed "2025-01-17T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-17T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <mudroom> ~ humemai:m192
+    {|
+       humemai:last_accessed "2025-01-17T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-17T00:00:00"^^xsd:dateTime |} .
+
+<mudroom> <west> <utility> ~ humemai:m193
+    {|
+       humemai:last_accessed "2025-01-17T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-17T00:00:00"^^xsd:dateTime |} .
+
+<sofa> <at_location> <mudroom> ~ humemai:m194
+    {|
+       humemai:last_accessed "2025-01-17T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-17T00:00:00"^^xsd:dateTime |} .
+
+<mudroom> <south> <suite> ~ humemai:m195
+    {|
+       humemai:last_accessed "2025-01-18T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "1"^^xsd:integer ;
+       humemai:time_added "2025-01-17T00:00:00"^^xsd:dateTime |} .
+
+<powder> <west> <mudroom> ~ humemai:m202
+    {|
+       humemai:last_accessed "2025-01-18T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-18T00:00:00"^^xsd:dateTime |} .
+
+<powder> <south> <wall> ~ humemai:m203
+    {|
+       humemai:last_accessed "2025-01-18T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-18T00:00:00"^^xsd:dateTime |} .
+
+<powder> <east> <wall> ~ humemai:m204
+    {|
+       humemai:last_accessed "2025-01-18T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-18T00:00:00"^^xsd:dateTime |} .
+
+<powder> <north> <wall> ~ humemai:m205
+    {|
+       humemai:last_accessed "2025-01-18T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-18T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <powder> ~ humemai:m206
+    {|
+       humemai:last_accessed "2025-01-18T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-18T00:00:00"^^xsd:dateTime |} .
+
+<bookshelf> <at_location> <powder> ~ humemai:m207
+    {|
+       humemai:last_accessed "2025-01-18T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-18T00:00:00"^^xsd:dateTime |} .
+
+<sofa> <at_location> <mudroom> ~ humemai:m214
+    {|
+       humemai:last_accessed "2025-02-07T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "2"^^xsd:integer ;
+       humemai:time_added "2025-01-19T00:00:00"^^xsd:dateTime |} .
+
+<mudroom> <east> <powder> ~ humemai:m215
+    {|
+       humemai:last_accessed "2025-01-19T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-19T00:00:00"^^xsd:dateTime |} .
+
+<mudroom> <west> <utility> ~ humemai:m216
+    {|
+       humemai:last_accessed "2025-01-19T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-19T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <mudroom> ~ humemai:m217
+    {|
+       humemai:last_accessed "2025-01-19T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-19T00:00:00"^^xsd:dateTime |} .
+
+<mudroom> <south> <suite> ~ humemai:m218
+    {|
+       humemai:last_accessed "2025-01-19T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-19T00:00:00"^^xsd:dateTime |} .
+
+<mudroom> <north> <workshop> ~ humemai:m219
+    {|
+       humemai:last_accessed "2025-02-17T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "2"^^xsd:integer ;
+       humemai:time_added "2025-01-19T00:00:00"^^xsd:dateTime |} .
+
+<workshop> <north> <wall> ~ humemai:m225
+    {|
+       humemai:last_accessed "2025-01-20T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-20T00:00:00"^^xsd:dateTime |} .
+
+<workshop> <south> <wall> ~ humemai:m226
+    {|
+       humemai:last_accessed "2025-01-20T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-20T00:00:00"^^xsd:dateTime |} .
+
+<workshop> <west> <studio> ~ humemai:m227
+    {|
+       humemai:last_accessed "2025-01-20T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-20T00:00:00"^^xsd:dateTime |} .
+
+<workshop> <east> <gym> ~ humemai:m228
+    {|
+       humemai:last_accessed "2025-02-18T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "3"^^xsd:integer ;
+       humemai:time_added "2025-01-20T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <workshop> ~ humemai:m229
+    {|
+       humemai:last_accessed "2025-01-20T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-20T00:00:00"^^xsd:dateTime |} .
+
+<desk> <at_location> <gym> ~ humemai:m236
+    {|
+       humemai:last_accessed "2025-01-21T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-21T00:00:00"^^xsd:dateTime |} .
+
+<gym> <north> <sunroom> ~ humemai:m237
+    {|
+       humemai:last_accessed "2025-02-19T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "4"^^xsd:integer ;
+       humemai:time_added "2025-01-21T00:00:00"^^xsd:dateTime |} .
+
+<gym> <east> <wall> ~ humemai:m238
+    {|
+       humemai:last_accessed "2025-01-21T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-21T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <gym> ~ humemai:m239
+    {|
+       humemai:last_accessed "2025-01-21T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-21T00:00:00"^^xsd:dateTime |} .
+
+<gym> <west> <wall> ~ humemai:m240
+    {|
+       humemai:last_accessed "2025-01-21T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-21T00:00:00"^^xsd:dateTime |} .
+
+<gym> <south> <wall> ~ humemai:m241
+    {|
+       humemai:last_accessed "2025-01-21T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-21T00:00:00"^^xsd:dateTime |} .
+
+<ceilingfan> <at_location> <sunroom> ~ humemai:m248
+    {|
+       humemai:last_accessed "2025-02-13T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "1"^^xsd:integer ;
+       humemai:time_added "2025-01-22T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <sunroom> ~ humemai:m249
+    {|
+       humemai:last_accessed "2025-01-22T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-22T00:00:00"^^xsd:dateTime |} .
+
+<sunroom> <east> <library> ~ humemai:m250
+    {|
+       humemai:last_accessed "2025-02-19T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "4"^^xsd:integer ;
+       humemai:time_added "2025-01-22T00:00:00"^^xsd:dateTime |} .
+
+<sunroom> <west> <wall> ~ humemai:m251
+    {|
+       humemai:last_accessed "2025-01-22T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-22T00:00:00"^^xsd:dateTime |} .
+
+<sunroom> <south> <gym> ~ humemai:m252
+    {|
+       humemai:last_accessed "2025-01-22T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-22T00:00:00"^^xsd:dateTime |} .
+
+<sunroom> <north> <closet> ~ humemai:m253
+    {|
+       humemai:last_accessed "2025-01-22T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-22T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <library> ~ humemai:m259
+    {|
+       humemai:last_accessed "2025-01-23T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-23T00:00:00"^^xsd:dateTime |} .
+
+<library> <north> <foyer> ~ humemai:m260
+    {|
+       humemai:last_accessed "2025-01-23T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-23T00:00:00"^^xsd:dateTime |} .
+
+<library> <west> <sunroom> ~ humemai:m261
+    {|
+       humemai:last_accessed "2025-01-23T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-23T00:00:00"^^xsd:dateTime |} .
+
+<library> <south> <spa> ~ humemai:m262
+    {|
+       humemai:last_accessed "2025-02-19T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "4"^^xsd:integer ;
+       humemai:time_added "2025-01-23T00:00:00"^^xsd:dateTime |} .
+
+<library> <east> <nursery> ~ humemai:m263
+    {|
+       humemai:last_accessed "2025-01-23T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-23T00:00:00"^^xsd:dateTime |} .
+
+<nursery> <north> <hallway> ~ humemai:m270
+    {|
+       humemai:last_accessed "2025-01-24T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-24T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <nursery> ~ humemai:m271
+    {|
+       humemai:last_accessed "2025-01-24T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-24T00:00:00"^^xsd:dateTime |} .
+
+<chair> <at_location> <nursery> ~ humemai:m272
+    {|
+       humemai:last_accessed "2025-02-08T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "1"^^xsd:integer ;
+       humemai:time_added "2025-01-24T00:00:00"^^xsd:dateTime |} .
+
+<nursery> <west> <library> ~ humemai:m273
+    {|
+       humemai:last_accessed "2025-01-24T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-24T00:00:00"^^xsd:dateTime |} .
+
+<nursery> <east> <playroom> ~ humemai:m274
+    {|
+       humemai:last_accessed "2025-01-24T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-24T00:00:00"^^xsd:dateTime |} .
+
+<nursery> <south> <sauna> ~ humemai:m275
+    {|
+       humemai:last_accessed "2025-01-24T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-24T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <hallway> ~ humemai:m282
+    {|
+       humemai:last_accessed "2025-01-25T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-25T00:00:00"^^xsd:dateTime |} .
+
+<hallway> <south> <wall> ~ humemai:m283
+    {|
+       humemai:last_accessed "2025-01-25T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-25T00:00:00"^^xsd:dateTime |} .
+
+<hallway> <west> <foyer> ~ humemai:m284
+    {|
+       humemai:last_accessed "2025-01-25T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-25T00:00:00"^^xsd:dateTime |} .
+
+<sarah> <at_location> <hallway> ~ humemai:m285
+    {|
+       humemai:last_accessed "2025-01-25T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-25T00:00:00"^^xsd:dateTime |} .
+
+<hallway> <north> <family> ~ humemai:m286
+    {|
+       humemai:last_accessed "2025-01-25T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-25T00:00:00"^^xsd:dateTime |} .
+
+<hallway> <east> <wall> ~ humemai:m287
+    {|
+       humemai:last_accessed "2025-01-25T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-25T00:00:00"^^xsd:dateTime |} .
+
+<foyer> <north> <dining> ~ humemai:m294
+    {|
+       humemai:last_accessed "2025-01-26T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-26T00:00:00"^^xsd:dateTime |} .
+
+<foyer> <south> <wall> ~ humemai:m295
+    {|
+       humemai:last_accessed "2025-01-26T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-26T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <foyer> ~ humemai:m296
+    {|
+       humemai:last_accessed "2025-01-26T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-26T00:00:00"^^xsd:dateTime |} .
+
+<foyer> <west> <wall> ~ humemai:m297
+    {|
+       humemai:last_accessed "2025-01-26T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-26T00:00:00"^^xsd:dateTime |} .
+
+<foyer> <east> <hallway> ~ humemai:m298
+    {|
+       humemai:last_accessed "2025-01-26T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-26T00:00:00"^^xsd:dateTime |} .
+
+<dresser> <at_location> <foyer> ~ humemai:m299
+    {|
+       humemai:last_accessed "2025-01-26T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-26T00:00:00"^^xsd:dateTime |} .
+
+<dining> <east> <family> ~ humemai:m306
+    {|
+       humemai:last_accessed "2025-01-27T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-27T00:00:00"^^xsd:dateTime |} .
+
+<window> <at_location> <dining> ~ humemai:m307
+    {|
+       humemai:last_accessed "2025-02-12T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "2"^^xsd:integer ;
+       humemai:time_added "2025-01-27T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <dining> ~ humemai:m308
+    {|
+       humemai:last_accessed "2025-01-27T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-27T00:00:00"^^xsd:dateTime |} .
+
+<dining> <south> <wall> ~ humemai:m309
+    {|
+       humemai:last_accessed "2025-01-27T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-27T00:00:00"^^xsd:dateTime |} .
+
+<dining> <north> <bathroom> ~ humemai:m310
+    {|
+       humemai:last_accessed "2025-01-27T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-27T00:00:00"^^xsd:dateTime |} .
+
+<dining> <west> <attic> ~ humemai:m311
+    {|
+       humemai:last_accessed "2025-01-27T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-27T00:00:00"^^xsd:dateTime |} .
+
+<sarah> <at_location> <family> ~ humemai:m318
+    {|
+       humemai:last_accessed "2025-02-10T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "1"^^xsd:integer ;
+       humemai:time_added "2025-01-28T00:00:00"^^xsd:dateTime |} .
+
+<family> <north> <wall> ~ humemai:m319
+    {|
+       humemai:last_accessed "2025-01-28T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-28T00:00:00"^^xsd:dateTime |} .
+
+<family> <east> <guest> ~ humemai:m320
+    {|
+       humemai:last_accessed "2025-01-28T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-28T00:00:00"^^xsd:dateTime |} .
+
+<family> <west> <dining> ~ humemai:m321
+    {|
+       humemai:last_accessed "2025-01-28T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-28T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <family> ~ humemai:m322
+    {|
+       humemai:last_accessed "2025-01-28T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-28T00:00:00"^^xsd:dateTime |} .
+
+<family> <south> <hallway> ~ humemai:m323
+    {|
+       humemai:last_accessed "2025-01-28T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-28T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <guest> ~ humemai:m329
+    {|
+       humemai:last_accessed "2025-01-29T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-29T00:00:00"^^xsd:dateTime |} .
+
+<guest> <north> <den> ~ humemai:m330
+    {|
+       humemai:last_accessed "2025-01-29T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-29T00:00:00"^^xsd:dateTime |} .
+
+<guest> <west> <family> ~ humemai:m331
+    {|
+       humemai:last_accessed "2025-01-29T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-29T00:00:00"^^xsd:dateTime |} .
+
+<guest> <south> <wall> ~ humemai:m332
+    {|
+       humemai:last_accessed "2025-01-29T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-29T00:00:00"^^xsd:dateTime |} .
+
+<guest> <east> <master> ~ humemai:m333
+    {|
+       humemai:last_accessed "2025-01-29T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-29T00:00:00"^^xsd:dateTime |} .
+
+<den> <east> <study> ~ humemai:m341
+    {|
+       humemai:last_accessed "2025-01-30T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-30T00:00:00"^^xsd:dateTime |} .
+
+<den> <north> <wall> ~ humemai:m342
+    {|
+       humemai:last_accessed "2025-01-30T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-30T00:00:00"^^xsd:dateTime |} .
+
+<jessica> <at_location> <den> ~ humemai:m343
+    {|
+       humemai:last_accessed "2025-01-30T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-30T00:00:00"^^xsd:dateTime |} .
+
+<den> <west> <office> ~ humemai:m344
+    {|
+       humemai:last_accessed "2025-01-30T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-30T00:00:00"^^xsd:dateTime |} .
+
+<den> <south> <guest> ~ humemai:m345
+    {|
+       humemai:last_accessed "2025-01-30T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-30T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <den> ~ humemai:m346
+    {|
+       humemai:last_accessed "2025-01-30T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-30T00:00:00"^^xsd:dateTime |} .
+
+<john> <at_location> <den> ~ humemai:m347
+    {|
+       humemai:last_accessed "2025-01-30T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-30T00:00:00"^^xsd:dateTime |} .
+
+<study> <west> <den> ~ humemai:m355
+    {|
+       humemai:last_accessed "2025-01-31T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-31T00:00:00"^^xsd:dateTime |} .
+
+<jessica> <at_location> <study> ~ humemai:m356
+    {|
+       humemai:last_accessed "2025-01-31T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-31T00:00:00"^^xsd:dateTime |} .
+
+<john> <at_location> <study> ~ humemai:m357
+    {|
+       humemai:last_accessed "2025-02-01T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "1"^^xsd:integer ;
+       humemai:time_added "2025-01-31T00:00:00"^^xsd:dateTime |} .
+
+<study> <south> <master> ~ humemai:m358
+    {|
+       humemai:last_accessed "2025-01-31T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-31T00:00:00"^^xsd:dateTime |} .
+
+<study> <east> <wall> ~ humemai:m359
+    {|
+       humemai:last_accessed "2025-01-31T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-31T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <study> ~ humemai:m360
+    {|
+       humemai:last_accessed "2025-01-31T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-31T00:00:00"^^xsd:dateTime |} .
+
+<study> <north> <wall> ~ humemai:m361
+    {|
+       humemai:last_accessed "2025-01-31T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-01-31T00:00:00"^^xsd:dateTime |} .
+
+<master> <east> <wall> ~ humemai:m367
+    {|
+       humemai:last_accessed "2025-02-01T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-01T00:00:00"^^xsd:dateTime |} .
+
+<master> <west> <guest> ~ humemai:m368
+    {|
+       humemai:last_accessed "2025-02-01T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-01T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <master> ~ humemai:m369
+    {|
+       humemai:last_accessed "2025-02-01T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-01T00:00:00"^^xsd:dateTime |} .
+
+<master> <north> <wall> ~ humemai:m370
+    {|
+       humemai:last_accessed "2025-02-01T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-01T00:00:00"^^xsd:dateTime |} .
+
+<master> <south> <deck> ~ humemai:m371
+    {|
+       humemai:last_accessed "2025-02-01T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-01T00:00:00"^^xsd:dateTime |} .
+
+<deck> <east> <wall> ~ humemai:m377
+    {|
+       humemai:last_accessed "2025-02-02T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-02T00:00:00"^^xsd:dateTime |} .
+
+<deck> <north> <master> ~ humemai:m378
+    {|
+       humemai:last_accessed "2025-02-02T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-02T00:00:00"^^xsd:dateTime |} .
+
+<deck> <south> <gameroom> ~ humemai:m379
+    {|
+       humemai:last_accessed "2025-02-02T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-02T00:00:00"^^xsd:dateTime |} .
+
+<deck> <west> <porch> ~ humemai:m380
+    {|
+       humemai:last_accessed "2025-02-03T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "1"^^xsd:integer ;
+       humemai:time_added "2025-02-02T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <deck> ~ humemai:m381
+    {|
+       humemai:last_accessed "2025-02-02T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-02T00:00:00"^^xsd:dateTime |} .
+
+<gameroom> <west> <wall> ~ humemai:m388
+    {|
+       humemai:last_accessed "2025-02-03T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-03T00:00:00"^^xsd:dateTime |} .
+
+<gameroom> <south> <wall> ~ humemai:m389
+    {|
+       humemai:last_accessed "2025-02-03T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-03T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <gameroom> ~ humemai:m390
+    {|
+       humemai:last_accessed "2025-02-03T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-03T00:00:00"^^xsd:dateTime |} .
+
+<gameroom> <east> <wall> ~ humemai:m391
+    {|
+       humemai:last_accessed "2025-02-03T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-03T00:00:00"^^xsd:dateTime |} .
+
+<gameroom> <north> <deck> ~ humemai:m392
+    {|
+       humemai:last_accessed "2025-02-03T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-03T00:00:00"^^xsd:dateTime |} .
+
+<coffeetable> <at_location> <gameroom> ~ humemai:m393
+    {|
+       humemai:last_accessed "2025-02-03T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-03T00:00:00"^^xsd:dateTime |} .
+
+<deck> <south> <gameroom> ~ humemai:m399
+    {|
+       humemai:last_accessed "2025-02-04T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-04T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <deck> ~ humemai:m400
+    {|
+       humemai:last_accessed "2025-02-04T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-04T00:00:00"^^xsd:dateTime |} .
+
+<deck> <east> <wall> ~ humemai:m401
+    {|
+       humemai:last_accessed "2025-02-04T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-04T00:00:00"^^xsd:dateTime |} .
+
+<deck> <north> <master> ~ humemai:m402
+    {|
+       humemai:last_accessed "2025-02-04T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-04T00:00:00"^^xsd:dateTime |} .
+
+<deck> <west> <porch> ~ humemai:m403
+    {|
+       humemai:last_accessed "2025-02-04T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-04T00:00:00"^^xsd:dateTime |} .
+
+<porch> <west> <hallway> ~ humemai:m409
+    {|
+       humemai:last_accessed "2025-02-05T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-05T00:00:00"^^xsd:dateTime |} .
+
+<porch> <east> <deck> ~ humemai:m410
+    {|
+       humemai:last_accessed "2025-02-05T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-05T00:00:00"^^xsd:dateTime |} .
+
+<porch> <south> <playroom> ~ humemai:m411
+    {|
+       humemai:last_accessed "2025-02-05T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-05T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <porch> ~ humemai:m412
+    {|
+       humemai:last_accessed "2025-02-05T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-05T00:00:00"^^xsd:dateTime |} .
+
+<porch> <north> <wall> ~ humemai:m413
+    {|
+       humemai:last_accessed "2025-02-05T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-05T00:00:00"^^xsd:dateTime |} .
+
+<playroom> <north> <porch> ~ humemai:m419
+    {|
+       humemai:last_accessed "2025-02-06T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-06T00:00:00"^^xsd:dateTime |} .
+
+<playroom> <south> <cellar> ~ humemai:m420
+    {|
+       humemai:last_accessed "2025-02-06T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-06T00:00:00"^^xsd:dateTime |} .
+
+<playroom> <east> <wall> ~ humemai:m421
+    {|
+       humemai:last_accessed "2025-02-06T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-06T00:00:00"^^xsd:dateTime |} .
+
+<playroom> <west> <nursery> ~ humemai:m422
+    {|
+       humemai:last_accessed "2025-02-06T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-06T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <playroom> ~ humemai:m423
+    {|
+       humemai:last_accessed "2025-02-06T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-06T00:00:00"^^xsd:dateTime |} .
+
+<cellar> <east> <storage> ~ humemai:m429
+    {|
+       humemai:last_accessed "2025-02-07T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-07T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <cellar> ~ humemai:m430
+    {|
+       humemai:last_accessed "2025-02-07T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-07T00:00:00"^^xsd:dateTime |} .
+
+<cellar> <west> <wall> ~ humemai:m431
+    {|
+       humemai:last_accessed "2025-02-07T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-07T00:00:00"^^xsd:dateTime |} .
+
+<cellar> <south> <cabin> ~ humemai:m432
+    {|
+       humemai:last_accessed "2025-02-07T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-07T00:00:00"^^xsd:dateTime |} .
+
+<cellar> <north> <wall> ~ humemai:m433
+    {|
+       humemai:last_accessed "2025-02-07T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-07T00:00:00"^^xsd:dateTime |} .
+
+<storage> <east> <wall> ~ humemai:m439
+    {|
+       humemai:last_accessed "2025-02-08T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-08T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <storage> ~ humemai:m440
+    {|
+       humemai:last_accessed "2025-02-08T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-08T00:00:00"^^xsd:dateTime |} .
+
+<storage> <west> <cellar> ~ humemai:m441
+    {|
+       humemai:last_accessed "2025-02-08T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-08T00:00:00"^^xsd:dateTime |} .
+
+<storage> <north> <gameroom> ~ humemai:m442
+    {|
+       humemai:last_accessed "2025-02-08T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-08T00:00:00"^^xsd:dateTime |} .
+
+<storage> <south> <lodge> ~ humemai:m443
+    {|
+       humemai:last_accessed "2025-02-08T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-08T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <lodge> ~ humemai:m449
+    {|
+       humemai:last_accessed "2025-02-09T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-09T00:00:00"^^xsd:dateTime |} .
+
+<lodge> <north> <storage> ~ humemai:m450
+    {|
+       humemai:last_accessed "2025-02-09T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-09T00:00:00"^^xsd:dateTime |} .
+
+<lodge> <west> <cabin> ~ humemai:m451
+    {|
+       humemai:last_accessed "2025-02-09T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-09T00:00:00"^^xsd:dateTime |} .
+
+<lodge> <east> <wall> ~ humemai:m452
+    {|
+       humemai:last_accessed "2025-02-09T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-09T00:00:00"^^xsd:dateTime |} .
+
+<lodge> <south> <nook> ~ humemai:m453
+    {|
+       humemai:last_accessed "2025-02-09T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-09T00:00:00"^^xsd:dateTime |} .
+
+<cabin> <north> <cellar> ~ humemai:m459
+    {|
+       humemai:last_accessed "2025-02-10T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-10T00:00:00"^^xsd:dateTime |} .
+
+<cabin> <east> <lodge> ~ humemai:m460
+    {|
+       humemai:last_accessed "2025-02-10T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-10T00:00:00"^^xsd:dateTime |} .
+
+<cabin> <west> <loft> ~ humemai:m461
+    {|
+       humemai:last_accessed "2025-02-10T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-10T00:00:00"^^xsd:dateTime |} .
+
+<cabin> <south> <cafe> ~ humemai:m462
+    {|
+       humemai:last_accessed "2025-02-10T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-10T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <cabin> ~ humemai:m463
+    {|
+       humemai:last_accessed "2025-02-10T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-10T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <loft> ~ humemai:m470
+    {|
+       humemai:last_accessed "2025-02-11T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-11T00:00:00"^^xsd:dateTime |} .
+
+<nightstand> <at_location> <loft> ~ humemai:m471
+    {|
+       humemai:last_accessed "2025-02-11T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-11T00:00:00"^^xsd:dateTime |} .
+
+<loft> <west> <wardrobe> ~ humemai:m472
+    {|
+       humemai:last_accessed "2025-02-11T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-11T00:00:00"^^xsd:dateTime |} .
+
+<loft> <north> <sauna> ~ humemai:m473
+    {|
+       humemai:last_accessed "2025-02-11T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-11T00:00:00"^^xsd:dateTime |} .
+
+<loft> <east> <cabin> ~ humemai:m474
+    {|
+       humemai:last_accessed "2025-02-11T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-11T00:00:00"^^xsd:dateTime |} .
+
+<loft> <south> <bar> ~ humemai:m475
+    {|
+       humemai:last_accessed "2025-02-11T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-11T00:00:00"^^xsd:dateTime |} .
+
+<wardrobe> <east> <loft> ~ humemai:m481
+    {|
+       humemai:last_accessed "2025-02-12T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-12T00:00:00"^^xsd:dateTime |} .
+
+<wardrobe> <north> <wall> ~ humemai:m482
+    {|
+       humemai:last_accessed "2025-02-12T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-12T00:00:00"^^xsd:dateTime |} .
+
+<wardrobe> <south> <lounge> ~ humemai:m483
+    {|
+       humemai:last_accessed "2025-02-12T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-12T00:00:00"^^xsd:dateTime |} .
+
+<wardrobe> <west> <wall> ~ humemai:m484
+    {|
+       humemai:last_accessed "2025-02-12T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-12T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <wardrobe> ~ humemai:m485
+    {|
+       humemai:last_accessed "2025-02-12T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-12T00:00:00"^^xsd:dateTime |} .
+
+<lounge> <west> <parlor> ~ humemai:m491
+    {|
+       humemai:last_accessed "2025-02-13T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-13T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <lounge> ~ humemai:m492
+    {|
+       humemai:last_accessed "2025-02-13T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-13T00:00:00"^^xsd:dateTime |} .
+
+<lounge> <east> <bar> ~ humemai:m493
+    {|
+       humemai:last_accessed "2025-02-13T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-13T00:00:00"^^xsd:dateTime |} .
+
+<lounge> <south> <wall> ~ humemai:m494
+    {|
+       humemai:last_accessed "2025-02-13T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-13T00:00:00"^^xsd:dateTime |} .
+
+<lounge> <north> <wardrobe> ~ humemai:m495
+    {|
+       humemai:last_accessed "2025-02-13T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-13T00:00:00"^^xsd:dateTime |} .
+
+<parlor> <south> <wall> ~ humemai:m502
+    {|
+       humemai:last_accessed "2025-02-14T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-14T00:00:00"^^xsd:dateTime |} .
+
+<parlor> <north> <powder> ~ humemai:m503
+    {|
+       humemai:last_accessed "2025-02-14T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-14T00:00:00"^^xsd:dateTime |} .
+
+<cabinet> <at_location> <parlor> ~ humemai:m504
+    {|
+       humemai:last_accessed "2025-02-14T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-14T00:00:00"^^xsd:dateTime |} .
+
+<parlor> <west> <suite> ~ humemai:m505
+    {|
+       humemai:last_accessed "2025-02-14T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-14T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <parlor> ~ humemai:m506
+    {|
+       humemai:last_accessed "2025-02-14T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-14T00:00:00"^^xsd:dateTime |} .
+
+<parlor> <east> <wall> ~ humemai:m507
+    {|
+       humemai:last_accessed "2025-02-14T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-14T00:00:00"^^xsd:dateTime |} .
+
+<suite> <east> <parlor> ~ humemai:m514
+    {|
+       humemai:last_accessed "2025-02-15T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-15T00:00:00"^^xsd:dateTime |} .
+
+<suite> <north> <mudroom> ~ humemai:m515
+    {|
+       humemai:last_accessed "2025-02-16T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "1"^^xsd:integer ;
+       humemai:time_added "2025-02-15T00:00:00"^^xsd:dateTime |} .
+
+<suite> <south> <wall> ~ humemai:m516
+    {|
+       humemai:last_accessed "2025-02-15T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-15T00:00:00"^^xsd:dateTime |} .
+
+<suite> <west> <cottage> ~ humemai:m517
+    {|
+       humemai:last_accessed "2025-02-15T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-15T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <suite> ~ humemai:m518
+    {|
+       humemai:last_accessed "2025-02-15T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-15T00:00:00"^^xsd:dateTime |} .
+
+<emily> <at_location> <suite> ~ humemai:m519
+    {|
+       humemai:last_accessed "2025-02-15T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-15T00:00:00"^^xsd:dateTime |} .
+
+<emily> <at_location> <cottage> ~ humemai:m526
+    {|
+       humemai:last_accessed "2025-02-16T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-16T00:00:00"^^xsd:dateTime |} .
+
+<cottage> <south> <wall> ~ humemai:m527
+    {|
+       humemai:last_accessed "2025-02-16T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-16T00:00:00"^^xsd:dateTime |} .
+
+<cottage> <east> <suite> ~ humemai:m528
+    {|
+       humemai:last_accessed "2025-02-16T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-16T00:00:00"^^xsd:dateTime |} .
+
+<cottage> <west> <wall> ~ humemai:m529
+    {|
+       humemai:last_accessed "2025-02-16T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-16T00:00:00"^^xsd:dateTime |} .
+
+<cottage> <north> <wall> ~ humemai:m530
+    {|
+       humemai:last_accessed "2025-02-16T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-16T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <cottage> ~ humemai:m531
+    {|
+       humemai:last_accessed "2025-02-16T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-16T00:00:00"^^xsd:dateTime |} .
+
+<suite> <south> <wall> ~ humemai:m538
+    {|
+       humemai:last_accessed "2025-02-17T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-17T00:00:00"^^xsd:dateTime |} .
+
+<emily> <at_location> <suite> ~ humemai:m539
+    {|
+       humemai:last_accessed "2025-02-17T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-17T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <suite> ~ humemai:m540
+    {|
+       humemai:last_accessed "2025-02-17T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-17T00:00:00"^^xsd:dateTime |} .
+
+<suite> <north> <mudroom> ~ humemai:m541
+    {|
+       humemai:last_accessed "2025-02-17T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-17T00:00:00"^^xsd:dateTime |} .
+
+<suite> <east> <parlor> ~ humemai:m542
+    {|
+       humemai:last_accessed "2025-02-17T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-17T00:00:00"^^xsd:dateTime |} .
+
+<suite> <west> <cottage> ~ humemai:m543
+    {|
+       humemai:last_accessed "2025-02-17T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-17T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <mudroom> ~ humemai:m550
+    {|
+       humemai:last_accessed "2025-02-18T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-18T00:00:00"^^xsd:dateTime |} .
+
+<mudroom> <west> <utility> ~ humemai:m551
+    {|
+       humemai:last_accessed "2025-02-18T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-18T00:00:00"^^xsd:dateTime |} .
+
+<mudroom> <east> <powder> ~ humemai:m552
+    {|
+       humemai:last_accessed "2025-02-18T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-18T00:00:00"^^xsd:dateTime |} .
+
+<mudroom> <south> <suite> ~ humemai:m553
+    {|
+       humemai:last_accessed "2025-02-18T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-18T00:00:00"^^xsd:dateTime |} .
+
+<mudroom> <north> <workshop> ~ humemai:m554
+    {|
+       humemai:last_accessed "2025-02-18T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-18T00:00:00"^^xsd:dateTime |} .
+
+<sofa> <at_location> <mudroom> ~ humemai:m555
+    {|
+       humemai:last_accessed "2025-02-18T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-18T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <workshop> ~ humemai:m561
+    {|
+       humemai:last_accessed "2025-02-19T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-19T00:00:00"^^xsd:dateTime |} .
+
+<workshop> <south> <wall> ~ humemai:m562
+    {|
+       humemai:last_accessed "2025-02-19T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-19T00:00:00"^^xsd:dateTime |} .
+
+<workshop> <west> <studio> ~ humemai:m563
+    {|
+       humemai:last_accessed "2025-02-19T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-19T00:00:00"^^xsd:dateTime |} .
+
+<workshop> <north> <wall> ~ humemai:m564
+    {|
+       humemai:last_accessed "2025-02-19T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-19T00:00:00"^^xsd:dateTime |} .
+
+<workshop> <east> <gym> ~ humemai:m565
+    {|
+       humemai:last_accessed "2025-02-19T00:00:00"^^xsd:dateTime ;
+       humemai:num_recalled "0"^^xsd:integer ;
+       humemai:time_added "2025-02-19T00:00:00"^^xsd:dateTime |} .
+
+<desk> <at_location> <gym> ~ humemai:m566
+    {|
+       humemai:current_time "2025-02-20T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <gym> ~ humemai:m567
+    {|
+       humemai:current_time "2025-02-20T00:00:00"^^xsd:dateTime |} .
+
+<gym> <east> <wall> ~ humemai:m568
+    {|
+       humemai:current_time "2025-02-20T00:00:00"^^xsd:dateTime |} .
+
+<gym> <north> <sunroom> ~ humemai:m569
+    {|
+       humemai:current_time "2025-02-20T00:00:00"^^xsd:dateTime |} .
+
+<gym> <west> <wall> ~ humemai:m570
+    {|
+       humemai:current_time "2025-02-20T00:00:00"^^xsd:dateTime |} .
+
+<gym> <south> <wall> ~ humemai:m571
+    {|
+       humemai:current_time "2025-02-20T00:00:00"^^xsd:dateTime |} .
+

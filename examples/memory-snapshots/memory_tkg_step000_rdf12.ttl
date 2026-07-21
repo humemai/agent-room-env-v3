@@ -1,0 +1,26 @@
+@prefix humemai: <https://humem.ai/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# RDF 1.2 annotation serialization (named reifiers), converted from
+# the reification serialization in memory_tkg_step000.ttl.
+
+<library> <west> <sunroom> ~ humemai:m0
+    {|
+       humemai:current_time "2025-01-01T00:00:00"^^xsd:dateTime |} .
+
+<library> <east> <nursery> ~ humemai:m1
+    {|
+       humemai:current_time "2025-01-01T00:00:00"^^xsd:dateTime |} .
+
+<agent> <at_location> <library> ~ humemai:m2
+    {|
+       humemai:current_time "2025-01-01T00:00:00"^^xsd:dateTime |} .
+
+<library> <south> <spa> ~ humemai:m3
+    {|
+       humemai:current_time "2025-01-01T00:00:00"^^xsd:dateTime |} .
+
+<library> <north> <wall> ~ humemai:m4
+    {|
+       humemai:current_time "2025-01-01T00:00:00"^^xsd:dateTime |} .
+
