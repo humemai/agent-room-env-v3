@@ -89,8 +89,15 @@ def run_simple_dqn_experiment(run_params):
     my_reserve = RESERVE_MB.get(p_max_memory, 3300)
     if _RESERVED is not None:
         while True:
+            budget = _BUDGET_MB
+            budget_file = os.environ.get("TRAIN_MEM_BUDGET_FILE")
+            if budget_file and os.path.exists(budget_file):
+                try:
+                    budget = int(open(budget_file).read().strip())
+                except (ValueError, OSError):
+                    pass
             with _RES_LOCK:
-                if _RESERVED.value + my_reserve <= _BUDGET_MB:
+                if _RESERVED.value + my_reserve <= budget:
                     _RESERVED.value += my_reserve
                     break
             time.sleep(20)
