@@ -3,6 +3,7 @@ import multiprocessing
 import random
 from pathlib import Path
 import argparse
+import os
 import time
 
 import matplotlib
@@ -47,6 +48,22 @@ network_configs = {
 }
 default_root_dir = "training-results-simple-dqn"
 
+# Peak-RSS reservation (MB) per long-term memory capacity; replay buffers grow
+# with K, so admission control reserves the worst case up front.
+RESERVE_MB = {0: 250, 2: 250, 4: 250, 8: 300, 16: 350, 32: 450, 64: 700,
+              128: 1500, 256: 2100, 512: 3300}
+
+_RESERVED = None   # multiprocessing.Value: currently reserved MB
+_RES_LOCK = None
+_BUDGET_MB = None  # total reservation budget, fixed at launch
+
+
+def _pool_init(reserved, lock, budget):
+    global _RESERVED, _RES_LOCK, _BUDGET_MB
+    _RESERVED = reserved
+    _RES_LOCK = lock
+    _BUDGET_MB = budget
+
 
 def run_simple_dqn_experiment(run_params):
     (
@@ -66,6 +83,17 @@ def run_simple_dqn_experiment(run_params):
         "training-results-simple-dqn-temporal" if p_temporal
         else default_root_dir
     )
+
+    # Memory-reservation admission: wait until this run's worst-case RSS fits
+    # inside the launch-time budget alongside all currently running runs.
+    my_reserve = RESERVE_MB.get(p_max_memory, 3300)
+    if _RESERVED is not None:
+        while True:
+            with _RES_LOCK:
+                if _RESERVED.value + my_reserve <= _BUDGET_MB:
+                    _RESERVED.value += my_reserve
+                    break
+            time.sleep(20)
 
     # Stagger start so concurrently launched runs cannot collide on the
     # datetime-named results directory (str(datetime.now()) in Agent.__init__)
@@ -128,7 +156,12 @@ def run_simple_dqn_experiment(run_params):
         temporal_features=p_temporal,
     )
 
-    agent.train()
+    try:
+        agent.train()
+    finally:
+        if _RESERVED is not None:
+            with _RES_LOCK:
+                _RESERVED.value -= my_reserve
 
 
 def extract_experiment_params_simple(train_yaml_path):
@@ -301,5 +334,12 @@ if __name__ == "__main__":
     print(f"Total combinations to run: {len(all_combinations)}")
     print(f"Running experiments with {num_processes} processes")
 
-    with multiprocessing.Pool(num_processes) as pool:
-        pool.map(run_simple_dqn_experiment, all_combinations)
+    budget_mb = int(os.environ.get("TRAIN_MEM_BUDGET_MB", "8000"))
+    reserved = multiprocessing.Value("i", 0)
+    res_lock = multiprocessing.Lock()
+    print(f"Memory reservation budget: {budget_mb} MB")
+    with multiprocessing.Pool(
+        num_processes, initializer=_pool_init,
+        initargs=(reserved, res_lock, budget_mb),
+    ) as pool:
+        pool.map(run_simple_dqn_experiment, all_combinations, chunksize=1)
