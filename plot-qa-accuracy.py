@@ -96,13 +96,16 @@ def main() -> None:
             fontsize=10.5, color=REF_GRAY, va="bottom",
         )
 
-        # Worst/best range over the 27 TKG policy variants
+        # Worst/best range over the 27 TKG policy variants (dotted boundary
+        # lines; a translucent fill is indistinguishable from the std shading)
         rng = data["tkg_variant_range"][env]
         lo = np.array([rng[str(k)][0] for k in caps])
         hi = np.array([rng[str(k)][1] for k in caps])
-        ax.fill_between(
-            pos, lo, hi, color=STYLE["TKG"]["color"], alpha=0.10, linewidth=0
-        )
+        for bound in (lo, hi):
+            ax.plot(
+                pos, bound, color=STYLE["TKG"]["color"],
+                linewidth=1.3, linestyle=(0, (1.5, 2.0)), alpha=0.95,
+            )
 
         for agent, style in STYLE.items():
             mean, std = load_series(data, env, agent, caps)
@@ -150,8 +153,9 @@ def main() -> None:
         handles.append(Line2D([0], [0], color=s["color"], marker=s["marker"],
                               markersize=5, linewidth=1.6, linestyle="--", label=name))
     handles.append(
-        plt.Rectangle((0, 0), 1, 1, facecolor=STYLE["TKG"]["color"], alpha=0.10,
-                      label="TKG range over 27 policy variants")
+        Line2D([0], [0], color=STYLE["TKG"]["color"], linewidth=1.3,
+               linestyle=(0, (1.5, 2.0)),
+               label="TKG worst/best of 27 policy variants")
     )
     fig.legend(
         handles=handles, loc="lower center", ncol=3, fontsize=11.5,
