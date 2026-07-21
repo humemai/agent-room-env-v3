@@ -159,9 +159,9 @@ def main() -> None:
     )
     fig.legend(
         handles=handles, loc="lower center", ncol=3, fontsize=11.5,
-        frameon=False, bbox_to_anchor=(0.5, -0.04),
+        frameon=False, bbox_to_anchor=(0.5, -0.10),
     )
-    fig.tight_layout(rect=(0, 0.05, 1, 1))
+    fig.tight_layout(rect=(0, 0.02, 1, 1))
 
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
