@@ -3,6 +3,7 @@ import multiprocessing
 import random
 from pathlib import Path
 import argparse
+import time
 
 import matplotlib
 import yaml
@@ -65,6 +66,10 @@ def run_simple_dqn_experiment(run_params):
         "training-results-simple-dqn-temporal" if p_temporal
         else default_root_dir
     )
+
+    # Stagger start so concurrently launched runs cannot collide on the
+    # datetime-named results directory (str(datetime.now()) in Agent.__init__)
+    time.sleep((p_seed_value % 29) * 1.7)
 
     batch_size = 32
     terminates_at = 99
