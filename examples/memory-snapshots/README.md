@@ -21,3 +21,9 @@ reification files corresponds to one reifier in the RDF 1.2 files; the
 `humemai:memory_id` becomes the reifier name (`humemai:m<id>`). Note that current
 RDF tooling (including rdflib) cannot yet parse RDF 1.2 syntax; these files are
 provided for inspection, while the reification files remain the loadable format.
+
+`verify_rdf12_equivalence.py` checks the two serializations against each other:
+it parses the reification files with rdflib and the RDF 1.2 files with an
+independent parser, then compares the reconstructed memory occurrences
+(base triple, memory id, annotation set) and asserted base triples. All
+snapshots match one-to-one.
