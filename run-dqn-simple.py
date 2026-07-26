@@ -337,6 +337,11 @@ if __name__ == "__main__":
                                 )
 
     random.shuffle(all_combinations)
+    # Stable sort by memory reservation: light runs first, so workers are not
+    # head-of-line blocked holding big-K jobs at the admission gate while
+    # cheap jobs sit unreachable in the queue. Shuffle above still randomizes
+    # order within each reservation class.
+    all_combinations.sort(key=lambda p: RESERVE_MB.get(p[-2], 3300))
 
     print(f"Total combinations to run: {len(all_combinations)}")
     print(f"Running experiments with {num_processes} processes")
