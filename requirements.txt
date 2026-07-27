@@ -1,15 +1,14 @@
-torch==2.1.1
-humemai-research==2.5.3.post2
-room-env==3.0.4
-numpy==1.26.4
-torch-scatter==2.1.2
-torch_geometric==2.4.0
-tqdm==4.66.4
-PyYAML>=6.0.1
+# Pins reflect the environment that produced the reported results
+# (temporal DQN grid, 2026-07-26/27). Verified against the live venv.
+torch==2.13.0
+numpy==2.5.1
+gymnasium==0.29.1
+room-env==3.0.6
+humemai-research==2.5.7
+tqdm==4.69.0
+PyYAML==6.0.3
+matplotlib==3.11.1
+pandas==3.0.3
+rdflib==7.6.0
 ipython
 ipykernel
-gymnasium==0.29.1
-pandas
-matplotlib
-rdflib
-transformers==4.36.2

@@ -157,11 +157,14 @@ def main() -> None:
                linestyle=(0, (1.5, 2.0)),
                label="TKG best/worst of 27 policy variants")
     )
+    # Legend rows grow with the number of series; reserve bottom space
+    # proportionally so it never rides up over the x-axis labels.
+    nrows = -(-len(handles) // 3)
     fig.legend(
         handles=handles, loc="lower center", ncol=3, fontsize=11.5,
-        frameon=False, bbox_to_anchor=(0.5, -0.10),
+        frameon=False, bbox_to_anchor=(0.5, -0.045 * nrows),
     )
-    fig.tight_layout(rect=(0, 0.02, 1, 1))
+    fig.tight_layout(rect=(0, 0.02 + 0.02 * (nrows - 1), 1, 1))
 
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)

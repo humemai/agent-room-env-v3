@@ -86,7 +86,23 @@ order.
 
 In the benchmark setting used in the paper, the temporal knowledge-graph agent reaches
 substantially higher test QA accuracy than the neural baselines under the same memory
-capacity constraints.
+capacity constraints. The series labelled `temporal` are neural controls whose
+observation tokens carry an explicit arrival-timestep feature, the sequence analogue of
+the `:time_added` annotation; they do not close the gap to the symbolic agents.
+
+Regenerate that figure from the checked-in series data:
+
+```bash
+python plot-qa-accuracy.py \
+  --out figures/agent_train_test_qa_accuracy.png \
+  --extra-series "Neural - LSTM (temporal)"        data/qa-accuracy-temporal-lstm.json \
+  --extra-series "Neural - Transformer (temporal)" data/qa-accuracy-temporal-transformer.json
+```
+
+Drop the `--out` flag to write the PDF used by the paper. The temporal series were
+produced by `run-dqn-simple.py --temporal_features` over all capacities and five seeds,
+then evaluated on the held-out environment with
+`run-dqn-simple-test.py --env large-02-q`.
 
 ## Further reading
 
