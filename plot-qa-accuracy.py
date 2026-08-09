@@ -1,8 +1,10 @@
 """Render the train/test QA-accuracy figure (paper Figure 3).
 
 Reads data/qa-accuracy-fig.json and produces a two-panel (train | test) line
-chart with calibration reference lines (hidden-state oracle, perfect-memory
-ceiling) and the worst/best range over the 27 TKG policy variants.
+chart with the worst/best range over the 27 TKG policy variants. The y-axis is
+scaled to the plotted series; the analytic hidden-state oracle (100) and the
+capacity-saturation point are reported in the text rather than drawn, since a
+0-100 axis leaves both panels empty above the data.
 
 Future series (e.g., temporally-informed neural agents) can be added without
 touching this script:
@@ -35,7 +37,6 @@ EXTRA_STYLE = [
     {"color": "#e87ba4", "marker": "v"},
     {"color": "#4a3aa7", "marker": "P"},
 ]
-REF_GRAY = "#52514e"
 
 
 def load_series(data, env, agent, capacities):
@@ -71,30 +72,25 @@ def main() -> None:
     for name, path in args.extra_series:
         extras.append((name, json.loads(Path(path).read_text())))
 
+    # Shared upper limit across both panels: the largest plotted value (series mean
+    # plus its shading, and the TKG variant band), rounded up to the next multiple of 5.
+    peaks = []
+    for env in ("train", "test"):
+        peaks += [max(data["tkg_variant_range"][env][str(k)][1] for k in caps)]
+        for agent in STYLE:
+            mean, std = load_series(data, env, agent, caps)
+            peaks.append(float(np.max(mean + std)))
+        for _, extra in extras:
+            entries = extra[env]
+            peaks += [entries[k]["mean"] + entries[k]["std"] for k in entries]
+    ylim_top = 5.0 * np.ceil(max(peaks) / 5.0) + 2.0
+
     fig, axes = plt.subplots(
         1, 2, figsize=(9.6, 4.3), sharey=True, facecolor="white"
     )
 
     for ax, env, title in zip(axes, ("train", "test"), ("Train", "Test (held-out)")):
         ax.set_facecolor("white")
-
-        # Reference lines: oracle upper bound and perfect-memory ceiling
-        oracle = data["reference_lines"]["oracle"]
-        ceiling = data["reference_lines"]["perfect_memory"][env]
-        ax.axhline(oracle, color=REF_GRAY, linewidth=1.2, linestyle=(0, (4, 3)))
-        ax.axhline(ceiling, color=REF_GRAY, linewidth=1.2, linestyle=(0, (1, 2)))
-        ax.annotate(
-            "hidden-state oracle (100)",
-            xy=(0.02, oracle), xycoords=("axes fraction", "data"),
-            xytext=(0, -9), textcoords="offset points",
-            fontsize=10.5, color=REF_GRAY, va="top",
-        )
-        ax.annotate(
-            f"perfect memory ({ceiling:.1f})",
-            xy=(0.02, ceiling), xycoords=("axes fraction", "data"),
-            xytext=(0, 5), textcoords="offset points",
-            fontsize=10.5, color=REF_GRAY, va="bottom",
-        )
 
         # Worst/best range over the 27 TKG policy variants (dotted boundary
         # lines; a translucent fill is indistinguishable from the std shading)
@@ -137,7 +133,9 @@ def main() -> None:
         ax.set_xticklabels([str(c) for c in caps], fontsize=11)
         ax.tick_params(axis="y", labelsize=11)
         ax.grid(True, linestyle=":", linewidth=0.5, alpha=0.5)
-        ax.set_ylim(-3, 108)
+        # Scale to the plotted data. The analytic oracle at 100 is no longer drawn,
+        # so a 0-100 axis would leave the top half of both panels empty.
+        ax.set_ylim(-1, ylim_top)
         for spine in ("top", "right"):
             ax.spines[spine].set_visible(False)
 

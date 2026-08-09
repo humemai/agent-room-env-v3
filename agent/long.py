@@ -65,6 +65,8 @@ class LongTermAgent(Agent):
         self.explore_policy = explore_policy.lower()
 
         assert forget_policy.lower() in [
+            "fifo",
+            "lru",
             "lfu",
         ], f"Invalid long-term memory management policy: {forget_policy}"
         self.forget_policy = forget_policy.lower()
@@ -115,13 +117,7 @@ class LongTermAgent(Agent):
         while (
             self.humemai.get_long_term_memory_count() > self.max_long_term_memory_size
         ):
-            if self.forget_policy == "lfu":
-                mem_id_to_delete = self._pick_lfu_victim()
-            else:
-                raise ValueError(
-                    f"Unsupported forget policy: {self.forget_policy}. "
-                    "Only 'lfu' is supported in this release."
-                )
+            mem_id_to_delete = self._pick_victim(self.forget_policy)
 
             if mem_id_to_delete is None:
                 raise ValueError("No memory ID found for deletion.")
@@ -137,16 +133,34 @@ class LongTermAgent(Agent):
         }
         self.humemai.add_short_term_memory(triples=triples, qualifiers=qualifiers)
 
-    # ------------------------ lfu ------------------------
+    # ------------------------ eviction ------------------------
+
+    # Annotation index used to rank eviction candidates: 1 = num_recalled,
+    # 2 = last_accessed, 3 = time_added. Each policy is a cascade over these,
+    # least first, with a uniform random draw among any remaining ties.
+    _VICTIM_KEYS = {"lfu": (1, 2, 3), "lru": (2, 3), "fifo": (3,)}
+
+    def _pick_victim(self, policy: str) -> Optional[int]:
+        """Select the memory to evict under the given eviction policy.
+
+        lfu ranks by num_recalled, then last_accessed, then time_added; lru ranks
+        by last_accessed, then time_added; fifo ranks by time_added alone. Ties
+        remaining after the cascade are broken uniformly at random.
+        """
+        candidates = self._victim_candidates()
+        for key in self._VICTIM_KEYS[policy]:
+            lowest = min(c[key] for c in candidates)
+            candidates = [c for c in candidates if c[key] == lowest]
+            if len(candidates) == 1:
+                return candidates[0][0]
+        return random.choice(candidates)[0]
 
     def _pick_lfu_victim(self) -> Optional[int]:
-        """
-        Select victim using lfu policy:
-        1. Find memories with lowest num_recalled value
-        2. If multiple, fall back to lru (oldest last_accessed)
-        3. If still multiple, fall back to fifo (oldest time_added)
-        4. If still multiple, choose one uniformly at random
-        """
+        """Select victim using the lfu policy (kept for backwards compatibility)."""
+        return self._pick_victim("lfu")
+
+    def _victim_candidates(self) -> list[tuple[int, int, str, str]]:
+        """Return (memory_id, num_recalled, last_accessed, time_added) per statement."""
         query = """
             PREFIX humemai: <https://humem.ai/ontology#>
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -161,38 +175,11 @@ class LongTermAgent(Agent):
         """
         rows = list(self.humemai.graph.query(query))
         if not rows:
-            raise ValueError("No statements => can't pick lfu victim.")
+            raise ValueError("No statements => can't pick an eviction victim.")
 
-        # Convert to list of tuples: (memory_id, num_recalled, last_accessed, time_added)
-        candidates = [
+        return [
             (int(row.memory_id), int(row.rec), str(row.la), str(row.ta)) for row in rows
         ]
-
-        # Step 1: Filter by lowest num_recalled (lfu)
-        min_recall = min(c[1] for c in candidates)
-        lfu_candidates = [c for c in candidates if c[1] == min_recall]
-
-        # If only one lfu candidate, we're done
-        if len(lfu_candidates) == 1:
-            return lfu_candidates[0][0]  # Return memory ID
-
-        # Step 2: If multiple lfu candidates with same recall count, fall back to lru
-        # Sort by oldest last_accessed
-        lfu_candidates.sort(key=lambda x: x[2])
-        oldest_la = lfu_candidates[0][2]
-        lru_winners = [c for c in lfu_candidates if c[2] == oldest_la]
-
-        # If only one lru winner, we're done
-        if len(lru_winners) == 1:
-            return lru_winners[0][0]  # Return memory ID
-
-        # Step 3: If still tied, fall back to fifo
-        lru_winners.sort(key=lambda x: x[3])  # Sort by time_added
-        oldest_ta = lru_winners[0][3]
-        fifo_winners = [c for c in lru_winners if c[3] == oldest_ta]
-
-        # Step 4: If still multiple candidates, choose one uniformly at random
-        return random.choice(fifo_winners)[0]  # Return memory ID of a random candidate
 
 
     # -------------------------------------------------------------------------
