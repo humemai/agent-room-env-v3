@@ -1,0 +1,45 @@
+{
+  "title": "RoomKG Baselines: symbolic and neural agents for the RoomKG Benchmark",
+  "description": "<p>Baseline agent implementations, training and evaluation code, and per-seed raw results accompanying the paper <em>A Neurosymbolic Benchmark for Temporal Knowledge-Graph Memory in Partially Observable Environments</em>.</p><p>The repository contains two symbolic agents (a plain knowledge-graph agent and a temporal knowledge-graph agent whose stored statements carry <code>:time_added</code>, <code>:last_accessed</code> and <code>:num_recalled</code> annotations), LSTM and Transformer neural baselines trained with a DQN objective, the plotting code for the reported figures, and the aggregated and per-seed results behind them.</p><p>The benchmark environment itself is released separately as room-env.</p>",
+  "upload_type": "software",
+  "license": "apache-2.0",
+  "access_right": "open",
+  "creators": [
+    {
+      "name": "Kim, Taewoon",
+      "affiliation": "HumemAI and Vrije Universiteit Amsterdam, The Netherlands",
+      "orcid": "0000-0003-2892-0194"
+    },
+    {
+      "name": "François-Lavet, Vincent",
+      "affiliation": "Vrije Universiteit Amsterdam, The Netherlands"
+    },
+    {
+      "name": "Cochez, Michael",
+      "affiliation": "ELLIS Institute Finland and Åbo Akademi University, Finland"
+    }
+  ],
+  "keywords": [
+    "neurosymbolic AI",
+    "knowledge graphs",
+    "temporal knowledge graphs",
+    "RDF",
+    "long-term memory",
+    "partial observability",
+    "benchmark",
+    "reinforcement learning"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.18721817",
+      "relation": "isSupplementTo",
+      "scheme": "doi",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://github.com/humemai/room-env",
+      "relation": "requires",
+      "scheme": "url"
+    }
+  ]
+}
