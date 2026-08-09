@@ -438,12 +438,5 @@
     46.52
    ]
   }
- },
- "reference_lines": {
-  "oracle": 100.0,
-  "perfect_memory": {
-   "train": 45.16,
-   "test": 46.36
-  }
  }
 }
