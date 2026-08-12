@@ -8,8 +8,8 @@ Each memory is one reified statement (`rdf:Statement` with `rdf:subject`,
 `rdf:predicate`, `rdf:object`) carrying a unique `humemai:memory_id` and its
 temporal annotations (`humemai:time_added`, `humemai:last_accessed`,
 `humemai:num_recalled`; short-term entries carry `humemai:current_time`).
-This reification is the concrete serialization of the RDF 1.2-style annotation
-model described in the paper: one reified statement corresponds to one annotated
+This reification is the concrete serialization of the annotation model described in
+the paper, which RDF 1.2 standardizes: one reified statement corresponds to one annotated
 occurrence of a base triple, so multiple annotation sets for the same base triple
 can coexist.
 
