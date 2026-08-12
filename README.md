@@ -21,6 +21,7 @@ in this repository.
 - [`run-dqn-simple-test.py`](./run-dqn-simple-test.py): test-time evaluation for completed neural training runs
 - [`figures/`](./figures): README figures and benchmark visualizations
 - [`replay.py`](./replay.py): step the deterministic environment to any timestep and print its hidden state
+- [`verify_claims.py`](./verify_claims.py): recompute every number the paper reports from `data/` and `results/`, and check the paper and response letter still assert them
 - [`examples/memory-evolution/`](./examples/memory-evolution): the TKG agent's memory rendered at every timestep of one episode
 
 ## Prerequisites
