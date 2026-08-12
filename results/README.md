@@ -17,7 +17,14 @@ Observable Environments*.
 
 | Tree | Runs |
 |---|---|
-| `training-results-symbolic/` | the TKG policy sweep across all capacities, both the training layout (`large-02`) and the held-out layout (`large-02-q`) |
+| `training-results-symbolic/` | the TKG policy sweep: all 27 variants x 11 capacities x 5 seeds, on the training layout (`large-02`) and the held-out layout (`large-02-q`) |
+
+These archives hold the runs behind the numbers in the paper and nothing else. Earlier
+cuts also carried runs from adjacent studies (a `large-03` layout the paper does not use,
+a sweep over `remember_policy` values other than `all`, and meta-policies such as `borda`
+and `memory_pressure`). Those share the directory layout and the same policy field names,
+so aggregating by QA/exploration/eviction policy silently mixed them in. Aggregating what
+is here now reproduces the reported figures directly, with no filtering.
 
 Each run directory holds:
 
