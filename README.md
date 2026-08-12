@@ -20,6 +20,8 @@ in this repository.
 - [`run-dqn-simple.py`](./run-dqn-simple.py): neural baseline training sweep for LSTM and Transformer agents
 - [`run-dqn-simple-test.py`](./run-dqn-simple-test.py): test-time evaluation for completed neural training runs
 - [`figures/`](./figures): README figures and benchmark visualizations
+- [`replay.py`](./replay.py): step the deterministic environment to any timestep and print its hidden state
+- [`examples/memory-evolution/`](./examples/memory-evolution): the TKG agent's memory rendered at every timestep of one episode
 
 ## Prerequisites
 
