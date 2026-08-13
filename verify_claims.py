@@ -145,6 +145,17 @@ def build_claims(root: Path):
                   for d in (tt, tl) for s in ["test"]), 1), 0.6)
     add("§4", "27 variants present", len(by_config(sym, TEST_ROOM, 512)), 27)
 
+    # Model sizes, and the size-match the arrival-time control rests on.
+    sizes = sorted({int(c["params"]) for c, _ in neu if c["params"] and not c["temporal"]})
+    for want in (11573, 51061, 13781, 68085):
+        add("§5", f"neural parameter count {want}", want in sizes, True)
+    tmp = sorted({int(c["params"]) for c, _ in neu if c["params"] and c["temporal"]})
+    deltas = sorted({b - a for a, b in zip(sizes, tmp)})
+    add("§5.1", "timestep-embedding overhead (params)", deltas, [288, 1088], "")
+    add("§5.1", "overhead as share of base model (max %)",
+        round(100 * max(d / s for d, s in zip([288, 288, 1088, 1088],
+                                              [11573, 13781, 51061, 68085])), 1), 2.5)
+
     # The arrival-time control, averaged over capacities. Reported per architecture
     # and split because the sign flips between them: a small gain on the training
     # layout that does not transfer, which is the point the paper makes of it.
