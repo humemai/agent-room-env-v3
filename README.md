@@ -31,6 +31,19 @@ in this repository.
 1. A virtual environment is recommended
 1. Install the requirements with `uv pip install -r requirements.txt`
 
+## Compute
+
+Everything here runs on CPU; no GPU is required or used. Training one neural
+configuration takes on the order of one to ten CPU-hours depending on architecture size
+and memory capacity. The symbolic agents need no training and evaluate in minutes.
+
+The temporal DQN grid, the runs carrying `_provenance/` logs in the neural archive, was
+trained on a 16-core Intel Core Ultra X9 388H with 30 GB of RAM, eight worker processes
+at a time. Hardware for the earlier grids was not recorded.
+
+Per-run wall-clock times were never written to `results.yaml`, so the archives carry
+scores but no timings; the figures above are the only compute numbers we can give.
+
 ## Run the benchmark
 
 Run the full symbolic sweep:
