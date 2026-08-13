@@ -1,8 +1,7 @@
 # Per-seed raw results
 
-These archives hold the per-seed raw results and per-run durations referenced in the
-paper *A Neurosymbolic Benchmark for Temporal Knowledge-Graph Memory in Partially
-Observable Environments*.
+These archives hold the per-seed raw results referenced in the paper *A Neurosymbolic
+Benchmark for Temporal Knowledge-Graph Memory in Partially Observable Environments*.
 
 ## Contents
 
@@ -19,7 +18,8 @@ Observable Environments*.
 |---|---|
 | `training-results-symbolic/` | the TKG policy sweep: all 27 variants x 11 capacities x 5 seeds, on the training layout (`large-02`) and the held-out layout (`large-02-q`) |
 
-These archives hold the runs behind the numbers in the paper and nothing else. Earlier
+These archives hold the TKG policy sweep and the neural runs, and nothing else. The KG
+agent's per-seed runs are not included; see "A note on the KG agent" below. Earlier
 cuts also carried runs from adjacent studies (a `large-03` layout the paper does not use,
 a sweep over `remember_policy` values other than `all`, and meta-policies such as `borda`
 and `memory_pressure`). Those share the directory layout and the same policy field names,
@@ -28,7 +28,7 @@ is here now reproduces the reported figures directly, with no filtering.
 
 Each run directory holds:
 
-- `results.yaml` — per-seed scores and per-run duration
+- `results.yaml` — per-seed scores
 - `num_params.yaml` — model parameter count (neural runs only)
 - `train.yaml` — the run configuration (agent, capacity, seed, policies, layout)
 
@@ -54,6 +54,12 @@ on the run seed. Fixing `PYTHONHASHSEED` makes a run reproducible; leaving it un
 not. Its reported scores should therefore be read as one sample of that distribution
 rather than as a value a re-run will reproduce exactly. The TKG sweep and the neural runs
 are unaffected in this way.
+
+For that reason the archives carry the aggregated KG series (in `../data/qa-accuracy-fig.json`)
+but not a per-seed KG run tree: a per-seed dump would suggest a reproducibility the agent
+does not have. Note that at the capacities where the agent never evicts, the remaining
+nondeterminism is tie-breaking in `answer_question`, which picks uniformly among every
+location ever stored for the queried object.
 
 ## Reproducing the aggregates
 

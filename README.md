@@ -23,6 +23,7 @@ in this repository.
 - [`replay.py`](./replay.py): step the deterministic environment to any timestep and print its hidden state
 - [`verify_claims.py`](./verify_claims.py): recompute every number the paper reports from `data/` and `results/`, and check the paper and response letter still assert them
 - [`examples/memory-evolution/`](./examples/memory-evolution): the TKG agent's memory rendered at every timestep of one episode
+- [`examples/memory-snapshots/`](./examples/memory-snapshots): serialized memory states in Turtle, in both the reification and RDF 1.2 encodings, with the converter and equivalence checker
 
 ## Prerequisites
 
@@ -58,7 +59,8 @@ python run-dqn-simple-test.py --env large-02-q --workers 1
 
 The symbolic scripts write results under `training-results-symbolic/` and
 `training-results-symbolic-simple/`. The neural scripts write training and test outputs
-under `training-results-simple-dqn/`.
+under `training-results-simple-dqn/`, or `training-results-simple-dqn-temporal/` when
+`--temporal_features` is set.
 
 ## Benchmark setup
 
@@ -105,7 +107,8 @@ python plot-qa-accuracy.py \
 Drop the `--out` flag to write the PDF used by the paper. The temporal series were
 produced by `run-dqn-simple.py --temporal_features` over all capacities and five seeds,
 then evaluated on the held-out environment with
-`run-dqn-simple-test.py --env large-02-q`.
+`run-dqn-simple-test.py --env large-02-q --results_root training-results-simple-dqn-temporal`
+(the `--results_root` flag is required here; it defaults to the non-temporal tree).
 
 ## Further reading
 

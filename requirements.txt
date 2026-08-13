@@ -1,5 +1,5 @@
-# Pins reflect the environment that produced the reported results
-# (temporal DQN grid, 2026-07-26/27). Verified against the live venv.
+# Pins reflect the live environment, verified 2026-07-26/27 when the temporal
+# DQN grid was run. Earlier grids were run on the same major versions.
 torch==2.13.0
 numpy==2.5.1
 gymnasium==0.29.1

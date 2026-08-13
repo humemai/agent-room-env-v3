@@ -144,9 +144,33 @@ def build_claims(root: Path):
         round(max(d[s]["512"]["mean"] - d[s]["2"]["mean"]
                   for d in (tt, tl) for s in ["test"]), 1), 0.6)
     add("§4", "27 variants present", len(by_config(sym, TEST_ROOM, 512)), 27)
-    add("§5.2", "symbolic scores unchanged at K=1024",
-        round(max(by_config(sym, TEST_ROOM, 1024).values()), 2),
-        round(max(by_config(sym, TEST_ROOM, 512).values()), 2))
+    # Table 3 rows that were previously unguarded
+    def cfg_stats(room, cap, pred):
+        g = collections.defaultdict(list)
+        for cfg, sc in sym:
+            if cfg["room"] == room and cfg["cap"] == cap and pred(cfg):
+                g[(cfg["qa"], cfg["explore"], cfg["forget"])].append(sc)
+        return g
+
+    sel = ("most_recently_used", "most_recently_used")          # train-selected at K=512
+    tkg = [v for k, v in cfg_stats(TEST_ROOM, 512, lambda c: True).items() if k[:2] == sel]
+    add("Table 3", "TKG at K=512 test, across-seed sd",
+        round(st.pstdev(max(tkg, key=st.mean)), 2), 1.21, "P")
+    obs = cfg_stats(TEST_ROOM, 0, lambda c: True)
+    add("Table 3", "observation-only (K=0) test", round(max(st.mean(v) for v in obs.values()), 2), 2.0, "")
+    # last-seen: MRA retrieval, unbounded memory, exploration selected on training accuracy
+    mra_tr = {k[1]: st.mean(v) for k, v in cfg_stats(TRAIN_ROOM, 1024, lambda c: True).items()
+              if k[0] == "most_recently_added"}
+    mra_te = {k[1]: st.mean(v) for k, v in cfg_stats(TEST_ROOM, 1024, lambda c: True).items()
+              if k[0] == "most_recently_added"}
+    pick = max(mra_tr, key=mra_tr.get)
+    add("§5.2", "last-seen (MRA, unbounded) test", round(mra_te[pick], 2), 45.44, "L")
+    add("§3.3", "state-space configurations (log10)",
+        round(__import__("math").log10(49 ** 18 * 1279948013568000000000000000), 1), 57.5, "")
+
+    a512, a1024 = by_config(sym, TEST_ROOM, 512), by_config(sym, TEST_ROOM, 1024)
+    add("§5.2", "no variant moves by more than 0.16 at K=1024",
+        round(max(abs(a1024[k] - v) for k, v in a512.items() if k in a1024), 2), 0.16, "PL")
     return C
 
 
