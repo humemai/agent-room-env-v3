@@ -156,8 +156,17 @@ def build_claims(root: Path):
     tkg = [v for k, v in cfg_stats(TEST_ROOM, 512, lambda c: True).items() if k[:2] == sel]
     add("Table 3", "TKG at K=512 test, across-seed sd",
         round(st.pstdev(max(tkg, key=st.mean)), 2), 1.21, "P")
-    obs = cfg_stats(TEST_ROOM, 0, lambda c: True)
-    add("Table 3", "observation-only (K=0) test", round(max(st.mean(v) for v in obs.values()), 2), 2.0, "")
+    # Table 3's K=0 floor is one bound over both symbolic agents, not a row each.
+    # At K=0 neither retains anything, so the agents differ only in the order their
+    # searches enumerate neighbouring rooms; splitting the row would invite the
+    # reader to compare two arbitrary walks.
+    o_tr = cfg_stats(TRAIN_ROOM, 0, lambda c: True)
+    o_te = cfg_stats(TEST_ROOM, 0, lambda c: True)
+    floor = max([st.mean(v) for v in o_tr.values()]
+                + [st.mean(v) for v in o_te.values()]
+                + [fig[s]["KG"]["0"]["mean"] for s in ("train", "test")])
+    add("Table 3", "observation-only floor, both agents", round(floor, 2), 2.0, "")
+    add("Table 3", "K=0 floor bound in Table 3 holds", floor <= 2.0, True, "")
     # last-seen: MRA retrieval, unbounded memory, exploration selected on training accuracy
     mra_tr = {k[1]: st.mean(v) for k, v in cfg_stats(TRAIN_ROOM, 1024, lambda c: True).items()
               if k[0] == "most_recently_added"}
