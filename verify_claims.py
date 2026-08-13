@@ -144,6 +144,25 @@ def build_claims(root: Path):
         round(max(d[s]["512"]["mean"] - d[s]["2"]["mean"]
                   for d in (tt, tl) for s in ["test"]), 1), 0.6)
     add("§4", "27 variants present", len(by_config(sym, TEST_ROOM, 512)), 27)
+
+    # The arrival-time control, averaged over capacities. Reported per architecture
+    # and split because the sign flips between them: a small gain on the training
+    # layout that does not transfer, which is the point the paper makes of it.
+    def tdelta(split, plain, temporal):
+        return st.mean([temporal[split][k]["mean"] - fig[split][plain][k]["mean"]
+                        for k in CAPS])
+
+    add("§5.1", "temporal feature, LSTM train gain",
+        round(tdelta("train", "Neural - LSTM", tl), 1), 1.2)
+    add("§5.1", "temporal feature, Transformer train gain",
+        round(tdelta("train", "Neural - Transformer", tt), 1), 0.8)
+    add("§5.1", "temporal feature, LSTM held-out loss",
+        round(-tdelta("test", "Neural - LSTM", tl), 1), 0.8)
+    add("§5.1", "temporal feature, Transformer held-out loss",
+        round(-tdelta("test", "Neural - Transformer", tt), 1), 0.3)
+    add("§5.1", "temporal feature helps on train, hurts on held-out",
+        all(tdelta("train", p, d) > 0 > tdelta("test", p, d)
+            for p, d in (("Neural - LSTM", tl), ("Neural - Transformer", tt))), True, "")
     # Table 3 rows that were previously unguarded
     def cfg_stats(room, cap, pred):
         g = collections.defaultdict(list)
