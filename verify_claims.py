@@ -145,6 +145,26 @@ def build_claims(root: Path):
                   for d in (tt, tl) for s in ["test"]), 1), 0.6)
     add("§4", "27 variants present", len(by_config(sym, TEST_ROOM, 512)), 27)
 
+    # Which eviction rule the training-selected variant uses, per capacity. This
+    # went unguarded and drifted: the paper claimed LFU won at every capacity and
+    # outright at nine of ten, when it loses to FIFO at K=4 and to LRU at K=256.
+    def eviction_winners():
+        out = {}
+        for cap in [int(c) for c in CAPS]:
+            means = by_config(sym, TRAIN_ROOM, cap)
+            top = max(means.values())
+            out[cap] = {k[2] for k, v in means.items() if abs(v - top) < 1e-9}
+        return out
+
+    win = eviction_winners()
+    add("§5.1", "capacities where LFU is selected outright",
+        sum(v == {"lfu"} for v in win.values()), 6)
+    add("§5.1", "capacities where LFU shares the top score",
+        sum(len(v) > 1 and "lfu" in v for v in win.values()), 2)
+    add("§5.1", "capacities where LFU is not selected",
+        sorted(c for c, v in win.items() if "lfu" not in v), [4, 256], "")
+    add("§5.1", "K=512 is a three-way eviction tie", win[512] == {"fifo", "lfu", "lru"}, True, "")
+
     # Model sizes, and the size-match the arrival-time control rests on.
     sizes = sorted({int(c["params"]) for c, _ in neu if c["params"] and not c["temporal"]})
     for want in (11573, 51061, 13781, 68085):
